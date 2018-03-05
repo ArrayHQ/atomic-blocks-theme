@@ -1,0 +1,34 @@
+/*
+Styles for the block editor
+*/
+/* Import Atomic Blocks Sass Variables (inc/sass/variables.scss) */
+/* These variables are used througout style.scss. */
+/* Body font styles */
+/* Title font styles */
+/* Color variables */
+/* Responsive media query mixins */
+/* Styles for small text with uppercase font style. Used on dates and post meta */
+.edit-post-visual-editor,
+.edit-post-visual-editor p,
+.editor-post-title textarea.editor-post-title__input {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #272c30;
+}
+
+.edit-post-visual-editor p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.edit-post-visual-editor .editor-block-list__block,
+.edit-post-visual-editor .editor-post-title,
+.edit-post-visual-editor .editor-default-block-appender {
+  max-width: 872px;
+}
+.edit-post-visual-editor textarea.editor-post-title__input {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/*# sourceMappingURL=block-editor.css.map */

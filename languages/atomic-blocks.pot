@@ -1,0 +1,520 @@
+# Copyright (C) 2018 Atomic Blocks
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Atomic Blocks 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2018-03-05 21:21:06+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
+
+#: 404.php:14
+msgid ""
+"It looks like nothing was found at this location. Please use the search box "
+"or the sitemap to locate the content you were looking for."
+msgstr ""
+
+#: comments.php:74
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:75
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:76
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:86
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:28
+msgid "Latest from the blog"
+msgstr ""
+
+#: footer.php:36
+msgid "View All"
+msgstr ""
+
+#: functions.php:79
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:80
+msgid "Social Icon Menu"
+msgstr ""
+
+#: functions.php:113
+msgid "Carousel"
+msgstr ""
+
+#: functions.php:207 template-parts/content-page.php:32
+#: template-parts/content.php:37
+msgid "Read More"
+msgstr ""
+
+#: functions.php:242
+msgid "Footer - Column 1"
+msgstr ""
+
+#: functions.php:244
+msgid "Widgets added here will appear in the left column of the footer."
+msgstr ""
+
+#: functions.php:252
+msgid "Footer - Column 2"
+msgstr ""
+
+#: functions.php:254
+msgid "Widgets added here will appear in the center column of the footer."
+msgstr ""
+
+#: functions.php:262
+msgid "Footer - Column 3"
+msgstr ""
+
+#: functions.php:264
+msgid "Widgets added here will appear in the right column of the footer."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Atomic Blocks"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:87
+msgid ""
+"There seems to be a temporary problem retrieving the latest updates. You "
+"can always see the latest changes by visiting the Atomic Blocks website."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:123
+msgid "Getting started with"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:130
+msgid "Theme Info"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:131
+msgid "FAQ"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:132
+msgid "Latest Updates"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:133
+msgid "Get More Themes"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:155
+msgid ""
+"This help file feed seems to be temporarily down. You can always view the "
+"help file on the Atomic Blocks site in the meantime."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:155
+msgid "Atomic Blocks Help File &rarr;"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:166
+#: inc/admin/getting-started/getting-started.php:170
+msgid "Where do I get support for Atomic Blocks?"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:167
+#: inc/admin/getting-started/getting-started.php:184
+msgid "How do I update my theme?"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:174
+msgid ""
+"If you&apos;ve read through the Help File in the first tab and still have "
+"questions or are experiencing issues, we&apos;re happy to help! Simply <a "
+"href=\"%s\">visit your dashboard</a> on Array to open a support ticket."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:179
+msgid ""
+"If you&apos;ve purchased your theme via ThemeForest, you will first have to "
+"create an account at Array to get a license key and access support. Visit "
+"the <a href=\"%s\" title=\"Create an account\">ThemeForest</a> page to "
+"validate your purchase code and create an account."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:186
+msgid ""
+"Activating your theme license will enable in-dash theme updates, so you can "
+"get the latest version of your theme in a few clicks. This helps us keep "
+"your site happy and healthy."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:188
+msgid "Follow these quick steps to retreive and activate your theme license."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:193
+msgid ""
+"First we need the license. Visit the <a href=\"%s\">Licenses</a> page on "
+"your Array Dashboard. Copy the license associated with your theme."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:196
+msgid ""
+"Paste the license in the license activation box on the right side of this "
+"page."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:197
+msgid ""
+"Click the Save License button. The license will be saved and the page will "
+"be refreshed."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:198
+msgid "Click the Activate License button to complete the activation."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:201
+msgid ""
+"Now that your license is activated, you will see a notice to update your "
+"theme on the Themes page whenever an update is available. Click the Update "
+"Now link on your theme to update the theme to the latest version."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:214
+msgid ""
+"Array Themes has over 20 WordPress themes that will integrate seamlessly "
+"with the new block editor. Check them out below!"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:217
+msgid "Learn about the Theme Club"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:229
+msgid ""
+"This theme feed seems to be temporarily down. Please check back later, or "
+"visit our <a href=\"%s\">Themes page on Array</a>."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:241
+msgid "Quick Start Checklist"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:246
+msgid "1. Install the Gutenberg plugin."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:247
+msgid "Gutenberg adds the new block-based editor to WordPress."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:250
+msgid "Install Gutenberg now"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:252
+#: inc/admin/getting-started/getting-started.php:263
+msgid "Plugin already installed!"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:257
+msgid "2. Install the Atomic Blocks plugin."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:258
+msgid "Atomic Blocks adds several handy blocks to the block editor."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:261
+msgid "Install Atomic Blocks now"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:274
+msgid "Stay Updated"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:279
+msgid ""
+"The Atomic Blocks theme and plugin are both in early development. Join the "
+"newsletter and we will send you an email when we update the theme and "
+"plugin!"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:281
+msgid "Subscribe Now"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:290
+msgid "Free Blocks & Tutorials"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:295
+msgid ""
+"Check out the Atomic Blocks site to find block editor tutorials, free "
+"blocks and updates about the Atomic Blocks plugin and theme!"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:296
+msgid "Visit AtomicBlocks.com"
+msgstr ""
+
+#: inc/customizer.php:42
+msgid "Theme Options"
+msgstr ""
+
+#: inc/customizer.php:55
+msgid "Accent Color"
+msgstr ""
+
+#: inc/customizer.php:58
+msgid "Change the accent color of buttons and various typographical elements."
+msgstr ""
+
+#: inc/customizer.php:78
+msgid "Content Width"
+msgstr ""
+
+#: inc/customizer.php:79
+msgid "Adjust the width of the content area."
+msgstr ""
+
+#: inc/customizer.php:101
+msgid "Font Style"
+msgstr ""
+
+#: inc/customizer.php:102
+msgid "Choose the font style used across your site."
+msgstr ""
+
+#: inc/customizer.php:128
+msgid "Body Font Size"
+msgstr ""
+
+#: inc/customizer.php:129
+msgid "Adjust the size of the main body font."
+msgstr ""
+
+#: inc/customizer.php:154
+msgid "Title Font Size"
+msgstr ""
+
+#: inc/customizer.php:155
+msgid "Adjust the size of the post and page titles."
+msgstr ""
+
+#: inc/customizer.php:174
+msgid "Footer Tagline"
+msgstr ""
+
+#: inc/customizer.php:177
+msgid ""
+"Change the text that appears in the footer tagline at the bottom of your "
+"site."
+msgstr ""
+
+#: inc/customizer.php:299
+msgid " Theme by %1$s."
+msgstr ""
+
+#: inc/jetpack.php:76
+msgid "Load more"
+msgstr ""
+
+#: inc/template-tags.php:58
+msgid "Browsing: "
+msgstr ""
+
+#: inc/template-tags.php:69
+msgid "Author: %s"
+msgstr ""
+
+#: inc/template-tags.php:73
+msgid "Day: %s"
+msgstr ""
+
+#: inc/template-tags.php:76
+msgid "Month: %s"
+msgstr ""
+
+#: inc/template-tags.php:79
+msgid "Year: %s"
+msgstr ""
+
+#: inc/template-tags.php:82
+msgid "Page Not Found"
+msgstr ""
+
+#: inc/template-tags.php:85
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid "(Edit)"
+msgstr ""
+
+#: inc/template-tags.php:143
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/template-tags.php:178
+msgid "&rarr;"
+msgstr ""
+
+#: inc/template-tags.php:179
+msgid "&larr;"
+msgstr ""
+
+#: inc/template-tags.php:202
+msgid "Next:"
+msgstr ""
+
+#: inc/template-tags.php:203
+msgid "Next post:"
+msgstr ""
+
+#: inc/template-tags.php:205
+msgid "Previous:"
+msgstr ""
+
+#: inc/template-tags.php:206
+msgid "Previous post:"
+msgstr ""
+
+#: inc/template-tags.php:225 inc/template-tags.php:264
+msgid "Posts by %s"
+msgstr ""
+
+#: inc/template-tags.php:230
+msgid "All posts by %s"
+msgstr ""
+
+#: inc/template-tags.php:232
+msgid "Posted by %s"
+msgstr ""
+
+#: inc/template-tags.php:241
+msgid "All Posts"
+msgstr ""
+
+#: inc/template-tags.php:272
+msgid "on"
+msgstr ""
+
+#: search.php:23 template-parts/content-none.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: searchform.php:11
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:13
+msgid "Search here..."
+msgstr ""
+
+#: searchform.php:16
+msgid "Search"
+msgstr ""
+
+#: template-parts/content-menu-drawer.php:14
+msgid "Menu"
+msgstr ""
+
+#: template-parts/content-menu-drawer.php:18
+msgid "Close"
+msgstr ""
+
+#: template-parts/content-meta.php:21 template-parts/content-meta.php:41
+msgid "Category:"
+msgstr ""
+
+#: template-parts/content-meta.php:32 template-parts/content-meta.php:56
+msgid "Tag:"
+msgstr ""
+
+#: template-parts/content-none.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:19
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:37 template-parts/content.php:42
+msgid "Pages:"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://atomicblocks.com/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A beautifully simple yet powerful WordPress theme that integreates "
+"perfectly with Gutenberg and the Atomic Blocks plugin."
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Page Builder"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Wide Featured Image"
+msgstr ""
+
+#: comments.php:42
+#. translators: %s: post title
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:46
+#. translators: 1: number of comments, 2: post title
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions.php:290
+#. Translators: If there are characters in your language that are not supported
+#. by these fonts, translate this to 'off'. Do not translate into your own
+#. language.
+msgctxt "Frank Ruhl Libre font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:304
+msgctxt "Muli font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:305
+msgctxt "Nunito Sans font: on or off"
+msgid "on"
+msgstr ""

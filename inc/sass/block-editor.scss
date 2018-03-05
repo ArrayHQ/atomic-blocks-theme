@@ -1,0 +1,32 @@
+/*
+Styles for the block editor
+*/
+
+/* Import Atomic Blocks Sass Variables (inc/sass/variables.scss) */
+@import 'variables';
+
+.edit-post-visual-editor,
+.edit-post-visual-editor p,
+.editor-post-title textarea.editor-post-title__input {
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #272c30;
+}
+
+.edit-post-visual-editor p {
+	font-size: 20px;
+    line-height: 1.6;
+}
+
+.edit-post-visual-editor {
+	.editor-block-list__block,
+	.editor-post-title,
+	.editor-default-block-appender {
+		max-width: 872px
+	}
+
+	textarea.editor-post-title__input {
+		font-size: 50px;
+		font-weight: 700;
+		line-height: 1.3;
+	}
+}

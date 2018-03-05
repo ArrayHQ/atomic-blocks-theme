@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;;;;;;;;AAOA;;oDAEqD;EACpD,WAAW,EAAE,6DAA6D;EAC1E,KAAK,EAAE,OAAO;;;AAGf,0BAA2B;EAC1B,SAAS,EAAE,IAAI;EACZ,WAAW,EAAE,GAAG;;;AAInB;;uDAE+B;EAC9B,SAAS,EAAE,KAAK;;AAGjB,0DAAkC;EACjC,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,GAAG",
+"sources": ["inc/sass/block-editor.scss"],
+"names": [],
+"file": "block-editor.css"
+}
