@@ -116,12 +116,9 @@ function getting_started_page() {
 	);
 ?>
 	<div class="wrap getting-started">
-		<h2 class="notices"></h2>
 		<div class="intro-wrap">
 			<div class="intro">
-				<h3>
-				<?php printf( esc_html__( 'Getting started with', 'atomic-blocks' ) ); ?> <strong><?php printf( esc_html__( 'Atomic Blocks', 'atomic-blocks' ) ); ?></strong>
-				</h3>
+				<h3><?php printf( esc_html__( 'Getting started with', 'atomic-blocks' ) ); ?> <strong><?php printf( esc_html__( 'Atomic Blocks', 'atomic-blocks' ) ); ?></strong></h3>
 			</div>
 		</div>
 
@@ -129,7 +126,7 @@ function getting_started_page() {
 			<ul class="inline-list">
 				<li class="current"><a id="help" href="#"><i class="fa fa-check"></i> <?php esc_html_e( 'Theme Info', 'atomic-blocks' ); ?></a></li>
 				<li><a id="updates" href="#"><i class="fa fa-refresh"></i> <?php esc_html_e( 'Latest Updates', 'atomic-blocks' ); ?></a></li>
-				<li><a id="themes" href="#"><i class="fa fa-paint-brush"></i> <?php esc_html_e( 'Get More Themes', 'atomic-blocks' ); ?></a></li>
+				<li><a id="themes" href="#"><i class="fa fa-arrow-circle-down"></i> <?php esc_html_e( 'Get More Themes', 'atomic-blocks' ); ?></a></li>
 			</ul>
 
 			<div id="panel" class="panel">
@@ -151,7 +148,7 @@ function getting_started_page() {
 
 					<!-- Output the feed -->
 					<?php if ( is_wp_error( $rss ) || empty( $rss_items_check ) ) : ?>
-						<p><?php esc_html_e( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' ); ?> <a href="https://arraythemes.com/articles/atomic-blocks" title="View help file"><?php esc_html_e( 'Atomic Blocks Help File &rarr;', 'atomic-blocks' ); ?></a></p>
+						<p><?php esc_html_e( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' ); ?> <a href="https://atomic-blocks.com" title="View help file"><?php esc_html_e( 'Atomic Blocks Help File &rarr;', 'atomic-blocks' ); ?></a></p>
 					<?php else : ?>
 						<?php foreach ( $rss_items as $item ) : ?>
 							<?php echo $item->get_content(); ?>
