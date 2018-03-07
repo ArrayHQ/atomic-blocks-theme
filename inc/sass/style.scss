@@ -3009,16 +3009,11 @@ aside.widget_blog_subscription {
 	position: relative;
 	margin-top: 10%;
 	padding-top: 10%;
-	border-top: solid 3px;
+	border-top: solid 3px #eee;
 
 	@include viewport(tablet) {
 		margin-top: 7%;
 	}
-}
-
-#page .author-profile p a,
-#page .comments-area p a {
-	box-shadow: none;
 }
 
 .comment-list + .no-comments {
