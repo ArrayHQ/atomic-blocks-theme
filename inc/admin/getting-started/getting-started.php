@@ -40,7 +40,7 @@ function atomic_blocks_start_load_admin_scripts() {
 
 	// Getting Started styles
 	wp_register_style( 'atomic-blocks-getting-started', get_template_directory_uri() . '/inc/admin/getting-started/getting-started.css', false, '1.0.0' );
-	wp_enqueue_style( 'atomic-blocks-getting-started' );  
+	wp_enqueue_style( 'atomic-blocks-getting-started' );
 }
 add_action( 'admin_enqueue_scripts', 'atomic_blocks_start_load_admin_scripts' );
 
@@ -79,14 +79,18 @@ function getting_started_page() {
 	 */
 
 	// Grab the change log from arraythemes.com for display in the Latest Updates tab
-	$changelog = wp_remote_get( 'https://atomicblocks.com/' );
-	
-	if( $changelog && !is_wp_error( $changelog ) && 200 === wp_remote_retrieve_response_code( $changelog ) ) {
-		$changelog = $changelog['body'];
-	} else {
-		$changelog = esc_html__( 'There seems to be a temporary problem retrieving the latest updates. You can always see the latest changes by visiting the Atomic Blocks website.', 'atomic-blocks' );
-	}
+	$changelog = get_transient( 'atomicblocks-changelog' );
+	if( false === $changelog ) {
+		$changelog_feed = wp_remote_get( 'https://atomicblocks.com/changelog' );
 
+		if( ! is_wp_error( $changelog_feed ) && 200 === wp_remote_retrieve_response_code( $changelog_feed ) ) {
+			$changelog = wp_remote_retrieve_body( $changelog_feed );
+			set_transient( 'atomicblocks-changelog', $changelog, DAY_IN_SECONDS );
+		} else {
+			$changelog = esc_html( 'There seems to be a temporary problem retrieving the latest updates. You can always see the latest changes by visiting the Atomic Blocks website.', 'atomic-blocks' );
+			set_transient( 'atomicblocks-changelog', $changelog, MINUTE_IN_SECONDS * 5 );
+		}
+	}
 
 	/**
 	 * Create recommended plugin install URLs
@@ -134,26 +138,21 @@ function getting_started_page() {
 				<div id="help-panel" class="panel-left visible">
 					<!-- Grab feed of help file -->
 					<?php
-						include_once( ABSPATH . WPINC . '/feed.php' );
+						$theme_help = get_transient( 'arraythemes-atomic-blocks-feed' );
+						if( false === $theme_help ) {
+							$theme_feed = wp_remote_get( 'https://arraythemes.com/articles/atomic-blocks/?array_json_api=post_content' );
 
-						$rss = fetch_feed( 'https://arraythemes.com/articles/atomic-blocks/feed/?withoutcomments=1' );
+							if( ! is_wp_error( $theme_feed ) && 200 === wp_remote_retrieve_response_code( $theme_feed ) ) {
+								$theme_help = json_decode( wp_remote_retrieve_body( $theme_feed ) );
+								set_transient( 'arraythemes-atomic-blocks-feed', $theme_help, DAY_IN_SECONDS );
+							} else {
+								$theme_help = __( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' );
+								set_transient( 'arraythemes-atomic-blocks-feed', $theme_help, MINUTE_IN_SECONDS * 5 );
+							}
+						}
 
-						if ( ! is_wp_error( $rss ) ) :
-							$maxitems = $rss->get_item_quantity( 1 );
-							$rss_items = $rss->get_items( 0, $maxitems );
-						endif;
-
-						$rss_items_check = array_filter( $rss_items );
-					?>
-
-					<!-- Output the feed -->
-					<?php if ( is_wp_error( $rss ) || empty( $rss_items_check ) ) : ?>
-						<p><?php esc_html_e( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' ); ?> <a href="https://atomic-blocks.com" title="View help file"><?php esc_html_e( 'Atomic Blocks Help File &rarr;', 'atomic-blocks' ); ?></a></p>
-					<?php else : ?>
-						<?php foreach ( $rss_items as $item ) : ?>
-							<?php echo $item->get_content(); ?>
-						<?php endforeach; ?>
-					<?php endif; ?>
+						echo '<p>' . $theme_help . '</p>';
+						?>
 				</div>
 
 				<!-- Updates panel -->
@@ -174,20 +173,28 @@ function getting_started_page() {
 
 					<div class="theme-list">
 					<?php
-					$themes_list = wp_remote_get( 'https://arraythemes.com/feed/themes' );
+					$themes_link = 'https://arraythemes.com/wordpress-themes';
+					$themes_list = get_transient( 'arraythemes-theme-feed' );
 
-					if ( ! is_wp_error( $themes_list ) && 200 === wp_remote_retrieve_response_code( $themes_list ) ) {
-						echo wp_remote_retrieve_body( $themes_list );
-					} else {
-						$themes_link = 'https://arraythemes.com/wordpress-themes';
-						printf( __( 'This theme feed seems to be temporarily down. Please check back later, or visit our <a href="%s">Themes page on Array</a>.', 'atomic-blocks' ), esc_url( $themes_link ) );
-					} ?>
+					if( false === $themes_list ) {
+						$themes_feed = wp_remote_get( 'https://arraythemes.com/feed/themes' );
+
+						if ( ! is_wp_error( $themes_feed ) && 200 === wp_remote_retrieve_response_code( $themes_feed ) ) {
+							$themes_list = wp_remote_retrieve_body( $themes_feed );
+							set_transient( 'arraythemes-theme-feed', $themes_list, DAY_IN_SECONDS );
+						} else {
+							$themes_list = sprintf( __( 'This theme feed seems to be temporarily down. Please check back later, or visit our <a href="%s">Themes page on Array</a>.', 'atomic-blocks' ), esc_url( $themes_link ) );
+							set_transient( 'arraythemes-theme-feed', $themes_list, MINUTE_IN_SECONDS * 5 );
+						}
+					}
+
+					echo $themes_list; ?>
 
 					</div><!-- .theme-list -->
 				</div><!-- .panel-left updates -->
 
 				<div class="panel-right">
-					
+
 					<?php if( ! function_exists( 'gutenberg_init' ) || ! function_exists( 'atomic_block_loader' ) ) { ?>
 					<div class="panel-aside panel-ab-plugin panel-club">
 						<div class="panel-club-inside">
@@ -199,18 +206,18 @@ function getting_started_page() {
 								<li class="cell <?php if( function_exists( 'gutenberg_init' ) ) { echo 'step-complete'; } ?>">
 									<strong><?php esc_html_e( '1. Install the Gutenberg plugin.', 'atomic-blocks' ); ?></strong>
 									<p><?php esc_html_e( 'Gutenberg adds the new block-based editor to WordPress.', 'atomic-blocks' ); ?></p>
-									
+
 									<?php if( ! function_exists( 'gutenberg_init' ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $gberg_install_url ); ?>"><?php esc_html_e( 'Install Gutenberg now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else { ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin already installed!', 'atomic-blocks' ); ?></strong>
 									<?php } ?>
 								</li>
-							
+
 								<li class="cell <?php if( function_exists( 'atomic_block_loader' ) ) { echo 'step-complete'; } ?>">
 									<strong><?php esc_html_e( '2. Install the Atomic Blocks plugin.', 'atomic-blocks' ); ?></strong>
 									<p><?php esc_html_e( 'Atomic Blocks adds several handy blocks to the block editor.', 'atomic-blocks' ); ?></p>
-									
+
 									<?php if( ! function_exists( 'atomic_block_loader' ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else { ?>
@@ -231,7 +238,7 @@ function getting_started_page() {
 							<ul>
 								<li class="cell">
 									<p><?php esc_html_e( 'The Atomic Blocks theme and plugin are both in early development. Join the newsletter and we will send you an email when we update the theme and plugin!', 'atomic-blocks' ); ?></p>
-									
+
 									<a class="button-primary club-button" href="<?php echo esc_url( 'https://atomicblocks.com/subscribe' ); ?>"><?php esc_html_e( 'Subscribe Now', 'atomic-blocks' ); ?> &rarr;</a>
 								</li>
 							</ul>
