@@ -79,16 +79,16 @@ function getting_started_page() {
 	 */
 
 	// Grab the change log from arraythemes.com for display in the Latest Updates tab
-	$changelog = get_transient( 'atomicblocks-changelog' );
+	$changelog = get_transient( 'atomic-blocks-changelog' );
 	if( false === $changelog ) {
 		$changelog_feed = wp_remote_get( 'https://atomicblocks.com/changelog/?atomicblocks_api=post_content' );
 
 		if( ! is_wp_error( $changelog_feed ) && 200 === wp_remote_retrieve_response_code( $changelog_feed ) ) {
 			$changelog = json_decode( wp_remote_retrieve_body( $changelog_feed ) );
-			set_transient( 'atomicblocks-changelog', $changelog, DAY_IN_SECONDS );
+			set_transient( 'atomic-blocks-changelog', $changelog, DAY_IN_SECONDS );
 		} else {
 			$changelog = esc_html( 'There seems to be a temporary problem retrieving the latest updates. You can always see the latest changes by visiting the Atomic Blocks website.', 'atomic-blocks' );
-			set_transient( 'atomicblocks-changelog', $changelog, MINUTE_IN_SECONDS * 5 );
+			set_transient( 'atomic-blocks-changelog', $changelog, MINUTE_IN_SECONDS * 5 );
 		}
 	}
 
@@ -128,36 +128,58 @@ function getting_started_page() {
 
 		<div class="panels">
 			<ul class="inline-list">
-				<li class="current"><a id="help" href="#"><i class="fa fa-check"></i> <?php esc_html_e( 'Theme Info', 'atomic-blocks' ); ?></a></li>
+				<li class="current"><a id="theme-help" href="#"><i class="fa fa-check"></i> <?php esc_html_e( 'Theme Help File', 'atomic-blocks' ); ?></a></li>
+				<li><a id="plugin-help" href="#"><i class="fa fa-plug"></i> <?php esc_html_e( 'Plugin Help File', 'atomic-blocks' ); ?></a></li>
 				<li><a id="updates" href="#"><i class="fa fa-refresh"></i> <?php esc_html_e( 'Latest Updates', 'atomic-blocks' ); ?></a></li>
 				<li><a id="themes" href="#"><i class="fa fa-arrow-circle-down"></i> <?php esc_html_e( 'Get More Themes', 'atomic-blocks' ); ?></a></li>
 			</ul>
 
 			<div id="panel" class="panel">
-				<!-- Help file panel -->
-				<div id="help-panel" class="panel-left visible">
+				<!-- Theme help file panel -->
+				<div id="theme-help" class="panel-left visible">
 					<!-- Grab feed of help file -->
 					<?php
-						$theme_help = get_transient( 'arraythemes-atomic-blocks-feed' );
+						$theme_help = get_transient( 'atomic-blocks-theme-help-feed' );
 						if( false === $theme_help ) {
-							$theme_feed = wp_remote_get( 'https://arraythemes.com/articles/atomic-blocks/?array_json_api=post_content' );
+							$theme_feed = wp_remote_get( 'https://atomicblocks.com/theme-help-file//?atomicblocks_api=post_content' );
 
 							if( ! is_wp_error( $theme_feed ) && 200 === wp_remote_retrieve_response_code( $theme_feed ) ) {
 								$theme_help = json_decode( wp_remote_retrieve_body( $theme_feed ) );
-								set_transient( 'arraythemes-atomic-blocks-feed', $theme_help, DAY_IN_SECONDS );
+								set_transient( 'atomic-blocks-theme-help-feed', $theme_help, DAY_IN_SECONDS );
 							} else {
 								$theme_help = __( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' );
-								set_transient( 'arraythemes-atomic-blocks-feed', $theme_help, MINUTE_IN_SECONDS * 5 );
+								set_transient( 'atomic-blocks-theme-help-feed', $theme_help, MINUTE_IN_SECONDS * 5 );
 							}
 						}
 
-						echo '<p>' . $theme_help . '</p>';
+						echo $theme_help;
+						?>
+				</div>
+
+				<!-- Plugin help file panel -->
+				<div id="plugin-help" class="panel-left">
+					<!-- Grab feed of help file -->
+					<?php
+						$plugin_help = get_transient( 'atomic-blocks-plugin-help-feed' );
+						if( false === $plugin_help ) {
+							$plugin_feed = wp_remote_get( 'https://atomicblocks.com/plugin-help-file//?atomicblocks_api=post_content' );
+
+							if( ! is_wp_error( $plugin_feed ) && 200 === wp_remote_retrieve_response_code( $plugin_feed ) ) {
+								$plugin_help = json_decode( wp_remote_retrieve_body( $plugin_feed ) );
+								set_transient( 'atomic-blocks-plugin-help-feed', $plugin_help, DAY_IN_SECONDS );
+							} else {
+								$plugin_help = __( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' );
+								set_transient( 'atomic-blocks-plugin-help-feed', $plugin_help, MINUTE_IN_SECONDS * 5 );
+							}
+						}
+
+						echo $plugin_help;
 						?>
 				</div>
 
 				<!-- Updates panel -->
 				<div id="updates-panel" class="panel-left">
-					<p><?php echo $changelog; ?></p>
+					<?php echo $changelog; ?>
 				</div><!-- .panel-left updates -->
 
 				<!-- More themes -->
