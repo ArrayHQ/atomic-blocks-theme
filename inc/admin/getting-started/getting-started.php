@@ -84,7 +84,7 @@ function getting_started_page() {
 		$changelog_feed = wp_remote_get( 'https://atomicblocks.com/changelog/?array_json_api=post_content' );
 
 		if( ! is_wp_error( $changelog_feed ) && 200 === wp_remote_retrieve_response_code( $changelog_feed ) ) {
-			$changelog = wp_remote_retrieve_body( $changelog_feed );
+			$changelog = json_decode( wp_remote_retrieve_body( $changelog_feed ) );
 			set_transient( 'atomicblocks-changelog', $changelog, DAY_IN_SECONDS );
 		} else {
 			$changelog = esc_html( 'There seems to be a temporary problem retrieving the latest updates. You can always see the latest changes by visiting the Atomic Blocks website.', 'atomic-blocks' );
