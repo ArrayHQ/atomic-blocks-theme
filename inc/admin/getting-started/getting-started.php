@@ -81,7 +81,7 @@ function getting_started_page() {
 	// Grab the change log from arraythemes.com for display in the Latest Updates tab
 	$changelog = get_transient( 'atomicblocks-changelog' );
 	if( false === $changelog ) {
-		$changelog_feed = wp_remote_get( 'https://atomicblocks.com/changelog' );
+		$changelog_feed = wp_remote_get( 'https://atomicblocks.com/changelog/?array_json_api=post_content' );
 
 		if( ! is_wp_error( $changelog_feed ) && 200 === wp_remote_retrieve_response_code( $changelog_feed ) ) {
 			$changelog = wp_remote_retrieve_body( $changelog_feed );
