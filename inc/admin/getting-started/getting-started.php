@@ -217,7 +217,7 @@ function getting_started_page() {
 
 				<div class="panel-right">
 
-					<?php if( ! function_exists( 'gutenberg_init' ) || ! function_exists( 'atomic_block_loader' ) ) { ?>
+					<?php if( ! function_exists( 'gutenberg_init' ) || ! function_exists( 'atomic_blocks_loader' ) ) { ?>
 					<div class="panel-aside panel-ab-plugin panel-club">
 						<div class="panel-club-inside">
 							<div class="cell panel-title">
@@ -236,11 +236,11 @@ function getting_started_page() {
 									<?php } ?>
 								</li>
 
-								<li class="cell <?php if( function_exists( 'atomic_block_loader' ) ) { echo 'step-complete'; } ?>">
+								<li class="cell <?php if( function_exists( 'atomic_blocks_loader' ) ) { echo 'step-complete'; } ?>">
 									<strong><?php esc_html_e( '2. Install the Atomic Blocks plugin.', 'atomic-blocks' ); ?></strong>
 									<p><?php esc_html_e( 'Atomic Blocks adds several handy blocks to the block editor.', 'atomic-blocks' ); ?></p>
 
-									<?php if( ! function_exists( 'atomic_block_loader' ) ) { ?>
+									<?php if( ! function_exists( 'atomic_blocks_loader' ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else { ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin already installed!', 'atomic-blocks' ); ?></strong>
