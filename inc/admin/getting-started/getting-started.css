@@ -644,3 +644,13 @@ h4 .button {
 .panel-title h3 i {
 	margin-right: 6px;
 }
+
+.getting-started h2 {
+	font-size: 30px;
+}
+
+.getting-started p.wp-caption-text {
+	font-size: 16px;
+    margin-top: .5em;
+    text-align: center;
+}

@@ -5,19 +5,7 @@
  * @package Atomic Blocks
  */
 
-/**
- * Redirect to Getting Started page on theme activation
- */
-function atomic_blocks_redirect_on_activation() {
-	global $pagenow;
 
-	if ( is_admin() && 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
-
-		wp_redirect( admin_url( "admin.php?page=atomic-blocks" ) );
-
-	}
-}
-add_action( 'admin_init', 'atomic_blocks_redirect_on_activation' );
 
 
 /**
@@ -189,7 +177,7 @@ function getting_started_page() {
 							<p><?php _e( 'Array Themes has over 20 WordPress themes that will integrate seamlessly with the new block editor. Check them out below!', 'atomic-blocks' ); ?></p>
 						</div>
 						<div class="theme-intro-right">
-							<a class="button-primary club-button" href="<?php echo esc_url('https://arraythemes.com/theme-club'); ?>"><?php esc_html_e( 'Learn about the Theme Club', 'atomic-blocks' ); ?> &rarr;</a>
+							<a class="button-primary club-button" href="<?php echo esc_url('https://goo.gl/8DsFQj'); ?>"><?php esc_html_e( 'Browse the theme collection', 'atomic-blocks' ); ?> &rarr;</a>
 						</div>
 					</div>
 
@@ -261,7 +249,7 @@ function getting_started_page() {
 								<li class="cell">
 									<p><?php esc_html_e( 'The Atomic Blocks theme and plugin are both in early development. Join the newsletter and we will send you an email when we update the theme and plugin!', 'atomic-blocks' ); ?></p>
 
-									<a class="button-primary club-button" href="<?php echo esc_url( 'https://atomicblocks.com/subscribe' ); ?>"><?php esc_html_e( 'Subscribe Now', 'atomic-blocks' ); ?> &rarr;</a>
+									<a class="button-primary club-button" href="<?php echo esc_url( 'https://goo.gl/3pC6LE' ); ?>"><?php esc_html_e( 'Subscribe Now', 'atomic-blocks' ); ?> &rarr;</a>
 								</li>
 							</ul>
 						</div>
@@ -276,7 +264,7 @@ function getting_started_page() {
 							<ul>
 								<li class="cell">
 									<p><?php esc_html_e( 'Check out the Atomic Blocks site to find block editor tutorials, free blocks and updates about the Atomic Blocks plugin and theme!', 'atomic-blocks' ); ?></p>
-									<a class="button-primary club-button" href="<?php echo esc_url( 'https://atomicblocks.com' ); ?>"><?php esc_html_e( 'Visit AtomicBlocks.com', 'atomic-blocks' ); ?> &rarr;</a>
+									<a class="button-primary club-button" href="<?php echo esc_url( 'https://goo.gl/xpujKp' ); ?>"><?php esc_html_e( 'Visit AtomicBlocks.com', 'atomic-blocks' ); ?> &rarr;</a>
 								</li>
 							</ul>
 						</div>
