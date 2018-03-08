@@ -15,7 +15,9 @@ function atomic_blocks_setup() {
 	/**
 	 * Load Getting Started page
 	 */
-	require_once( get_template_directory() . '/inc/admin/getting-started/getting-started.php' );
+	if( ! function_exists( 'atomic_blocks_loader' ) ) {
+		require_once( get_template_directory() . '/inc/admin/getting-started/getting-started.php' );
+	}
 
 	/** 
 	 * Add styles to post editor
