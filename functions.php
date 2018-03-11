@@ -379,6 +379,19 @@ add_action( 'wp_enqueue_scripts', 'atomic_blocks_scripts' );
 
 
 /**
+ * Enqueue shared styles for frontend and backend
+ */
+function atomic_blocks_shared_styles() {
+	/**
+	 * Shared block styles
+	 */
+	wp_enqueue_style( 'atomic-blocks-shared-styles', get_template_directory_uri() . "/common.css", array(), '1.0', 'screen' );
+}
+add_action( 'wp_enqueue_scripts', 'atomic_blocks_shared_styles' );
+add_action( 'enqueue_block_editor_assets', 'atomic_blocks_shared_styles' );
+
+
+/**
  * Load block editor styles
  */
 function atomic_blocks_block_editor_styles() { 

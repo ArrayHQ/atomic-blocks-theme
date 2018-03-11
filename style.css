@@ -50,7 +50,8 @@ body {
 }
 
 *, *:before, *:after {
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 article, aside, details, figcaption, figure, footer, header, main, nav, section {
@@ -120,59 +121,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Fallback title styles */
 h1 {
-  font-size: 34px;
-}
-@media (max-width: 600px) {
-  h1 {
-    font-size: 30px;
-  }
+  font-size: 2em;
 }
 
 h2 {
-  font-size: 30px;
-}
-@media (max-width: 600px) {
-  h2 {
-    font-size: 26px;
-  }
+  font-size: 1.6em;
 }
 
 h3 {
-  font-size: 26px;
-}
-@media (max-width: 600px) {
-  h3 {
-    font-size: 22px;
-  }
+  font-size: 1.4em;
 }
 
 h4 {
-  font-size: 22px;
-}
-@media (max-width: 600px) {
-  h4 {
-    font-size: 18px;
-  }
+  font-size: 1.2em;
 }
 
 h5 {
-  font-size: 18px;
-  font-weight: 500;
-}
-@media (max-width: 600px) {
-  h5 {
-    font-size: 16px;
-  }
+  font-size: 1.1em;
 }
 
 h6 {
-  font-size: 16px;
-  font-weight: 500;
-}
-@media (max-width: 600px) {
-  h6 {
-    font-size: 14px;
-  }
+  font-size: 1em;
 }
 
 p, .embed-vimeo {
@@ -191,52 +160,10 @@ blockquote {
   color: #272c30;
   font-weight: bold;
   line-height: 1.4;
-  margin: 1em 0 1em 0;
+  margin: 1em 0 1.2em 0;
   position: relative;
-  padding: 20px 0 0 8%;
-  border-top: solid 3px #272c30;
-}
-blockquote.contact-form-submission {
-  font-size: 19px;
-  padding-left: 0;
-  border-top: solid 2px #c7cfdf;
-}
-@media (max-width: 1000px) {
-  blockquote.contact-form-submission {
-    font-size: 18px;
-  }
-}
-@media (max-width: 600px) {
-  blockquote.contact-form-submission {
-    font-size: 16px;
-  }
-}
-blockquote.contact-form-submission p {
-  margin-bottom: 1.2em;
-}
-blockquote.contact-form-submission p:last-child {
-  margin-bottom: 0;
-}
-blockquote.contact-form-submission p br {
-  display: none;
-}
-blockquote.contact-form-submission:before {
-  display: none;
-}
-blockquote:before {
-  content: "\201C";
-  position: absolute;
-  left: 0;
-  font-size: 66px;
-  width: 30px;
-  top: 17px;
-  line-height: 1;
-  font-weight: 600;
-}
-@media (max-width: 600px) {
-  blockquote {
-    padding-left: 12%;
-  }
+  padding: 0 0 0 30px;
+  border-left: solid 3px #272c30;
 }
 blockquote p {
   margin-bottom: 1em;
@@ -317,12 +244,14 @@ big {
 /* --------------------------------------------------------------
 3.0 Elements
 -------------------------------------------------------------- */
-hr {
+hr,
+.wp-block-separator {
   background-color: transparent;
   border: 0;
-  border-bottom: dotted 1px #c7d6e4;
-  height: 1px;
-  margin: 1.6em 0;
+  height: 0px;
+  margin: 2em 0;
+  max-width: 100%;
+  border: solid 1px #ddd;
 }
 
 ul, ol {
@@ -408,7 +337,8 @@ textarea {
   vertical-align: baseline;
   *vertical-align: middle;
   -webkit-appearance: none;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 button,
@@ -486,7 +416,8 @@ input[type="radio"] {
 
 input[type="search"] {
   -webkit-appearance: textfield;
-  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+       box-sizing: content-box;
 }
 
 input[type="search"]::-webkit-search-decoration {
@@ -605,7 +536,8 @@ select {
   *vertical-align: middle;
   width: 100%;
   -webkit-appearance: normal;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 .widget-area select {
@@ -636,7 +568,8 @@ select,
 .select2-container .select2-selection--single {
   color: #7c8a96;
   background: #fff;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
   -webkit-appearance: none;
   padding: 15px;
   border: solid 1px #D4DDE5;
@@ -879,8 +812,11 @@ form label {
   width: 100%;
   z-index: 200;
   background: #fff;
+  transition: -webkit-transform 400ms linear;
   transition: transform 400ms linear;
-  transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+      -ms-transform: translateY(-200%);
+          transform: translateY(-200%);
 }
 @media only screen and (max-width: 1000px) {
   .home-nav {
@@ -927,7 +863,9 @@ form label {
 }
 
 .show-nav {
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .sticky-title {
@@ -1382,7 +1320,8 @@ a:hover, a:focus, a:active {
   cursor: pointer;
 }
 .site-header .menu-item-has-children:hover ul {
-  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
 }
 
 .main-navigation .sub-menu,
@@ -1400,8 +1339,10 @@ a:hover, a:focus, a:active {
   z-index: 100;
   border-radius: 3px;
   text-align: center;
-  animation-duration: .3s;
-  animation-fill-mode: both;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .main-navigation li ul {
@@ -1935,7 +1876,9 @@ div.sharedaddy h3.sd-title:before {
   transition: .2s ease;
 }
 .author-columns .author-profile:hover .author-profile-avatar img {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .featured-posts {
@@ -1949,9 +1892,12 @@ div.sharedaddy h3.sd-title:before {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
   border-bottom: none !important;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 .featured-posts .post:nth-child(2n+2) {
   margin-right: 3%;
@@ -1997,9 +1943,12 @@ div.sharedaddy h3.sd-title:before {
 .slide-navs {
   text-align: center;
   margin-bottom: 4%;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 @media only screen and (min-width: 1000px) {
   .slide-navs {
@@ -3414,14 +3363,18 @@ img.emoji {
   }
 }
 .slideInLeft {
-  animation-name: slideInLeft;
+  -webkit-animation-name: slideInLeft;
+          animation-name: slideInLeft;
   transition: .3s ease;
 }
 
 .site-header-bg-wrap {
-  animation-name: fadeIn;
-  animation-duration: 1s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .background-effect {
@@ -3466,7 +3419,8 @@ img.emoji {
     width: 90vw;
     margin-left: 50%;
     -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
   }
 }
 
@@ -3481,9 +3435,12 @@ img.emoji {
   opacity: 0;
   -webkit-animation-delay: .5s;
   animation-delay: .5s;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .gallery a img {
@@ -3762,9 +3719,12 @@ embed, iframe, object {
 }
 
 .show-drawer {
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   display: inline-block !important;
 }
 
@@ -3878,7 +3838,9 @@ body.admin-bar .is-sticky .site-header {
   transition: all .2s ease-in-out;
 }
 .site-avatar img:hover {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .site-logo {
@@ -4030,9 +3992,12 @@ body.admin-bar .is-sticky .site-header {
   opacity: 0;
   -webkit-animation-delay: .5s;
   animation-delay: .5s;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 #page {
@@ -4214,9 +4179,12 @@ body.admin-bar .is-sticky .site-header {
 }
 
 .fade-out {
-  animation-name: fadeOut !important;
-  animation-duration: .2s !important;
-  animation-fill-mode: both !important;
+  -webkit-animation-name: fadeOut !important;
+          animation-name: fadeOut !important;
+  -webkit-animation-duration: .2s !important;
+          animation-duration: .2s !important;
+  -webkit-animation-fill-mode: both !important;
+          animation-fill-mode: both !important;
 }
 
 /* --------------------------------------------------------------
@@ -4473,7 +4441,8 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .slideInLeft {
-  animation-name: slideInLeft;
+  -webkit-animation-name: slideInLeft;
+          animation-name: slideInLeft;
 }
 
 @-webkit-keyframes fadeInUp {
@@ -4501,13 +4470,14 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .fadeInUp {
-  animation-name: fadeInUp;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+          animation-name: fadeInUp;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
   transform: translateZ(0);
 }
 
@@ -4528,9 +4498,12 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .fadeIn {
-  animation-name: fadeIn;
-  animation-duration: .2s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 @-webkit-keyframes fadeOut {
@@ -4550,7 +4523,8 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .fadeOut {
-  animation-name: fadeOut;
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
 }
 
 @-webkit-keyframes slideInDown {
@@ -4576,7 +4550,8 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .slideInDown {
-  animation-name: slideInDown;
+  -webkit-animation-name: slideInDown;
+          animation-name: slideInDown;
 }
 
 @-webkit-keyframes slideInUp {
@@ -4602,17 +4577,22 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .slideInUp {
-  animation-name: slideInUp;
+  -webkit-animation-name: slideInUp;
+          animation-name: slideInUp;
 }
 
 .animated {
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .animated-faster {
-  animation-duration: .2s;
-  animation-fill-mode: both;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .rslides {
@@ -4681,6 +4661,11 @@ body.admin-bar .is-sticky .site-header {
 .copy-label span,
 .copy-toggle {
   font-weight: 600;
+}
+
+::-moz-selection {
+  background: rgba(255, 244, 147, 0.8);
+  color: #272c30;
 }
 
 ::selection {
@@ -4999,7 +4984,8 @@ div[id^='contact-form'] h3:before {
     width: 100vw;
     margin-left: 50%;
     -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
   }
 }
 @media (max-width: 600px) {
@@ -5035,5 +5021,3 @@ p + .alignwide {
     width: 91vw;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

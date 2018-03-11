@@ -118,53 +118,27 @@ h1, h2, h3, h4, h5, h6 {
 /* Fallback title styles */
 
 h1 {
-	font-size: 34px;
-
-	@include viewport(mobile) {
-		font-size: 30px;
-	}
+	font-size: 2em;
 }
 
 h2 {
-	font-size: 30px;
-
-	@include viewport(mobile) {
-		font-size: 26px;
-	}
+	font-size: 1.6em;
 }
 
 h3 {
-	font-size: 26px;
-
-	@include viewport(mobile) {
-		font-size: 22px;
-	}
+	font-size: 1.4em;
 }
 
 h4 {
-	font-size: 22px;
-
-	@include viewport(mobile) {
-		font-size: 18px;
-	}
+	font-size: 1.2em;
 }
 
 h5 {
-	font-size: 18px;
-	font-weight: 500;
-
-	@include viewport(mobile) {
-		font-size: 16px;
-	}
+	font-size: 1.1em;
 }
 
 h6 {
-	font-size: 16px;
-	font-weight: 500;
-
-	@include viewport(mobile) {
-		font-size: 14px;
-	}
+	font-size: 1em;
 }
 
 p, .embed-vimeo {
@@ -183,55 +157,10 @@ blockquote {
 	color: $black;
 	font-weight: bold;
 	line-height: 1.4;
-	margin: 1em 0 1em 0;
+	margin: 1em 0 1.2em 0;
 	position: relative;
-	padding: 20px 0 0 8%;
-	border-top: solid 3px #272c30;
-
-	&.contact-form-submission {
-		font-size: 19px;
-		padding-left: 0;
-		border-top: solid 2px #c7cfdf;
-
-		@include viewport(tablet) {
-			font-size: 18px;
-		}
-
-		@include viewport(mobile) {
-			font-size: 16px;
-		}
-
-		p {
-		    margin-bottom: 1.2em;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		p br {
-			display: none;
-		}
-
-		&:before {
-			display: none;
-		}
-	}
-
-	&:before {
-		content: "\201C";
-		position: absolute;
-		left: 0;
-		font-size: 66px;
-		width: 30px;
-		top: 17px;
-		line-height: 1;
-		font-weight: 600;
-	}
-
-	@include viewport(mobile) {
-		padding-left: 12%;
-	}
+	padding: 0 0 0 30px;
+	border-left: solid 3px #272c30;
 
 	p {
 		margin-bottom: 1em;
@@ -313,12 +242,14 @@ big {
 3.0 Elements
 -------------------------------------------------------------- */
 
-hr {
+hr,
+.wp-block-separator {
 	background-color: transparent;
 	border: 0;
-	border-bottom: dotted 1px #c7d6e4;
-	height: 1px;
-	margin: 1.6em 0;
+	height: 0px;
+	margin: 2em 0;
+	max-width: 100%;
+	border: solid 1px #ddd;
 }
 
 ul, ol {
