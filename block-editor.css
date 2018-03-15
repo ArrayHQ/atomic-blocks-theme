@@ -12,7 +12,6 @@ Styles for the block editor
 .edit-post-visual-editor p,
 .editor-post-title textarea.editor-post-title__input {
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #272c30;
 }
 
 .edit-post-visual-editor .blocks-rich-text p {
