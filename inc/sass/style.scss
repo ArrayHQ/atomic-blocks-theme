@@ -257,7 +257,7 @@ ul, ol {
 }
 
 ul {
-	list-style: square;
+	list-style: round;
 }
 
 ol {
@@ -270,6 +270,10 @@ ul ul, ol ol, ul ol, ol ul {
 
 .hide-sub {
 	display: none !important;
+}
+
+.entry-content ul {
+	padding-left: 1.8em;
 }
 
 .entry-content li {
@@ -1217,7 +1221,7 @@ a:hover, a:focus, a:active {
 	color: $black;
 
 	&:hover {
-		color: $gray;
+		color: $accent;
 	}
 }
 
@@ -1245,7 +1249,7 @@ a:hover, a:focus, a:active {
 	li.current-menu-item,
 	li.current-page-item {
 		a {
-			color: $black;
+			color: $accent;
 		}
 
 		ul a {
@@ -1906,7 +1910,7 @@ div.sharedaddy h3.sd-title:before {
 	display: none !important;
 }
 
-.meta-list {
+.entry-content .meta-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -4384,10 +4388,11 @@ body.admin-bar .is-sticky .site-header {
 
 	a {
 		transition: .3s ease;
-		color: $gray;
+		color: $accent;
 
 		&:hover {
 			color: $black;
+			text-decoration: underline;
 		}
 	}
 
@@ -5242,4 +5247,13 @@ p + .alignwide {
 			width: 91vw;
 		}
 	}
+}
+
+.wp-block-image figcaption {
+	font-size: 15px;
+	margin-top: 1em;
+}
+
+.entry-content .wp-block-gallery {
+	padding-left: 0;
 }

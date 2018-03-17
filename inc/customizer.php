@@ -233,7 +233,11 @@ function atomic_blocks_css_output() {
 	.entry-content p a:hover,
 	.post-navigation a:hover .post-title,
 	.entry-header .entry-title a:hover,
-	#page .more-link:hover {
+	#page .more-link:hover,
+	.site-footer a,
+	.main-navigation a:hover, 
+	.main-navigation ul li.current-menu-item a, 
+	.main-navigation ul li.current-page-item a {
 		color: $accent_color;
 	}
 

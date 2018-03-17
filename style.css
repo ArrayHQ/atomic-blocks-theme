@@ -259,7 +259,7 @@ ul, ol {
 }
 
 ul {
-  list-style: square;
+  list-style: round;
 }
 
 ol {
@@ -272,6 +272,10 @@ ul ul, ol ol, ul ol, ol ul {
 
 .hide-sub {
   display: none !important;
+}
+
+.entry-content ul {
+  padding-left: 1.8em;
 }
 
 .entry-content li {
@@ -1199,7 +1203,7 @@ a:hover, a:focus, a:active {
   color: #272c30;
 }
 .main-navigation a:hover {
-  color: #62707c;
+  color: #5a3fd6;
 }
 
 .main-navigation ul {
@@ -1221,7 +1225,7 @@ a:hover, a:focus, a:active {
 }
 .main-navigation ul li.current-menu-item a,
 .main-navigation ul li.current-page-item a {
-  color: #272c30;
+  color: #5a3fd6;
 }
 .main-navigation ul li.current-menu-item ul a,
 .main-navigation ul li.current-page-item ul a {
@@ -1801,21 +1805,21 @@ div.sharedaddy h3.sd-title:before {
   display: none !important;
 }
 
-.meta-list {
+.entry-content .meta-list {
   list-style: none;
   margin: 0;
   padding: 0;
   font-weight: bold;
 }
-.meta-list li {
+.entry-content .meta-list li {
   display: inline-block;
   margin: 0 20px 0 0;
 }
-.meta-list a {
+.entry-content .meta-list a {
   font-weight: normal;
   color: #5a3fd6;
 }
-.meta-list a:hover {
+.entry-content .meta-list a:hover {
   color: #272c30;
 }
 
@@ -4204,10 +4208,11 @@ body.admin-bar .is-sticky .site-header {
 }
 .site-footer a {
   transition: .3s ease;
-  color: #62707c;
+  color: #5a3fd6;
 }
 .site-footer a:hover {
   color: #272c30;
+  text-decoration: underline;
 }
 @media (max-width: 1000px) {
   .site-footer {
@@ -5020,4 +5025,13 @@ p + .alignwide {
   .alignwide.wp-block-gallery {
     width: 91vw;
   }
+}
+
+.wp-block-image figcaption {
+  font-size: 15px;
+  margin-top: 1em;
+}
+
+.entry-content .wp-block-gallery {
+  padding-left: 0;
 }

@@ -14,7 +14,8 @@ Styles for the block editor
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.edit-post-visual-editor .blocks-rich-text p {
+.edit-post-visual-editor .blocks-rich-text p,
+.blocks-list {
   font-size: 20px;
   line-height: 1.6;
 }
