@@ -288,6 +288,24 @@ add_action( 'wp_enqueue_scripts', 'atomic_blocks_css_output' );
 
 
 /**
+ * Add font class to admin body
+ */
+function atomic_blocks_admin_font( $classes ) {
+
+	$font_style = get_theme_mod( 'atomic_blocks_font_style', 'sans' );
+
+	if ( $font_style == 'serif' ) {
+		$font_class[] = 'serif-font-option';
+	} else {
+		$font_class[] = 'sans-font-option';
+	}
+
+	return $classes . ' ' . implode( ' ', $font_class ) . ' ';
+}
+add_filter( 'admin_body_class', 'atomic_blocks_admin_font' );
+
+
+/**
  * Replaces the footer tagline text
  */
 function atomic_blocks_filter_footer_text() {

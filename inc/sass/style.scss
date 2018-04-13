@@ -4,7 +4,7 @@ Theme URI: https://atomicblocks.com/
 Author: Atomic Blocks
 Author URI: https://atomicblocks.com/
 Description: A beautifully simple yet powerful WordPress theme that integreates perfectly with Gutenberg and the Atomic Blocks plugin.
-Version: 1.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: atomic-blocks
@@ -1123,6 +1123,10 @@ a:hover, a:focus, a:active {
 		margin-top: 1%;
 		width: 100%;
 	}
+}
+
+.archive.author .browsing {
+	display: none;
 }
 
 .search-results .browsing {

@@ -296,11 +296,6 @@ function atomic_blocks_fonts_url() {
 
 			if ( 'off' !== $frank )
 				$font_families[] = 'Frank Ruhl Libre:400,700';
-
-			$query_args = array(
-				'family' => urlencode( implode( '|', $font_families ) ),
-				'subset' => urlencode( 'latin,latin-ext' ),
-			);
 		}
 	} else {
 		$muli = esc_html_x( 'on', 'Muli font: on or off', 'atomic-blocks' );
@@ -314,13 +309,13 @@ function atomic_blocks_fonts_url() {
 
 			if ( 'off' !== $nunito_sans )
 				$font_families[] = 'Nunito Sans:400,400i,600,700';
-
-			$query_args = array(
-				'family' => urlencode( implode( '|', $font_families ) ),
-				'subset' => urlencode( 'latin,latin-ext' ),
-			);
 		}
 	}
+
+	$query_args = array(
+		'family' => urlencode( implode( '|', $font_families ) ),
+		'subset' => urlencode( 'latin,latin-ext' ),
+	);
 
 	$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
 
@@ -376,6 +371,20 @@ function atomic_blocks_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'atomic_blocks_scripts' );
+
+
+/**
+ * Enqueue admin scripts and styles
+ */
+function atomic_blocks_admin_scripts() {
+
+	/**
+	* Load editor fonts from Google
+	*/
+	wp_enqueue_style( 'atomic-blocks-admin-fonts', atomic_blocks_fonts_url(), array(), null );
+	
+}
+add_action( 'admin_enqueue_scripts', 'atomic_blocks_admin_scripts', 5 );
 
 
 /**

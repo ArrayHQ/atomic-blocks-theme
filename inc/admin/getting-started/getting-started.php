@@ -54,6 +54,21 @@ add_action( 'admin_menu', 'atomic_blocks_theme_getting_started_menu' );
 
 
 /**
+ * Redirect to Getting Started page on theme activation
+ */
+function atomic_blocks_redirect_on_activation() {
+	global $pagenow;
+
+	if ( is_admin() && 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
+
+		wp_redirect( admin_url( "admin.php?page=atomic-blocks" ) );
+
+	}
+}
+add_action( 'admin_init', 'atomic_blocks_redirect_on_activation' );
+
+
+/**
  * Outputs the markup used on the theme license page.
  *
  * since 1.0.0
@@ -93,7 +108,7 @@ function atomic_blocks_theme_getting_started_page() {
 			),
 			admin_url( 'update.php' )
 		),
-		'install-plugin-gutenberg'
+		'install-plugin_gutenberg'
 	);
 
 	$ab_install_url = wp_nonce_url(
@@ -104,12 +119,13 @@ function atomic_blocks_theme_getting_started_page() {
 			),
 			admin_url( 'update.php' )
 		),
-		'install-plugin-atomic-blocks'
+		'install-plugin_atomic-blocks'
 	);
 ?>
 	<div class="wrap getting-started">
 		<div class="intro-wrap">
 			<div class="intro">
+				<a href="<?php echo esc_url('https://goo.gl/NfXcof'); ?>"><img class="atomic-logo" src="<?php echo get_template_directory_uri(); ?>/inc/admin/getting-started/logo.png" alt="<?php esc_html_e( 'Visit Atomic Blocks', 'atomic-blocks' ); ?>" /></a>	
 				<h3><?php printf( esc_html__( 'Getting started with', 'atomic-blocks' ) ); ?> <strong><?php printf( esc_html__( 'Atomic Blocks', 'atomic-blocks' ) ); ?></strong></h3>
 			</div>
 		</div>
@@ -174,7 +190,7 @@ function atomic_blocks_theme_getting_started_page() {
 				<div id="themes" class="panel-left">
 					<div class="theme-intro clear">
 						<div class="theme-intro-left">
-							<p><?php _e( 'Array Themes has over 20 WordPress themes that will integrate seamlessly with the new block editor. Check them out below!', 'atomic-blocks' ); ?></p>
+							<p><?php _e( 'Array Themes has over 20 WordPress themes that will integrate seamlessly with the new block editor. <strong>Use the discount code BLOCKHEAD to get 15% off anything in the store!</strong>', 'atomic-blocks' ); ?></p>
 						</div>
 						<div class="theme-intro-right">
 							<a class="button-primary club-button" href="<?php echo esc_url('https://goo.gl/8DsFQj'); ?>"><?php esc_html_e( 'Browse the theme collection', 'atomic-blocks' ); ?> &rarr;</a>
@@ -183,7 +199,7 @@ function atomic_blocks_theme_getting_started_page() {
 
 					<div class="theme-list">
 					<?php
-					$themes_link = 'https://arraythemes.com/wordpress-themes';
+					$themes_link = esc_url( 'https://arraythemes.com/wordpress-themes' );
 					$themes_list = get_transient( 'arraythemes-theme-feed' );
 
 					if( false === $themes_list ) {
@@ -211,6 +227,11 @@ function atomic_blocks_theme_getting_started_page() {
 							<div class="cell panel-title">
 								<h3><i class="fa fa-check"></i> <?php esc_html_e( 'Quick Start Checklist', 'atomic-blocks' ); ?></h3>
 							</div>
+
+							<?php if ( is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) {
+								echo "installed";
+							} 
+							?>
 
 							<ul>
 								<li class="cell <?php if( function_exists( 'gutenberg_init' ) ) { echo 'step-complete'; } ?>">
