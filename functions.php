@@ -201,9 +201,9 @@ function atomic_blocks_post_media() {
 		// Otherwise get the featured image
 		echo '<div class="featured-image">';
 			if ( is_single() ) { ?>
-				<img src="<?php echo $featured_image; ?>" alt="<?php the_title(); ?>" />
+				<img src="<?php echo $featured_image; ?>" alt="<?php the_title_attribute(); ?>" />
 				<?php } else { ?>
-				<a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo $featured_image; ?>" alt="<?php the_title(); ?>" /></a>
+				<a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo $featured_image; ?>" alt="<?php the_title_attribute(); ?>" /></a>
 			<?php }
 		echo '</div>';
 
