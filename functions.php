@@ -108,6 +108,21 @@ add_action( 'after_setup_theme', 'atomic_blocks_setup' );
 
 
 /**
+ * Redirect to Getting Started page on theme activation
+ */
+function atomic_blocks_redirect_on_activation() {
+	global $pagenow;
+
+	if ( is_admin() && 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
+
+		wp_redirect( admin_url( "admin.php?page=atomic-blocks" ) );
+
+	}
+}
+add_action( 'admin_init', 'atomic_blocks_redirect_on_activation' );
+
+
+/**
  * Add Carousel image size to gallery select
  */
 function atomic_blocks_carousel_image_sizes( $sizes ) {
