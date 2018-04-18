@@ -16,6 +16,11 @@ A beautifully-simple yet powerful WordPress theme that integreates perfectly wit
 
 == Change Log ==
 
+= 1.0.3 - 4/18/18 =
+* Add prefixes to styles in Getting Started page.
+* Improve plugin install links in Getting Started page.
+* Change folder name back to atomic-blocks-theme.
+
 = 1.0.2 - 4/15/18 =
 * Fix redirect to Getting Started page.
 * Change folder name to atomic-blocks.
