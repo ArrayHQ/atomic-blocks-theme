@@ -10,13 +10,16 @@
 	<div class="post-content">
 
 		<header class="entry-header">
-			<h2 class="entry-title">
-				<?php if( is_single() ) { ?>	
+			<?php if( is_single() ) { ?>	
+				<h1 class="entry-title">
 					<?php the_title(); ?>
-				<?php } else { ?>
+				</h1>
+			<?php } else { ?>
+				<h2 class="entry-title">
 					<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-				<?php } ?>
-			</h2>
+				</h2>
+			<?php } ?>
+			
 			<?php atomic_blocks_post_byline(); ?>
 		</header>
 
