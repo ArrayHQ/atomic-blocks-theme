@@ -255,6 +255,7 @@ function atomic_blocks_filtered_content() {
  * Register widget area
  */
 function atomic_blocks_widgets_init() {
+	
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Column 1', 'atomic-blocks' ),
 		'id'            => 'footer-1',
