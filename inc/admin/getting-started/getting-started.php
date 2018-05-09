@@ -29,7 +29,7 @@ function atomic_blocks_theme_admin_scripts() {
 	wp_enqueue_style( 'atomic-blocks-getting-started' );
 
 	// FontAwesome
-	wp_register_style( 'atomic-blocks-fontawesome', get_template_directory_uri() . '/inc/fontawesome/css/font-awesome.css', false, '1.0.0' );
+	wp_register_style( 'atomic-blocks-fontawesome', get_template_directory_uri() . '/inc/fontawesome/css/fontawesome-all.css', false, '1.0.0' );
 	wp_enqueue_style( 'atomic-blocks-fontawesome' );
 }
 add_action( 'admin_enqueue_scripts', 'atomic_blocks_theme_admin_scripts' );
@@ -42,7 +42,7 @@ add_action( 'admin_enqueue_scripts', 'atomic_blocks_theme_admin_scripts' );
  */
 function atomic_blocks_theme_getting_started_menu() {
 
-	add_menu_page(
+	add_theme_page(
 		__( 'Atomic Blocks', 'atomic-blocks' ),
 		__( 'Atomic Blocks', 'atomic-blocks' ),
 		'manage_options',
@@ -109,7 +109,7 @@ function atomic_blocks_theme_getting_started_page() {
 		'install-plugin_atomic-blocks'
 	);
 ?>
-	<div class="wrap getting-started">
+	<div class="wrap ab-getting-started">
 		<div class="intro-wrap">
 			<div class="intro">
 				<a href="<?php echo esc_url('https://goo.gl/NfXcof'); ?>"><img class="atomic-logo" src="<?php echo get_template_directory_uri(); ?>/inc/admin/getting-started/logo.png" alt="<?php esc_html_e( 'Visit Atomic Blocks', 'atomic-blocks' ); ?>" /></a>	
@@ -237,7 +237,7 @@ function atomic_blocks_theme_getting_started_page() {
 									<?php if( ! array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else if ( array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) && ! is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) { ?>
-										<?php activate_plugin( 'atomic-blocks/atomicblocks.php' ); ?>
+										<?php//activate_plugin( 'atomic-blocks/atomicblocks.php' ); ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
 									<?php } else { ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>

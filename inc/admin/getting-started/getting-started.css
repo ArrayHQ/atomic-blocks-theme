@@ -13,7 +13,8 @@
 	box-sizing: border-box;
 }
 
-.toplevel_page_atomic-blocks #wpcontent {
+.toplevel_page_atomic-blocks #wpcontent,
+.appearance_page_atomic-blocks #wpcontent {
 	padding-left: 0;
 }
 
