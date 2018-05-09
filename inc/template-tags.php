@@ -55,36 +55,13 @@ function atomic_blocks_title_logo() { ?>
 if ( ! function_exists( 'atomic_blocks_page_titles' ) ) :
 function atomic_blocks_page_titles() { ?>
 	<div class="page-titles">
-		<span class="browsing"><?php esc_html_e( 'Browsing: ', 'atomic-blocks' ); ?></span>
 		<h1>
-			<?php
-				if ( is_category() ) :
-					single_cat_title();
-
-				elseif ( is_tag() ) :
-					single_tag_title();
-
-				elseif ( is_author() ) :
-					the_post();
-					printf( __( 'Author: %s', 'atomic-blocks' ), '' . get_the_author() . '' );
-					rewind_posts();
-
-				elseif ( is_day() ) :
-					printf( __( 'Day: %s', 'atomic-blocks' ), '<span>' . get_the_date() . '</span>' );
-
-				elseif ( is_month() ) :
-					printf( __( 'Month: %s', 'atomic-blocks' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-
-				elseif ( is_year() ) :
-					printf( __( 'Year: %s', 'atomic-blocks' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-
-				elseif ( is_404() ) :
-					_e( 'Page Not Found', 'atomic-blocks' );
-
-				elseif ( is_search() ) :
-					printf( __( 'Search Results for: %s', 'atomic-blocks' ), '<span>' . get_search_query() . '</span>' );
-
-				endif;
+			<?php 
+				if( is_archive() ) {
+					the_archive_title();
+				} else {
+					the_title();
+				}
 			?>
 		</h1>
 
@@ -110,6 +87,18 @@ function atomic_blocks_page_titles() { ?>
 
 	<?php 
 } endif;
+
+
+function atomic_blocks_change_archive_title( $title ) {
+    if( is_search() ) {
+		$title = sprintf( __( 'Search Results for: %s', 'atomic-blocks' ), '<span>' . get_search_query() . '</span>' );
+    } elseif ( is_404() ) {
+		$title = _e( 'Page Not Found', 'atomic-blocks' );
+	}
+
+    return $title;
+}
+add_filter( 'get_the_archive_title', 'atomic_blocks_change_archive_title' );
 
 
 /**
@@ -146,45 +135,6 @@ function atomic_blocks_comment( $comment, $args, $depth ) {
 	</div>
 <?php
 }
-
-
-/**
- * Displays post pagination links
- *
- * @since Atomic Blocks 1.0
- */
-if ( ! function_exists( 'atomic_blocks_page_navs' ) ) :
-function atomic_blocks_page_navs( $query = false ) {
-
-	global $wp_query;
-	if( $query ) {
-		$temp_query = $wp_query;
-		$wp_query = $query;
-	}
-
-	// Return early if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	} ?>
-	<div class="page-navigation">
-		<?php
-			$big = 999999999; // need an unlikely integer
-
-			echo paginate_links( array(
-				'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-				'format'    => '?paged=%#%',
-				'current'   => max( 1, get_query_var('paged') ),
-				'total'     => $wp_query->max_num_pages,
-				'next_text' => esc_html__( '&rarr;', 'atomic-blocks' ),
-				'prev_text' => esc_html__( '&larr;', 'atomic-blocks' )
-			) );
-		?>
-	</div>
-	<?php
-	if( isset( $temp_query ) ) {
-		$wp_query = $temp_query;
-	}
-} endif;
 
 
 /**
@@ -280,7 +230,7 @@ function atomic_blocks_post_byline() { ?>
  */
  function atomic_blocks_modify_archive_title( $title ) {
 	// Skip if the site isn't LTR, this is visual, not functional.
-	if ( is_rtl() ) {
+	if ( is_rtl() || is_search() || is_404() ) {
 		return $title;
 	}
 

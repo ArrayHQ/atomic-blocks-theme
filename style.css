@@ -50,7 +50,8 @@ body {
 }
 
 *, *:before, *:after {
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 article, aside, details, figcaption, figure, footer, header, main, nav, section {
@@ -343,7 +344,8 @@ textarea {
   vertical-align: baseline;
   *vertical-align: middle;
   -webkit-appearance: none;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 button,
@@ -421,7 +423,8 @@ input[type="radio"] {
 
 input[type="search"] {
   -webkit-appearance: textfield;
-  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+       box-sizing: content-box;
 }
 
 input[type="search"]::-webkit-search-decoration {
@@ -540,7 +543,8 @@ select {
   *vertical-align: middle;
   width: 100%;
   -webkit-appearance: normal;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 .widget-area select {
@@ -571,7 +575,8 @@ select,
 .select2-container .select2-selection--single {
   color: #7c8a96;
   background: #fff;
-  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
   -webkit-appearance: none;
   padding: 15px;
   border: solid 1px #D4DDE5;
@@ -814,8 +819,11 @@ form label {
   width: 100%;
   z-index: 200;
   background: #fff;
+  transition: -webkit-transform 400ms linear;
   transition: transform 400ms linear;
-  transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+      -ms-transform: translateY(-200%);
+          transform: translateY(-200%);
 }
 @media only screen and (max-width: 1000px) {
   .home-nav {
@@ -862,7 +870,9 @@ form label {
 }
 
 .show-nav {
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .sticky-title {
@@ -1323,7 +1333,8 @@ a:hover, a:focus, a:active {
   cursor: pointer;
 }
 .site-header .menu-item-has-children:hover ul {
-  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
 }
 
 .main-navigation .sub-menu,
@@ -1341,8 +1352,10 @@ a:hover, a:focus, a:active {
   z-index: 100;
   border-radius: 3px;
   text-align: center;
-  animation-duration: .3s;
-  animation-fill-mode: both;
+  -webkit-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .main-navigation li ul {
@@ -1895,7 +1908,9 @@ div.sharedaddy h3.sd-title:before {
   transition: .2s ease;
 }
 .author-columns .author-profile:hover .author-profile-avatar img {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .featured-posts {
@@ -1909,9 +1924,12 @@ div.sharedaddy h3.sd-title:before {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
   border-bottom: none !important;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 .featured-posts .post:nth-child(2n+2) {
   margin-right: 3%;
@@ -1957,9 +1975,12 @@ div.sharedaddy h3.sd-title:before {
 .slide-navs {
   text-align: center;
   margin-bottom: 4%;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 @media only screen and (min-width: 1000px) {
   .slide-navs {
@@ -2056,15 +2077,15 @@ div.sharedaddy h3.sd-title:before {
 /* --------------------------------------------------------------
 5.5 Page Navigation
 -------------------------------------------------------------- */
-.page-navigation {
+.pagination {
   display: inline-block;
   width: 100%;
   margin-top: 8%;
 }
-.page-navigation a {
+.pagination a {
   color: #272c30;
 }
-.page-navigation a, .page-navigation span {
+.pagination a, .pagination span {
   background: #f2f2f2;
   padding: 10px 20px;
   transition: .2s ease-in-out;
@@ -2077,35 +2098,35 @@ div.sharedaddy h3.sd-title:before {
   height: 50px;
 }
 @media (max-width: 600px) {
-  .page-navigation a, .page-navigation span {
+  .pagination a, .pagination span {
     padding: 10px 15px;
   }
 }
-.page-navigation .next,
-.page-navigation .prev {
+.pagination .next,
+.pagination .prev {
   font-size: 0;
   line-height: 1.7;
 }
-.page-navigation .next:after,
-.page-navigation .prev:after {
+.pagination .next:after,
+.pagination .prev:after {
   font-family: "Font Awesome 5 Free";
   font-size: 18px;
 }
-.page-navigation .next {
+.pagination .next {
   text-indent: 3px;
 }
-.page-navigation .next:after {
+.pagination .next:after {
   content: "\f105";
 }
-.page-navigation .prev {
+.pagination .prev {
   text-indent: -3px;
 }
-.page-navigation .prev:after {
+.pagination .prev:after {
   content: "\f104";
 }
 @media (max-width: 600px) {
-  .page-navigation .next:after,
-  .page-navigation .prev:after {
+  .pagination .next:after,
+  .pagination .prev:after {
     font-size: 17px;
   }
 }
@@ -3370,14 +3391,18 @@ img.emoji {
   }
 }
 .slideInLeft {
-  animation-name: slideInLeft;
+  -webkit-animation-name: slideInLeft;
+          animation-name: slideInLeft;
   transition: .3s ease;
 }
 
 .site-header-bg-wrap {
-  animation-name: fadeIn;
-  animation-duration: 1s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .background-effect {
@@ -3422,7 +3447,8 @@ img.emoji {
     width: 90vw;
     margin-left: 50%;
     -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
   }
 }
 
@@ -3437,9 +3463,12 @@ img.emoji {
   opacity: 0;
   -webkit-animation-delay: .5s;
   animation-delay: .5s;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .gallery a img {
@@ -3694,9 +3723,12 @@ embed, iframe, object {
 }
 
 .show-drawer {
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   display: inline-block !important;
 }
 
@@ -3810,7 +3842,9 @@ body.admin-bar .is-sticky .site-header {
   transition: all .2s ease-in-out;
 }
 .site-avatar img:hover {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .site-logo {
@@ -3962,9 +3996,12 @@ body.admin-bar .is-sticky .site-header {
   opacity: 0;
   -webkit-animation-delay: .5s;
   animation-delay: .5s;
-  animation-name: fadeIn;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 #page {
@@ -4146,9 +4183,12 @@ body.admin-bar .is-sticky .site-header {
 }
 
 .fade-out {
-  animation-name: fadeOut !important;
-  animation-duration: .2s !important;
-  animation-fill-mode: both !important;
+  -webkit-animation-name: fadeOut !important;
+          animation-name: fadeOut !important;
+  -webkit-animation-duration: .2s !important;
+          animation-duration: .2s !important;
+  -webkit-animation-fill-mode: both !important;
+          animation-fill-mode: both !important;
 }
 
 /* --------------------------------------------------------------
@@ -4406,7 +4446,8 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .slideInLeft {
-  animation-name: slideInLeft;
+  -webkit-animation-name: slideInLeft;
+          animation-name: slideInLeft;
 }
 
 @-webkit-keyframes fadeInUp {
@@ -4434,13 +4475,14 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .fadeInUp {
-  animation-name: fadeInUp;
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+          animation-name: fadeInUp;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
   transform: translateZ(0);
 }
 
@@ -4461,9 +4503,12 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .fadeIn {
-  animation-name: fadeIn;
-  animation-duration: .2s;
-  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 @-webkit-keyframes fadeOut {
@@ -4483,7 +4528,8 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .fadeOut {
-  animation-name: fadeOut;
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
 }
 
 @-webkit-keyframes slideInDown {
@@ -4509,7 +4555,8 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .slideInDown {
-  animation-name: slideInDown;
+  -webkit-animation-name: slideInDown;
+          animation-name: slideInDown;
 }
 
 @-webkit-keyframes slideInUp {
@@ -4535,17 +4582,22 @@ body.admin-bar .is-sticky .site-header {
   }
 }
 .slideInUp {
-  animation-name: slideInUp;
+  -webkit-animation-name: slideInUp;
+          animation-name: slideInUp;
 }
 
 .animated {
-  animation-duration: .5s;
-  animation-fill-mode: both;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .animated-faster {
-  animation-duration: .2s;
-  animation-fill-mode: both;
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .rslides {
@@ -4614,6 +4666,11 @@ body.admin-bar .is-sticky .site-header {
 .copy-label span,
 .copy-toggle {
   font-weight: 600;
+}
+
+::-moz-selection {
+  background: rgba(255, 244, 147, 0.8);
+  color: #272c30;
 }
 
 ::selection {
@@ -4930,5 +4987,3 @@ div[id^='contact-form'] h3:before {
 .entry-content .wp-block-gallery {
   padding-left: 0;
 }
-
-/*# sourceMappingURL=style.css.map */

@@ -27,7 +27,7 @@ get_header(); ?>
 				?>
 			</div>
 
-			<?php atomic_blocks_page_navs(); ?>
+			<?php the_posts_pagination(); ?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 

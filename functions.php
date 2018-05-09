@@ -500,6 +500,8 @@ function atomic_blocks_search_excerpt_length() {
  * Add an ellipsis read more link
  */
 function atomic_blocks_excerpt_more( $more ) {
+	if( is_admin() ) return $more;
+	
 	return ' &hellip;';
 }
 add_filter( 'excerpt_more', 'atomic_blocks_excerpt_more' );
