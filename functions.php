@@ -108,21 +108,6 @@ add_action( 'after_setup_theme', 'atomic_blocks_setup' );
 
 
 /**
- * Redirect to Getting Started page on theme activation
- */
-function atomic_blocks_redirect_on_activation() {
-	global $pagenow;
-
-	if ( is_admin() && 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
-
-		wp_redirect( admin_url( "admin.php?page=atomic-blocks" ) );
-
-	}
-}
-add_action( 'admin_init', 'atomic_blocks_redirect_on_activation' );
-
-
-/**
  * Add Carousel image size to gallery select
  */
 function atomic_blocks_carousel_image_sizes( $sizes ) {
@@ -201,7 +186,7 @@ function atomic_blocks_post_media() {
 		// Otherwise get the featured image
 		echo '<div class="featured-image">';
 			if ( is_single() ) { ?>
-				<img src="<?php echo $featured_image; ?>" alt="<?php the_title_attribute(); ?>" />
+				<img src="<?php echo esc_url( $featured_image ); ?>" alt="<?php the_title_attribute(); ?>" />
 				<?php } else { ?>
 				<a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo $featured_image; ?>" alt="<?php the_title_attribute(); ?>" /></a>
 			<?php }
@@ -376,7 +361,7 @@ function atomic_blocks_scripts() {
 	 * Localizes the atomic-blocks-js file
 	 */
 	wp_localize_script( 'atomic-blocks-js', 'atomic_blocks_js_vars', array(
-		'ajaxurl' => admin_url( 'admin-ajax.php' )
+		'ajaxurl' => esc_url ( admin_url( 'admin-ajax.php' ) )
 	) );
 
 	/**
@@ -392,8 +377,11 @@ add_action( 'wp_enqueue_scripts', 'atomic_blocks_scripts' );
 /**
  * Enqueue admin scripts and styles
  */
-function atomic_blocks_admin_scripts() {
-
+function atomic_blocks_admin_scripts( $hook ) {
+	if ( 'post.php' != $hook ) {
+        return;
+	}
+	
 	/**
 	* Load editor fonts from Google
 	*/
