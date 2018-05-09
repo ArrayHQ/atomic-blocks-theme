@@ -12,7 +12,40 @@ A beautifully-simple yet powerful WordPress theme that integreates perfectly wit
 
 == Description ==
 
-A beautifully-simple yet powerful WordPress theme that integreates perfectly with Gutenberg and the Atomic Blocks plugin.
+A beautifully-simple yet powerful WordPress theme that integreates perfectly with the Gutenberg editor and the Atomic Blocks plugin. Demo: https://preview.arraythemes.com/atomicblocks
+
+== Copyright ==
+
+Atomic Blocks WordPress Theme, Copyright 2018 Array Themes
+Atomic Blocks is distributed under the terms of the GNU GPL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+Atomic Blocks bundles the following third-party resources:
+
+Fitvids, Copyright Chris Coyier and Paravel
+Licenses: GNU GPL
+Source: https://github.com/davatron5000/FitVids.js
+
+Font Awesome icons, Copyright Dave Gandy
+License: SIL Open Font License, version 5.0.12.
+Source: http://fontawesome.io/
+
+Screenshot mountain image
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://pixabay.com/en/france-mountains-fog-mist-sunrise-1790999/
+
+Screenshot hiking image
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://pixabay.com/en/girl-person-walking-footbridge-918706/
 
 == Change Log ==
 

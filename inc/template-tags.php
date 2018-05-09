@@ -57,11 +57,7 @@ function atomic_blocks_page_titles() { ?>
 	<div class="page-titles">
 		<h1>
 			<?php 
-				if( is_archive() ) {
-					the_archive_title();
-				} else {
-					the_title();
-				}
+				the_archive_title();
 			?>
 		</h1>
 
@@ -89,6 +85,9 @@ function atomic_blocks_page_titles() { ?>
 } endif;
 
 
+/**
+ * Filter the page title for certain pages
+ */
 function atomic_blocks_change_archive_title( $title ) {
     if( is_search() ) {
 		$title = sprintf( __( 'Search Results for: %s', 'atomic-blocks' ), '<span>' . get_search_query() . '</span>' );

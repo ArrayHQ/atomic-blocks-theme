@@ -45,7 +45,7 @@
 	</div><!-- .top-navigation -->
 
 	<!-- Get the archive page titles -->
-	<?php if( is_archive() || is_search() ) { ?>
+	<?php if( is_archive() || is_search() || is_404() ) { ?>
 		<div class="container text-container">
 			<div class="header-text">
 				<?php atomic_blocks_page_titles(); ?>

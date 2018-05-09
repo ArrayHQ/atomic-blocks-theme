@@ -27,6 +27,15 @@ function atomic_blocks_sanitize_range( $input ) {
 	return ( $input );
 }
 
+/**
+ * Sanitize select
+ */
+function atomic_blocks_sanitize_select( $input, $setting ) {
+	$input = sanitize_key( $input );
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+}
+
 
 /**
  * @param WP_Customize_Manager $wp_customize
@@ -93,7 +102,7 @@ function atomic_blocks_register( $wp_customize ) {
 		'default'           => 'sans',
 		'capability'        => 'edit_theme_options',
 		'type'              => 'theme_mod',
-		'sanitize_callback' => 'atomic_blocks_sanitize_text',
+		'sanitize_callback' => 'atomic_blocks_sanitize_select',
 	));
 
 	$wp_customize->add_control( 'atomic_blocks_font_style_select', array(
@@ -104,8 +113,8 @@ function atomic_blocks_register( $wp_customize ) {
 		'type'            => 'select',
 		'priority'        => 15,
 		'choices'         => array(
-			'sans'  => 'Sans Serif',
-			'serif' => 'Serif',
+			'sans'  => esc_html__( 'Sans Serif', 'atomic-blocks' ),
+			'serif'  => esc_html__( 'Serif', 'atomic-blocks' ),
 		),
 	));
 
@@ -184,7 +193,7 @@ function atomic_blocks_register( $wp_customize ) {
         'selector'            => '.site-info',
         'container_inclusive' => false,
         'render_callback'     => function() {
-			return get_theme_mod( 'atomic_blocks_footer_text' );
+			return wp_kses_post( get_theme_mod( 'atomic_blocks_footer_text' ) );
         },
     ) );
 }
@@ -210,15 +219,13 @@ function atomic_blocks_css_output() {
 	// Check for styles before outputting
 	if ( $accent_color ) {
 
-	wp_enqueue_style( 'atomic-blocks-style', get_stylesheet_uri() );
-
 	$atomic_blocks_custom_css = "
 
 	button,
 	input[type='button'],
 	input[type='submit'],
 	.button,
-	.page-navigation .current,
+	.page-numbers.current,
 	.page-numbers:hover,
 	#page #infinite-handle button,
 	#page #infinite-handle button:hover,
@@ -303,28 +310,6 @@ function atomic_blocks_admin_font( $classes ) {
 	return $classes . ' ' . implode( ' ', $font_class ) . ' ';
 }
 add_filter( 'admin_body_class', 'atomic_blocks_admin_font' );
-
-
-/**
- * Replaces the footer tagline text
- */
-function atomic_blocks_filter_footer_text() {
-
-	// Get the footer copyright text
-	$footer_copy_text = get_theme_mod( 'atomic_blocks_footer_text' );
-
-	if ( $footer_copy_text ) {
-		// If we have footer text, use it
-		$footer_text = $footer_copy_text;
-	} else {
-		// Otherwise show the fallback theme text
-		$footer_text = sprintf( esc_html__( ' Theme by %1$s.', 'atomic-blocks' ), '<a href="https://atomicblocks.com/" rel="nofollow">Atomic Blocks</a>' );
-	}
-
-	return $footer_text;
-
-}
-add_filter( 'atomic_blocks_footer_text', 'atomic_blocks_filter_footer_text' );
 
 
 /**

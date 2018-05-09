@@ -3444,15 +3444,6 @@ img.emoji {
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 
-	.search-results & {
-		font-size: 34px;
-		margin-bottom: 15px;
-
-		@include viewport(mobile) {
-			font-size: 22px;
-		}
-	}
-
 	a {
 		color: $black;
 		transition: .3s ease;

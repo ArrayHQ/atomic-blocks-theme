@@ -525,3 +525,25 @@ function atomic_blocks_html_js_class () {
     echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>'. "\n";
 }
 add_action( 'wp_head', 'atomic_blocks_html_js_class', 1 );
+
+
+/**
+ * Replaces the footer tagline text
+ */
+function atomic_blocks_filter_footer_text() {
+
+	// Get the footer copyright text
+	$footer_copy_text = get_theme_mod( 'atomic_blocks_footer_text' );
+
+	if ( $footer_copy_text ) {
+		// If we have footer text, use it
+		$footer_text = $footer_copy_text;
+	} else {
+		// Otherwise show the fallback theme text
+		$footer_text = sprintf( esc_html__( ' Theme by %1$s.', 'atomic-blocks' ), '<a href="https://atomicblocks.com/" rel="nofollow">Atomic Blocks</a>' );
+	}
+
+	return wp_kses_post( $footer_text );
+
+}
+add_filter( 'atomic_blocks_footer_text', 'atomic_blocks_filter_footer_text' );

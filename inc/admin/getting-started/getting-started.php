@@ -21,6 +21,10 @@ function atomic_blocks_theme_admin_scripts() {
 	 * @since 1.0
 	 */
 
+	if ( 'themes.php' != $pagenow ) {
+        return;
+	}
+
 	// Getting Started javascript
 	wp_enqueue_script( 'atomic-blocks-getting-started', get_template_directory_uri() . '/inc/admin/getting-started/getting-started.js', array( 'jquery' ), '1.0.0', true );
 
@@ -93,7 +97,7 @@ function atomic_blocks_theme_getting_started_page() {
 				'action' => 'install-plugin',
 				'plugin' => 'gutenberg'
 			),
-			admin_url( 'update.php' )
+			esc_url ( admin_url( 'update.php' ) )
 		),
 		'install-plugin_gutenberg'
 	);
@@ -104,7 +108,7 @@ function atomic_blocks_theme_getting_started_page() {
 				'action' => 'install-plugin',
 				'plugin' => 'atomic-blocks'
 			),
-			admin_url( 'update.php' )
+			esc_url( admin_url( 'update.php' ) )
 		),
 		'install-plugin_atomic-blocks'
 	);
@@ -112,7 +116,7 @@ function atomic_blocks_theme_getting_started_page() {
 	<div class="wrap ab-getting-started">
 		<div class="intro-wrap">
 			<div class="intro">
-				<a href="<?php echo esc_url('https://goo.gl/NfXcof'); ?>"><img class="atomic-logo" src="<?php echo get_template_directory_uri(); ?>/inc/admin/getting-started/logo.png" alt="<?php esc_html_e( 'Visit Atomic Blocks', 'atomic-blocks' ); ?>" /></a>	
+				<a href="https://atomicblocks.com/?utm_source=AB%20Theme%20Logo%20Link&utm_campaign=ab_theme_logo_link"><img class="atomic-logo" src="<?php echo get_template_directory_uri(); ?>/inc/admin/getting-started/logo.png" alt="<?php esc_html_e( 'Visit Atomic Blocks', 'atomic-blocks' ); ?>" /></a>	
 				<h3><?php printf( esc_html__( 'Getting started with', 'atomic-blocks' ) ); ?> <strong><?php printf( esc_html__( 'Atomic Blocks', 'atomic-blocks' ) ); ?></strong></h3>
 			</div>
 		</div>
@@ -180,7 +184,7 @@ function atomic_blocks_theme_getting_started_page() {
 							<p><?php _e( 'Array Themes has over 20 WordPress themes that will integrate seamlessly with the new block editor. <strong>Use the discount code BLOCKHEAD to get 15% off anything in the Array Themes store!</strong>', 'atomic-blocks' ); ?></p>
 						</div>
 						<div class="theme-intro-right">
-							<a class="button-primary club-button" href="<?php echo esc_url('https://goo.gl/8DsFQj'); ?>"><?php esc_html_e( 'Browse the theme collection', 'atomic-blocks' ); ?> &rarr;</a>
+							<a class="button-primary club-button" href="https://atomicblocks.com/?utm_source=AB%20Theme%20Logo%20Link&utm_campaign=ab_theme_logo_link"><?php esc_html_e( 'Browse the theme collection', 'atomic-blocks' ); ?> &rarr;</a>
 						</div>
 					</div>
 
@@ -237,7 +241,7 @@ function atomic_blocks_theme_getting_started_page() {
 									<?php if( ! array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else if ( array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) && ! is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) { ?>
-										<?php activate_plugin( 'atomic-blocks/atomicblocks.php' ); ?>
+										<?php //activate_plugin( 'atomic-blocks/atomicblocks.php' ); ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
 									<?php } else { ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
@@ -257,8 +261,7 @@ function atomic_blocks_theme_getting_started_page() {
 							<ul>
 								<li class="cell">
 								<p><?php esc_html_e( 'Join the newsletter to receive emails when we add new blocks, release plugin and theme updates, send out free resources, and more!', 'atomic-blocks' ); ?></p>
-
-									<a class="button-primary club-button" href="<?php echo esc_url( 'https://goo.gl/3pC6LE' ); ?>"><?php esc_html_e( 'Subscribe Now', 'atomic-blocks' ); ?> &rarr;</a>
+									<a class="button-primary club-button" href="https://atomicblocks.com/subscribe/?utm_source=AB%20Getting%20Started%20Subscribe&utm_campaign=AB_Getting_Started_Subscribe"><?php esc_html_e( 'Subscribe Now', 'atomic-blocks' ); ?> &rarr;</a>
 								</li>
 							</ul>
 						</div>
@@ -273,7 +276,7 @@ function atomic_blocks_theme_getting_started_page() {
 							<ul>
 								<li class="cell">
 									<p><?php esc_html_e( 'Check out the Atomic Blocks site to find block editor tutorials, free blocks and updates about the Atomic Blocks plugin and theme!', 'atomic-blocks' ); ?></p>
-									<a class="button-primary club-button" href="<?php echo esc_url( 'https://goo.gl/xpujKp' ); ?>"><?php esc_html_e( 'Visit AtomicBlocks.com', 'atomic-blocks' ); ?> &rarr;</a>
+									<a class="button-primary club-button" href="https://atomicblocks.com/?utm_source=AB%20Getting%20Started%20Visit%20Site&utm_campaign=AB_Getting_Started_Visit_Site"><?php esc_html_e( 'Visit AtomicBlocks.com', 'atomic-blocks' ); ?> &rarr;</a>
 								</li>
 							</ul>
 						</div>
