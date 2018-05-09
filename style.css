@@ -4,7 +4,7 @@ Theme URI: https://arraythemes.com/themes/atomic-blocks-wordpress-theme/
 Author: Atomic Blocks
 Author URI: https://arraythemes.com/
 Description: A beautifully-simple yet powerful WordPress theme that integreates perfectly with Gutenberg and the Atomic Blocks plugin.
-Version: 1.0.5
+Version: 1.0.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: atomic-blocks
@@ -896,7 +896,7 @@ form label {
 }
 .sticky-title:before {
   content: "\f106";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   font-size: 14px;
   vertical-align: top;
   margin-right: 6px;
@@ -1268,7 +1268,7 @@ a:hover, a:focus, a:active {
 .site-header .menu-item-has-children > a:after,
 .site-header .page_item_has_children > a:after {
   content: "\f107";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   padding-left: 5px;
   right: 0;
   font-size: 13px;
@@ -1284,7 +1284,7 @@ a:hover, a:focus, a:active {
 .sub-menu .menu-item-has-children > a:after,
 .sub-menu .page_item_has_children > a:after {
   content: "\f105";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   float: right;
 }
 
@@ -1584,7 +1584,7 @@ a:hover, a:focus, a:active {
 }
 .social-navigation a:before {
   font-size: 26px;
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Brands';
   padding: 0;
   display: inline-block;
   text-align: center;
@@ -1622,7 +1622,7 @@ a:hover, a:focus, a:active {
   font-size: 0;
 }
 .social-navigation a[href*="facebook.com"]:before {
-  content: "\f230";
+  content: "\f09a";
 }
 .social-navigation a[href*="google.com"] {
   font-size: 0;
@@ -1667,16 +1667,20 @@ a:hover, a:focus, a:active {
 .social-navigation a[href*="flickr.com"]:before {
   content: "\f16e";
 }
-.social-navigation a[href*="codepen.com"] {
+.social-navigation a[href*="codepen.com"],
+.social-navigation a[href*="codepen.io"] {
   font-size: 0;
 }
-.social-navigation a[href*="codepen.com"]:before {
+.social-navigation a[href*="codepen.com"]:before,
+.social-navigation a[href*="codepen.io"]:before {
   content: "\f1cb";
 }
-.social-navigation a[href*="behance.com"] {
+.social-navigation a[href*="behance.com"],
+.social-navigation a[href*="behance.net"] {
   font-size: 0;
 }
-.social-navigation a[href*="behance.com"]:before {
+.social-navigation a[href*="behance.com"]:before,
+.social-navigation a[href*="behance.net"]:before {
   content: "\f1b4";
 }
 .social-navigation a[href*="dropbox.com"] {
@@ -1734,10 +1738,12 @@ a:hover, a:focus, a:active {
   content: "\f1e7";
 }
 .social-navigation a[href*="apple.com"],
+.social-navigation a[href*="apple.news"],
 .social-navigation a[href*="itunes.apple.com"] {
   font-size: 0;
 }
 .social-navigation a[href*="apple.com"]:before,
+.social-navigation a[href*="apple.news"]:before,
 .social-navigation a[href*="itunes.apple.com"]:before {
   content: "\f179";
 }
@@ -1746,6 +1752,7 @@ a:hover, a:focus, a:active {
 }
 .social-navigation a[href*="mailto"]:before {
   content: "\f0e0";
+  font-family: "Font Awesome 5 Free";
   text-indent: -1px;
   font-size: 16px;
 }
@@ -1771,6 +1778,18 @@ a:hover, a:focus, a:active {
 .social-navigation a[href*="/feed"]:before {
   content: "\f09e";
   text-indent: 1px;
+}
+.social-navigation a[href*="weibo.com"] {
+  font-size: 0;
+}
+.social-navigation a[href*="weibo.com"]:before {
+  content: "\f18a";
+}
+.social-navigation a[href*="goodreads.com"] {
+  font-size: 0;
+}
+.social-navigation a[href*="goodreads.com"]:before {
+  content: "\f3a8";
 }
 
 .footer-tagline + .social-navigation {
@@ -1970,7 +1989,7 @@ div.sharedaddy h3.sd-title:before {
   font-size: 0;
 }
 .slide-navs a:before {
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   font-size: 20px;
   height: 40px;
   width: 40px;
@@ -2085,7 +2104,7 @@ div.sharedaddy h3.sd-title:before {
 }
 .page-navigation .next:after,
 .page-navigation .prev:after {
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   font-size: 18px;
 }
 .page-navigation .next {
@@ -2557,7 +2576,7 @@ div.sharedaddy h3.sd-title:before {
 }
 .widget-area aside li:before {
   content: "\f0da";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   position: absolute;
   left: -18px;
   top: 3px;
@@ -2752,12 +2771,12 @@ aside.widget_blog_subscription #subscribe-blog input {
 }
 .comment-navigation .nav-previous a:before {
   content: "\f0a8";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   margin-right: 10px;
 }
 .comment-navigation .nav-next a:after {
   content: "\f0a9";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   margin-left: 10px;
 }
 
@@ -2778,7 +2797,7 @@ aside.widget_blog_subscription #subscribe-blog input {
 }
 .comments-toggle:before {
   content: "\f27a";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   margin-right: 3px;
   -webkit-font-smoothing: antialiased;
 }
@@ -2904,7 +2923,7 @@ img + .comment-info {
 
 .bypostauthor .comment-list .avatar:after {
   content: "\f007";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   font-size: 16px;
   margin-left: 1rem;
   position: relative;
@@ -2947,12 +2966,6 @@ img + .comment-info {
 .comment-list .reply {
   margin-bottom: 0;
   font-size: 14px;
-}
-.comment-list .reply a {
-  color: #848a96;
-}
-.comment-list .reply a:hover {
-  color: #272c30;
 }
 
 .comment-list .avatar {
@@ -3138,7 +3151,7 @@ img + .comment-info {
 
 .comment-awaiting-moderation:before {
   content: "\f06a";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   margin-right: 10px;
 }
 
@@ -4904,7 +4917,7 @@ div[id^='contact-form'] h3 {
 }
 div[id^='contact-form'] h3:before {
   content: "\f003";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   margin-right: 10px;
 }
 
@@ -4980,6 +4993,7 @@ div[id^='contact-form'] h3:before {
 --------------------------------------------------------------*/
 .wp-block-gallery {
   margin-left: 0;
+  margin-bottom: 1.2em;
 }
 
 .wp-block-image figcaption {

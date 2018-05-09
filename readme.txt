@@ -4,7 +4,7 @@ Donate link: https://arraythemes.com/
 Tags: one-column, featured-images, theme-options, custom-background, custom-colors, custom-menu, editor-style, featured-images, theme-options, translation-ready, footer-widgets, full-width-template
 Requires at least: 4.0
 Tested up to: 4.9.4
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,10 @@ A beautifully-simple yet powerful WordPress theme that integreates perfectly wit
 A beautifully-simple yet powerful WordPress theme that integreates perfectly with Gutenberg and the Atomic Blocks plugin.
 
 == Change Log ==
+
+= 1.0.6 - 5/8/18 =
+* Update FontAwesome to newest version.
+* Minor style tweaks.
 
 = 1.0.5 - 4/23/18 =
 * Improve full width and wide alignment styles.

@@ -355,7 +355,7 @@ function atomic_blocks_scripts() {
 	/**
 	 * FontAwesome Icons stylesheet
 	 */
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . "/inc/fontawesome/css/font-awesome.css", array(), '4.4.0', 'screen' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . "/inc/fontawesome/css/fontawesome-all.css", array(), '5.0.12', 'screen' );
 
 	/**
 	 * Load Atomic Blocks's javascript

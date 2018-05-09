@@ -4,7 +4,7 @@ Theme URI: https://arraythemes.com/themes/atomic-blocks-wordpress-theme/
 Author: Atomic Blocks
 Author URI: https://arraythemes.com/
 Description: A beautifully-simple yet powerful WordPress theme that integreates perfectly with Gutenberg and the Atomic Blocks plugin.
-Version: 1.0.5
+Version: 1.0.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: atomic-blocks
@@ -15,7 +15,7 @@ Tags: featured-images, theme-options, custom-background, custom-logo, editor-sty
 */
 
 /* Import Atomic Blocks Sass Variables (inc/sass/variables.scss) */
-@import 'variables';
+@import 'variables'; 
 
 /* --------------------------------------------------------------
 1.0 - Reset
@@ -894,7 +894,7 @@ form label {
 
 	&:before {
 		content: "\f106";
-		font-family: "FontAwesome";
+		font-family: "Font Awesome 5 Free";
 		font-size: 14px;
 	    vertical-align: top;
 	    margin-right: 6px;
@@ -1297,7 +1297,7 @@ a:hover, a:focus, a:active {
 
 	&> a:after {
 		content: "\f107";
-		font-family: "FontAwesome";
+		font-family: "Font Awesome 5 Free";
 		padding-left: 5px;
 		right: 0;
 		font-size: 13px;
@@ -1313,7 +1313,7 @@ a:hover, a:focus, a:active {
 .sub-menu .page_item_has_children {
 	&> a:after {
 		content: "\f105";
-		font-family: "FontAwesome";
+		font-family: "Font Awesome 5 Free";
 		float: right;
 	}
 }
@@ -1639,7 +1639,7 @@ a:hover, a:focus, a:active {
 
 	a:before {
 		font-size: 26px;
-		font-family: 'FontAwesome';
+		font-family: 'Font Awesome 5 Brands';
 		padding: 0;
 		display: inline-block;
 		text-align: center;
@@ -1684,7 +1684,7 @@ a:hover, a:focus, a:active {
 		font-size: 0;
 
 		&:before {
-			content: "\f230";
+			content: "\f09a";
 		}
 	}
 
@@ -1745,7 +1745,8 @@ a:hover, a:focus, a:active {
 		}
 	}
 
-	a[href*="codepen.com"] {
+	a[href*="codepen.com"],
+	a[href*="codepen.io"] {
 		font-size: 0;
 
 		&:before {
@@ -1753,7 +1754,8 @@ a:hover, a:focus, a:active {
 		}
 	}
 
-	a[href*="behance.com"] {
+	a[href*="behance.com"],
+	a[href*="behance.net"] {
 		font-size: 0;
 
 		&:before {
@@ -1834,6 +1836,7 @@ a:hover, a:focus, a:active {
 	}
 
 	a[href*="apple.com"],
+	a[href*="apple.news"],
 	a[href*="itunes.apple.com"] {
 		font-size: 0;
 
@@ -1847,6 +1850,7 @@ a:hover, a:focus, a:active {
 
 		&:before {
 			content: "\f0e0";
+			font-family: "Font Awesome 5 Free";
 			text-indent: -1px;
 			font-size: 16px;
 		}
@@ -1876,6 +1880,22 @@ a:hover, a:focus, a:active {
 		&:before {
 			content: "\f09e";
 			text-indent: 1px;
+		}
+	}
+
+	a[href*="weibo.com"] {
+		font-size: 0;
+
+		&:before {
+			content: "\f18a";
+		}
+	}
+
+	a[href*="goodreads.com"] {
+		font-size: 0;
+
+		&:before {
+			content: "\f3a8";
 		}
 	}
 }
@@ -2082,7 +2102,7 @@ div.sharedaddy h3.sd-title:before {
 		font-size: 0;
 
 		&:before {
-			font-family: "FontAwesome";
+			font-family: "Font Awesome 5 Free";
 			font-size: 20px;
 			height: 40px;
 			width: 40px;
@@ -2206,7 +2226,7 @@ div.sharedaddy h3.sd-title:before {
 		line-height: 1.7;
 
 		&:after {
-			font-family: "FontAwesome";
+			font-family: "Font Awesome 5 Free";
 			font-size: 18px;
 		}
 	}
@@ -2696,7 +2716,7 @@ div.sharedaddy h3.sd-title:before {
 
   	&:before {
   		content: "\f0da";
-  		font-family: "FontAwesome";
+  		font-family: "Font Awesome 5 Free";
   		position: absolute;
   		left: -18px;
   		top: 3px;
@@ -2907,13 +2927,13 @@ aside.widget_blog_subscription {
 
 	.nav-previous a:before {
 		content: "\f0a8";
-		font-family: "FontAwesome";
+		font-family: "Font Awesome 5 Free";
 		margin-right: 10px;
 	}
 
 	.nav-next a:after {
 		content: "\f0a9";
-		font-family: "FontAwesome";
+		font-family: "Font Awesome 5 Free";
 		margin-left: 10px;
 	}
 }
@@ -2936,7 +2956,7 @@ aside.widget_blog_subscription {
 
 	&:before {
 		content: "\f27a";
-		font-family: "FontAwesome";
+		font-family: "Font Awesome 5 Free";
 		margin-right: 3px;
 		-webkit-font-smoothing: antialiased;
 	}
@@ -3061,7 +3081,7 @@ img + .comment-info {
 .bypostauthor {
 	.comment-list .avatar:after {
 		content: "\f007";
-		font-family: "FontAwesome";
+		font-family: "Font Awesome 5 Free";
 		font-size: 16px;
 		margin-left: 1rem;
 		position: relative;
@@ -3106,14 +3126,6 @@ img + .comment-info {
 .comment-list .reply {
 	margin-bottom: 0;
 	font-size: 14px;
-
-	a {
-		color: #848a96;
-
-		&:hover {
-			color: $black;
-		}
-	}
 }
 
 .comment-list .avatar {
@@ -3283,7 +3295,7 @@ img + .comment-info {
 
 .comment-awaiting-moderation:before {
 	content: "\f06a";
-	font-family: "FontAwesome";
+	font-family: "Font Awesome 5 Free";
 	margin-right: 10px;
 }
 
@@ -5125,7 +5137,7 @@ div[id^='contact-form'] {
 
 		&:before {
 			content: "\f003";
-			font-family: "FontAwesome";
+			font-family: "Font Awesome 5 Free";
 			margin-right: 10px;
 		}
 	}
@@ -5206,6 +5218,7 @@ div[id^='contact-form'] {
 
 .wp-block-gallery {
 	margin-left: 0;
+	margin-bottom: 1.2em;
 }
 
 .wp-block-image figcaption {
