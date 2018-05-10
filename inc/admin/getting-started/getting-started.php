@@ -21,8 +21,8 @@ function atomic_blocks_theme_admin_scripts() {
 	 * @since 1.0
 	 */
 
-	if ( 'themes.php' != $pagenow ) {
-        return;
+	if( ! isset( $_GET['page'] ) || ( isset( $_GET['page'] ) && 'atomic-blocks' !== $_GET['page'] ) ) {
+		return;
 	}
 
 	// Getting Started javascript
@@ -123,53 +123,122 @@ function atomic_blocks_theme_getting_started_page() {
 
 		<div class="panels">
 			<ul class="inline-list">
-				<li class="current"><a id="theme-help" href="#"><i class="fa fa-check"></i> <?php esc_html_e( 'Theme Help File', 'atomic-blocks' ); ?></a></li>
-				<li><a id="plugin-help" href="#"><i class="fa fa-plug"></i> <?php esc_html_e( 'Plugin Help File', 'atomic-blocks' ); ?></a></li>
-				<li><a id="updates" href="#"><i class="fa fa-refresh"></i> <?php esc_html_e( 'Latest Updates', 'atomic-blocks' ); ?></a></li>
-				<li><a id="themes" href="#"><i class="fa fa-arrow-circle-down"></i> <?php esc_html_e( 'Get More Themes', 'atomic-blocks' ); ?></a></li>
+				<li class="current"><a id="theme-help" href="#"><i class="far fa-question-circle"></i> <?php esc_html_e( 'Theme Help File', 'atomic-blocks' ); ?></a></li>
+				<li><a id="updates" href="#"><i class="fas fa-sync"></i> <?php esc_html_e( 'Latest Updates', 'atomic-blocks' ); ?></a></li>
+				<li><a id="themes" href="#"><i class="far fa-arrow-alt-circle-down"></i> <?php esc_html_e( 'Get More Themes', 'atomic-blocks' ); ?></a></li>
 			</ul>
 
 			<div id="panel" class="panel">
 				<!-- Theme help file panel -->
 				<div id="theme-help" class="panel-left visible">
-					<!-- Grab feed of help file -->
-					<?php
-						$theme_help = get_transient( 'atomic-blocks-theme-help-feed' );
-						if( false === $theme_help ) {
-							$theme_feed = wp_remote_get( 'https://atomicblocks.com/theme-help-file//?atomicblocks_api=post_content' );
-
-							if( ! is_wp_error( $theme_feed ) && 200 === wp_remote_retrieve_response_code( $theme_feed ) ) {
-								$theme_help = json_decode( wp_remote_retrieve_body( $theme_feed ) );
-								set_transient( 'atomic-blocks-theme-help-feed', $theme_help, DAY_IN_SECONDS );
-							} else {
-								$theme_help = __( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' );
-								set_transient( 'atomic-blocks-theme-help-feed', $theme_help, MINUTE_IN_SECONDS * 5 );
-							}
-						}
-
-						echo $theme_help;
-						?>
-				</div>
-
-				<!-- Plugin help file panel -->
-				<div id="plugin-help" class="panel-left">
-					<!-- Grab feed of help file -->
-					<?php
-						$plugin_help = get_transient( 'atomic-blocks-plugin-help-feed' );
-						if( false === $plugin_help ) {
-							$plugin_feed = wp_remote_get( 'https://atomicblocks.com/plugin-help-file//?atomicblocks_api=post_content' );
-
-							if( ! is_wp_error( $plugin_feed ) && 200 === wp_remote_retrieve_response_code( $plugin_feed ) ) {
-								$plugin_help = json_decode( wp_remote_retrieve_body( $plugin_feed ) );
-								set_transient( 'atomic-blocks-plugin-help-feed', $plugin_help, DAY_IN_SECONDS );
-							} else {
-								$plugin_help = __( 'This help file feed seems to be temporarily down. You can always view the help file on the Atomic Blocks site in the meantime.', 'atomic-blocks' );
-								set_transient( 'atomic-blocks-plugin-help-feed', $plugin_help, MINUTE_IN_SECONDS * 5 );
-							}
-						}
-
-						echo $plugin_help;
-						?>
+					<p>The Atomic Blocks theme and plugin is developed and maintained by <a href="https://arraythemes.com/">Array Themes</a>, creators of finely-crafted WordPress themes. We built Atomic Blocks to learn the new block editor and share what we’ve learned along the way. This help file will help you become acquainted with the new editor and our new plugin, Atomic Blocks.</p>
+					<ul id="top" class="toc">
+						<li><a href="#gutenberg">What is Gutenberg?</a></li>
+						<li><a href="#what-are-blocks">What are blocks?</a></li>
+						<li><a href="#how-to-use">How to use the Atomic Blocks theme</a></li>
+						<li><a href="#theme-options">Theme Options</a></li>
+						<li><a href="#menus">Menus</a></li>
+						<li><a href="#widgets">Widgets</a></li>
+						<li><a href="#media-alignment">Media Alignment Options</a></li>
+						<li><a href="#updating">Updating the theme</a></li>
+						<li><a href="#more-about-gutenberg">Learn more about Gutenberg</a></li>
+						<li><a href="#photos">Finding Good Photos</a></li>
+					</ul>
+					<hr>
+					<h2 id="gutenberg">What is Gutenberg?</h2>
+					<p><img class="alignnone size-full wp-image-147" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-gutenberg.jpg' ) ?>" alt="gutenberg block editor" width="1400" height="728"></p>
+					<p>The new <a href="https://wordpress.org/gutenberg/">WordPress block editor</a>, currently referred to as Gutenberg, is a new way to build with WordPress. Instead of relying on page building plugins, shortcodes, and the like, WordPress is bringing block-based editing to the core editor. The Gutenberg editor uses blocks to create all types of content, replacing a half-dozen inconsistent ways of customizing WordPress, bringing it in line with modern coding standards, and aligning with open web initiatives.</p>
+					<p>Please check out our <a href="https://atomicblocks.com/a-beginners-guide-to-gutenberg/">Beginners Guide to Gutenberg</a> article to become more familiar with the new Gutenberg block editor.</p>
+					<hr>
+					<h2 id="what-are-blocks">What are blocks?</h2>
+					<p>When we refer to “blocks” or “Gutenberg blocks” we are talking anything that can be inserted into the new editor to create content. Basically, anything you insert into the new editor will be in the form of a block. The new editor comes with a handful of default blocks such as paragraph, image, gallery, and more, to help you create standard posts and pages. Developers will also be able to provide more advanced blocks to help you create even more dynamic posts and pages.</p>
+					<div id="attachment_84" style="width: 1410px" class="wp-caption alignnone"><img class="size-full wp-image-84" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-block-editor.jpg' ) ?>" alt="gutenberg block editor" width="1400" height="728"><p class="wp-caption-text">A look at the new block-based editor.</p></div>
+					<p>The Atomic Blocks plugin provides you with a bunch of awesome content blocks that you can use to start building your site. Once the plugin is activated, the blocks will be activated and ready to use on your posts and pages. Atomic Blocks currently includes the following blocks:</p>
+					<ul>
+						<li>Testimonial Block</li>
+						<li>Inline Notice Block</li>
+						<li>Accordion Block</li>
+						<li>Share Icons Block</li>
+						<li>Call-To-Action Block</li>
+						<li>Customizable Button Block</li>
+						<li>Spacer &amp; Divider Block</li>
+						<li>Author Profile Block</li>
+						<li>Drop Cap Block</li>
+					</ul>
+					<h2 id="how-to-use">How to use the Atomic Blocks theme</h2>
+					<p>The Atomic Blocks WordPress theme can be used without installing Gutenberg or the Atomic Blocks plugin, but we encourage you to install both of the plugins to get the most out of the theme. The theme was built with the new editor in mind and is most powerful with both Gutenberg and Atomic Blocks installed.</p>
+					<p><strong>Install the Gutenberg plugin</strong></p>
+					<p><img class="alignnone size-full wp-image-149" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/gberg-banner-1544x500.jpg' ) ?>" alt="install gutenberg" width="1544" height="500"></p>
+					<p>Before you can use the Atomic Blocks plugin, you’ll need to install the Gutenberg plugin. The plugin is available via the WordPress.org repository, so you can install it in your WordPress admin by going to <em>Plugins → Add New</em> and searching for “Gutenberg”. You can also <a href="https://wordpress.org/plugins/gutenberg/">download it directly</a> from the repository and install it manually. Eventually, the Gutenberg plugin will not be required once the new editor is merged into WordPress core.</p>
+					<p>Once Gutenberg is installed and activated, you’ll notice that you have a new Gutenberg admin menu item, which takes you to a nice little Gutenberg demo. You’ll also notice that your edit post and edit page views have a new appearance. There are lots of articles about the new editor and how to work with it. Check out the <a href="https://atomicblocks.com/blog">Atomic Blocks blog</a> and <a href="http://gutenberg.news">Gutenberg News</a> to find the best articles about the new block editor.</p>
+					<p><strong>Install the Atomic Blocks plugin</strong></p>
+					<p><img class="alignnone size-full wp-image-150" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/banner-1544x500.jpg' ) ?>" alt="install atomic blocks" width="1544" height="500"></p>
+					<p>Once you’ve installed Gutenberg, you can install Atomic Blocks in the same way. You can either go to <em>Plugins → Add New</em> and search for “Atomic Blocks” or download it directly from our <a href="https://atomicblocks.com/">website</a> to install it manually.</p>
+					<p>Once you’ve installed and activated Atomic Blocks, you’ll be redirected to the Atomic Blocks Getting Started page which provides you with all kinds of info about the plugin, block usage, and more. You can also read the Atomic Blocks <a href="https://atomicblocks.com/plugin-help-file">help file here</a>.</p>
+					<hr>
+					<h2 id="theme-options">Theme Options</h2>
+					<p><img class="alignnone size-full wp-image-155" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-options.jpg' ) ?>" alt="atomic blocks theme options" width="1400" height="758"></p>
+					<p>The Atomic Blocks theme comes with several Customizer settings that you can use to customize your site to your style. To access the theme options, click <em>Appearance → Customize → Theme Options</em> in your WordPress admin.</p>
+					<p><strong>Theme Options</strong></p>
+					<ul>
+						<li><strong>Content Width</strong>: This setting will let you change the width of the content area in your posts and pages. Images and text will be constrained to this width unless you are using wide image styles.</li>
+						<li><strong>Font Style</strong>: Choose between a sans-serif font style (Muli and Nunito Sans) or a serif font style (Frank Ruhl Libre). This will change the font displayed on the front end as well as in your post editor.</li>
+						<li><strong>Body Font Size</strong>: Choose the font size you would like displayed in the main content area of your posts and pages.</li>
+						<li><strong>Title Font Size</strong>: Choose the font size you would like displayed in the titles of your posts and pages.</li>
+					</ul>
+					<p><strong>Site Identity</strong></p>
+					<ul>
+						<li><strong>Logo</strong>: Upload your own logo image in place of the site title and tagline. You can also choose to hide or show your site tagline.</li>
+						<li><strong>Site Icon</strong>: Upload an icon to be displayed in the browser tab of your site.</li>
+					</ul>
+					<p><strong>Colors</strong></p>
+					<ul>
+						<li><strong>Accent Color</strong>: Change the accent color you see throughout the theme such as links, buttons, and more.</li>
+						<li><strong>Background Color</strong>: Change the background color of your entire site. Please note that changing this could require you to change the colors of fonts and other elements that may conflict with your new background color.</li>
+					</ul>
+					<hr>
+					<h2 id="menus">Menus</h2>
+					<p>This theme has two different menus that can be used throughout the theme.</p>
+					<ul>
+						<li><strong>Primary Menu</strong> – This is the main menu found in the header of your site.</li>
+						<li><strong>Social Icon Menu</strong> This is the social media icon menu found in the footer of your site. See the instructions below to set up the Social Icon Menu.
+						<ul>
+							<li>To add a social icon menu, go to <em>Appearance → Menus</em>.</li>
+							<li>On the left side of the Menu page, click the <strong>Links</strong> menu item to add to your social links.</li>
+							<li><a href="http://cl.ly/image/1m2j0c0O1S1u">Add the URL</a> for each of your social profiles and a label for the link. The theme will detect which site you are linking to and display a matching graphic. Icons are supported for the following sites: Twitter, Facebook, Google, Instagram, YouTube, Vimeo, Dribbble, Github, Flickr, Codepen, Behance, Dropbox, Pinterest, Reddit, Soundcloud, Spotify, WordPress, LinkedIn, Stack Overflow, Slideshare, Medium, Apple, 500px, RSS and Email. If there is a popular service that isn’t supported and has an icon on <a href="http://fontawesome.io/icons/#brand">FontAwesome</a>, let us know and we’ll add it to the theme!</li>
+							<li>Now that you have the menu created, you need to assign it to the Social Icon Menu in the <a href="http://cl.ly/fclS">Theme Locations section</a></li>
+							<li>Save the menu when finished.</li>
+						</ul>
+						</li>
+					</ul>
+					<hr>
+					<h2 id="widgets">Footer Widget Area</h2>
+					<p><img class="alignnone size-full wp-image-153" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-footer.jpg' ) ?>" alt="atomic blocks footer widgets" width="1400" height="466" srcset="https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer.jpg 1400w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-300x100.jpg 300w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-768x256.jpg 768w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-1024x341.jpg 1024w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-800x266.jpg 800w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-1200x399.jpg 1200w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-600x200.jpg 600w" sizes="(max-width: 1400px) 100vw, 1400px"></p>
+					<p>The Atomic Blocks theme comes with a footer widget area that you can use to customize your footer. There are three widget columns that you can use to add widgets. The footer widget columns have a dynamic width, meaning if you only choose to use two columns, the column width will adjust to display the columns evenly in the footer.</p>
+					<hr>
+					<h2 id="media-alignment">Media Alignment Options</h2>
+					<p>One of the aims of the new block editor is to let you build outside of the box, so to speak. One way to do that is by adding wide image styles to your media such as images, galleries and videos. The Atomic Blocks theme provides wide and full-width media styles for you to use. Please note that you will need to have the Gutenberg plugin installed to take advantage of these new styles.</p>
+					<div id="attachment_134" style="width: 1410px" class="wp-caption alignnone"><img class="wp-image-134 size-full" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-toolbar.jpg' ) ?>" alt="atomic blocks alignment" width="1400" height="819"><p class="wp-caption-text">Alignment settings.</p></div>
+					<p>After you’ve added a photo, gallery or video to your post in the new block editor, you’ll get a toolbar above the content, as seen in the screenshot above. The toolbar have several alignment options including left, center, right, wide, and full width. Using these, you can determine the width and alignment of your media.</p>
+					<div id="attachment_136" style="width: 1410px" class="wp-caption alignnone"><img class="wp-image-136 size-full" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-wide-style.jpg' ) ?>" alt="atomic blocks wide styles" width="1400" height="728"><p class="wp-caption-text">Wide image alignment.</p></div>
+					<p>Clicking wide alignment will make the content go almost the full width of the page, but it will not hit the edge of the page. Instead, the media will have a padding on the left and right side of the page.</p>
+					<div id="attachment_137" style="width: 1410px" class="wp-caption alignnone"><img class="wp-image-137 size-full" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-full-screen.jpg' ) ?>" alt="atomic blocks full screen style" width="1400" height="728"><p class="wp-caption-text">Full width image alignment.</p></div>
+					<p>Clicking full width alignment will take your media to the very edge of the page, giving you an edge-to-edge, full-screen display.</p>
+					<p>Eventually, wide and full width alignment will be available for more than media, letting you create sections that expand to the full width of the page to accomodate more dynamic layouts.</p>
+					<hr>
+					<h2 id="more-about-gutenberg">Learn more about Gutenberg</h2>
+					<p>If you’d like to learn more about Gutenberg, please visit our <a href="https://atomicblocks.com/a-beginners-guide-to-gutenberg/">Beginner’s Guide to Gutenberg</a> and <a href="https://atomicblocks.com/blog/">visit our blog</a> which will have regular tutorials and resources. We also publish a blog called <a href="https://gutenberg.news">Gutenberg News</a>, which is a curated collection of Gutenberg tutorials &amp; resources!</p>
+					<hr>
+					<h2 id="photos">Finding good photos</h2>
+					<p>Finding good photos for your site can be tough and expensive, but we’ve got a few sites that offer really nice photography for free. Feel free to browse these sites and find some photos that highlight your content.</p>
+					<ul>
+						<li><a href="http://unsplash.com">Unsplash</a></li>
+						<li><a href="https://pixabay.com/">Pixabay</a></li>
+						<li><a href="http://bossfight.co/">Boss Fight</a></li>
+						<li><a href="http://jaymantri.com/">Jay Mantri</a></li>
+						<li><a href="http://startupstockphotos.com/">Startup Stock Photos</a></li>
+						<li><a href="https://github.com/neutraltone/awesome-stock-resources">Massive Github repo of free resources</a></li>
+					</ul>
 				</div>
 
 				<!-- Updates panel -->
@@ -189,25 +258,180 @@ function atomic_blocks_theme_getting_started_page() {
 					</div>
 
 					<div class="theme-list">
-					<?php
-					$themes_link = esc_url( 'https://arraythemes.com/wordpress-themes' );
-					$themes_list = get_transient( 'arraythemes-theme-feed' );
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/atomic-blocks-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/array-ab-theme.jpg' ) ?>" alt="Atomic Blocks WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/atomic-blocks-wordpress-theme/">Atomic Blocks WordPress Theme</a></h3>
+							<p>A free Gutenberg theme that works seamlessly with the new WordPress editor and the Atomic Blocks plugin by Array Themes.</p>
+						</div>
+							
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/latest-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/latest-featured-image.jpg' ) ?>" alt="Latest WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/latest-wordpress-theme/">Latest WordPress Theme</a></h3>
+							<p>Launch a beautiful eCommerce shop, an impressive magazine, or a food or travel blog with Latest.</p>
+						</div>
+							
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/meteor-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/meteor-desktop.jpg' ) ?>" alt="Meteor WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/meteor-wordpress-theme/">Meteor WordPress Theme</a></h3>
+							<p>Launch a stunning portfolio and resume site to showcase your photos, designs, videos, services and more.</p>
+						</div>
+							
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/atomic-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/atomic-home.jpg' ) ?>" alt="Atomic WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/atomic-wordpress-theme/">Atomic WordPress Theme</a></h3>
+							<p>Build a bold business or portfolio site with beautiful templates for teams, services, testimonials, portfolio, blog posts and more.</p>
+						</div>
 
-					if( false === $themes_list ) {
-						$themes_feed = wp_remote_get( 'https://arraythemes.com/feed/themes' );
-
-						if ( ! is_wp_error( $themes_feed ) && 200 === wp_remote_retrieve_response_code( $themes_feed ) ) {
-							$themes_list = wp_remote_retrieve_body( $themes_feed );
-							set_transient( 'arraythemes-theme-feed', $themes_list, DAY_IN_SECONDS );
-						} else {
-							$themes_list = sprintf( __( 'This theme feed seems to be temporarily down. Please check back later, or visit our <a href="%s">Themes page on Array</a>.', 'atomic-blocks' ), esc_url( $themes_link ) );
-							set_transient( 'arraythemes-theme-feed', $themes_list, MINUTE_IN_SECONDS * 5 );
-						}
-					}
-
-					echo $themes_list; ?>
-
-					</div><!-- .theme-list -->
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/lenscap-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/lenscap-full-home.jpg' ) ?>" alt="Lenscap WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/lenscap-wordpress-theme/">Lenscap WordPress Theme</a></h3>
+							<p>A bold, magazine-style WordPress theme for creating engaging, media-rich content that integrates with the number one eCommerce plugin on the planet, WooCommerce.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/baseline-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/baseline-home-1.jpg' ) ?>" alt="Baseline WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/baseline-wordpress-theme/">Baseline WordPress Theme</a></h3>
+							<p>A beautiful, magazine-style theme with multiple layouts, featured content areas and simple customization options.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/paperback-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/paperback-full-home.jpg' ) ?>" alt="Paperback WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/paperback-wordpress-theme/">Paperback WordPress Theme</a></h3>
+							<p>A magazine theme that empowers you to quickly and easily create beautiful, immersive content.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/candid-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/candid-home.jpg' ) ?>" alt="Candid WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/candid-wordpress-theme/">Candid WordPress Theme</a></h3><p>Quickly and easily create beautiful content-focused website with images, galleries, video, audio and more.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/checkout-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/checkout-screenshot.jpg' ) ?>" alt="Checkout WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/checkout-wordpress-theme/">Checkout WordPress Theme</a></h3>
+							<p>With Checkout and Easy Digital Downloads, you can turn your site into a handsome digital store or marketplace.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/camera-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/camera.jpg' ) ?>" alt="Camera WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/camera-wordpress-theme/">Camera WordPress Theme</a></h3>
+							<p>Create a beautifully minimal and distraction-free photography series or photo blog with Camera.</p>
+						</div>
+					
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/designer-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/designer.jpg' ) ?>" alt="Designer WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/designer-wordpress-theme/">Designer WordPress Theme</a></h3>
+							<p>Designer enables you to quickly and easily showcase your latest design work, sketches, audio, photography and more.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/pocket-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/pocket.jpg' ) ?>" alt="Pocket WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/pocket-wordpress-theme/">Pocket WordPress Theme</a></h3>
+							<p>Minimalist photoblogging at its finest. Highlight your writing with beautiful, expressive featured images.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/editor-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/editor.jpg' ) ?>" alt="Editor WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/editor-wordpress-theme/">Editor WordPress Theme</a></h3>
+							<p>Editor is a typography-driven theme that puts bold and beautiful publishing right at your fingertips.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/north-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/north.jpg' ) ?>" alt="North WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/north-wordpress-theme/">North WordPress Theme</a></h3>
+							<p>A contemporary, clean and bold canvas for showing off your latest projects, photographs or video reels.</p>
+						</div>
+							
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/publisher-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/publisher.jpg' ) ?>" alt="Publisher WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/publisher-wordpress-theme/">Publisher WordPress Theme</a></h3>
+							<p>Featuring a responsive, masonry-style layout, Publisher is an eclectic scrapbook of photos, videos, audio and more.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/ampersand-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ampersand1.jpg' ) ?>" alt="Ampersand WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/ampersand-wordpress-theme/">Ampersand WordPress Theme</a></h3>
+							<p>A portfolio and business theme with an emphasis on beautiful, legible typography and a graceful mobile experience.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/verb-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/verb.jpg' ) ?>" alt="Verb WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/verb-wordpress-theme/">Verb WordPress Theme</a></h3>
+							<p>Quickly and easily showcase your latest design work, sketches, audio, photography and more.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/typable-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/typable.jpg' ) ?>" alt="Typable WordPress Theme">
+							</a></div><h3><a href="https://arraythemes.com/themes/typable-wordpress-theme/">Typable WordPress Theme</a>
+							</h3><p>A lean, mean blogging machine with snappy AJAX post loading, a dynamic header and abundant white space.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/medium-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/medium-660x7031.jpg' ) ?>" alt="Medium WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/medium-wordpress-theme/">Medium WordPress Theme</a></h3>
+							<p>Use Medium as a personal blog or a minimal portfolio to share your latest articles, photo galleries and videos.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/author-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/author.jpg' ) ?>" alt="Author WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/author-wordpress-theme/">Author WordPress Theme</a></h3>
+							<p>A blank canvas for your thoughts. Author features clean, readable type and abundant white space.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/fixed-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/fixed.jpg' ) ?>" alt="Fixed WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/fixed-wordpress-theme/">Fixed WordPress Theme</a></h3>
+							<p>Use Fixed as a personal blog or a minimal portfolio to share your latest articles, photo galleries and videos.</p>
+						</div>
+						
+						<div class="array-theme">
+							<div class="theme-image">
+								<a class="theme-link" href="https://arraythemes.com/themes/transmit-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/transmit.jpg' ) ?>" alt="Transmit WordPress Theme"></a>
+							</div>
+							<h3><a href="https://arraythemes.com/themes/transmit-wordpress-theme/">Transmit WordPress Theme</a></h3>
+							<p>A fully-featured landing page theme with MailChimp and Campaign Monitor subscription support.</p>
+						</div>
+					</div>
 				</div><!-- .panel-left updates -->
 
 				<div class="panel-right">

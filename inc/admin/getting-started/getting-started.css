@@ -123,6 +123,10 @@
 	padding-bottom: 0;
 }
 
+.ab-getting-started .panel-left ul ul {
+	margin-bottom: 0;
+}
+
 .ab-getting-started .panel-left .toc li ul {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -481,7 +485,7 @@
 
 .ab-getting-started .array-theme {
 	display: inline-block;
-	width: 30%;
+	width: 29.6%;
 	margin-right: 5%;
 	margin-bottom: 3%;
 	vertical-align: top;
