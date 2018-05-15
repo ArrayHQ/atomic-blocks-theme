@@ -682,6 +682,7 @@
 
 .ab-getting-started h2 {
 	font-size: 30px;
+	line-height: 1.2;
 }
 
 .ab-getting-started p.wp-caption-text {
@@ -697,7 +698,257 @@
 .ab-theme-image {
 	max-height: 290px;
 	overflow: hidden;
-	border: solid 1px #ddd;
-	border-radius: 5px;
 	display: block;
+}
+
+.ab-block-features {
+	display: inline-block;
+	width: 100%;
+}
+
+#atomic-blocks-panel {
+	width: 100%;
+}
+
+.ab-titles {
+
+}
+
+.ab-titles h2, 
+.ab-titles p {
+	margin: 0 auto 5% auto;
+	max-width: 820px;
+}
+
+#atomic-blocks-panel h2 {
+	line-height: 1.2;
+    font-weight: normal;
+	font-size: 40px;
+	margin-bottom: 5%;
+}
+
+.ab-titles p {}
+
+.ab-titles .button-primary {
+	font-size: 22px;
+    padding: 15px 25px;
+    height: auto;
+    border-radius: 100px;
+}
+
+.ab-block-feature-wrap {
+	background: #f5f4f6;
+	padding: 8% 5% 2% 5%;
+	margin-bottom: 6%;
+	text-align: center;
+}
+
+.ab-block-feature-wrap h2 {
+	text-align: center;
+	margin-bottom: 0 !important;
+}
+
+.ab-block-feature-wrap p {
+	margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.ab-block-feature-wrap i {
+	color: #c5c0da;
+	font-size: 20px;
+}
+
+.ab-block-split-left,
+.ab-block-split-right {
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+
+.ab-block-split-left {
+	padding-right: 4%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+.ab-block-split-right {
+	background: #188ed5 url("geo.png");
+	background-size: 1400px;
+	padding: 5% 5% 0 5%;
+	float: right;
+}
+
+.ab-block-theme img {
+	border: none !important;
+	display: block;
+}
+
+#atomic-blocks-panel.visible + #themes + .panel-right { display: none; }
+
+.ab-block-feature {
+	display: inline-block;
+	background: #fff;
+	padding: 4% 3% 3% 3%;
+	box-shadow: 0 2px rgba(38, 30, 65, 0.1);
+	border-radius: 5px;
+	width: 30.6%;
+	vertical-align: top;
+	float: left;
+	margin-right: 4%;
+	margin-bottom: 4%;
+	transition: .3s ease;
+	-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+}
+
+@media (max-width: 600px) {
+	.ab-block-feature {
+		padding: 8% 4% 3% 4%;
+	}
+}
+
+.ab-block-feature:nth-child(3n+1) {
+	clear: both;
+}
+
+@media only screen and (min-width: 600px) {
+	.ab-block-feature:nth-child(3n+3) {
+		margin-right: 0;
+	}
+
+	.ab-block-feature:nth-child(3n+1):nth-last-child(-n+3), 
+	.ab-block-feature:nth-child(3n+1):nth-last-child(-n+3) ~ .post {
+		margin-bottom: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.ab-block-feature {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 8%;
+	}
+	.ab-block-feature:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.ab-block-feature .ab-block-feature-text,
+.ab-block-feature .ab-block-feature-icon {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+}
+
+.ab-block-feature .ab-block-feature-text {
+	text-align: center;
+}
+
+.ab-block-feature .ab-block-feature-text h3 {
+	font-weight: 700;
+	margin-bottom: 15px;
+	padding-right: 0;
+}
+
+@media (min-width: 1000px) {
+	.ab-block-feature .ab-block-feature-text h3 {
+		font-size: 22px;
+	}
+}
+
+.ab-block-feature .ab-block-feature-text p {
+	font-size: 16px;
+}
+
+.ab-block-feature .ab-block-feature-icon {
+	text-align: center;
+	margin-bottom: 6%;
+}
+
+.ab-block-feature .ab-block-feature-icon img {
+	max-height: 110px;
+	border: none;
+}
+
+.ab-block-footer {
+	margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.ab-block-footer-column {
+	width: 33%;
+    display: inline-block;
+    text-align: center;
+	border-right: solid 3px #eceaee;
+	padding: 0 3%;
+}
+
+.ab-block-footer-column:last-child {
+	border-right: none;
+}
+
+.ab-block-footer-column i {
+	color: #5d45c9;
+	font-size: 40px;
+	margin-bottom: 40px;
+}
+
+.ab-getting-started .ab-block-footer-column h3 {
+	padding-right: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.ab-getting-started .ab-block-footer-column p {
+	font-size: 17px;
+	margin-bottom: 1.5em;
+}
+
+.ab-block-footer .button-primary {
+	font-size: 18px;
+	border-radius: 100px;
+	padding: 10px 15px;
+    height: auto;
+    font-size: 16px;
+}
+
+.ab-block-footer .button-primary:active {
+	vertical-align: initial !important;
+	border-top-width: 1px !important;
+	color: #fff;
+	background: #5d45c9;
+}
+
+.visit-title {
+	text-align: center;
+}
+
+.ab-footer {
+	text-align: center;
+	margin-top: 8%;
+}
+
+.ab-getting-started .ab-footer p {
+
+}
+
+.ab-footer-links a {
+	margin: 0 8px;
+	position: relative;
+}
+
+.ab-footer a:hover {
+	border-bottom: dotted 1px;
+	color: #24282d;
+}
+
+.ab-footer-links a:after {
+	content: "\22C5";
+	position: absolute;
+	right: -14px;
+}
+
+.ab-footer-links a:last-child:after {
+	display: none;
 }
