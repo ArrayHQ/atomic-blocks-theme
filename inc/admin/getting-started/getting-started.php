@@ -26,7 +26,8 @@ function atomic_blocks_theme_admin_scripts() {
 	}
 
 	// Getting Started javascript
-	wp_enqueue_script( 'atomic-blocks-getting-started', get_template_directory_uri() . '/inc/admin/getting-started/getting-started.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'atomic-blocks-getting-started', get_template_directory_uri() . '/inc/admin/getting-started/js/getting-started.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'atomic-blocks-matchHeight', get_template_directory_uri() . '/inc/admin/getting-started/js/jquery.matchHeight.js', array( 'jquery' ), '0.5.2', true );
 
 	// Getting Started styles
 	wp_register_style( 'atomic-blocks-getting-started', get_template_directory_uri() . '/inc/admin/getting-started/getting-started.css', false, '1.0.0' );
@@ -57,6 +58,29 @@ function atomic_blocks_theme_getting_started_menu() {
 
 }
 add_action( 'admin_menu', 'atomic_blocks_theme_getting_started_menu' );
+
+
+/**
+ * Add a notice for the help file
+ *
+ * since 1.0.6
+ */
+function atomic_blocks_author_admin_notice() {
+    
+    if( ! isset( $_GET['activated'] ) ) {
+        return;
+    }
+
+    $atomic_blocks_message = sprintf(
+        '<p>%2$s <strong><a href="%1$s">%3$s</a></strong></p>',
+        esc_url( admin_url( "themes.php?page=atomic-blocks" ) ),
+        esc_html__( 'Atomic Blocks Activated! Get started by visiting the help file.', 'atomic-blocks' ),
+        esc_html__( 'View Help File &rarr;', 'atomic-blocks' )
+    );
+
+    echo '<div class="notice notice-info is-dismissible">' . $atomic_blocks_message . '</div>';
+}
+add_action( 'load-themes.php', 'atomic_blocks_author_admin_notice' );
 
 
 /**
@@ -103,14 +127,119 @@ function atomic_blocks_theme_getting_started_page() {
 
 		<div class="panels">
 			<ul class="inline-list">
-				<li class="current"><a id="theme-help" href="#"><i class="far fa-question-circle"></i> <?php esc_html_e( 'Theme Help File', 'atomic-blocks' ); ?></a></li>
-				<li><a id="atomic-blocks" href="#"><i class="fas fa-plug"></i> <?php esc_html_e( 'Atomic Blocks Plugin', 'atomic-blocks' ); ?></a></li>
-				<li><a id="themes" href="#"><i class="far fa-arrow-alt-circle-down"></i> <?php esc_html_e( 'Get More Themes', 'atomic-blocks' ); ?></a></li>
+				<li class="current"><a id="atomic-blocks" href="#"><i class="fas fa-plug"></i> <?php esc_html_e( 'Atomic Blocks Plugin', 'atomic-blocks' ); ?></a></li>	
+				<li><a id="theme-help" href="#"><i class="far fa-question-circle"></i> <?php esc_html_e( 'Theme Help File', 'atomic-blocks' ); ?></a></li>
+				<li><a id="themes" href="#"><i class="fas fa-desktop"></i> <?php esc_html_e( 'Get More Themes', 'atomic-blocks' ); ?></a></li>
 			</ul>
 
 			<div id="panel" class="panel">
+				<!-- Atomic Blocks panel -->
+				<div id="atomic-blocks-panel" class="panel-left visible">
+					<div class="ab-block-split clearfix">
+						<div class="ab-block-split-left">
+							<div class="ab-titles">
+								<h2><?php _e( 'Download the free Atomic Blocks plugin and start building websites with Gutenberg today!', 'atomic-blocks' ); ?></h2>
+								<p><?php _e( 'Atomic Blocks is a free collection of beautiful page-building blocks for the new WordPress Gutenberg editor. Add sharing icons, buttons, accordions, call-to-actions, and more to your site!', 'atomic-blocks' ); ?></p>
+								
+								<?php if( ! array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) ) { ?>
+									<a class="button-primary" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks', 'atomic-blocks' ); ?> &rarr;</a>
+								<?php } else if ( array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) && ! is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) { ?>
+									<a class="button-primary" href="<?php echo esc_url( admin_url( "plugins.php" ) ); ?>"><?php _e( 'Activate Atomic Blocks', 'atomic-blocks' ); ?></a>
+								<?php } else { ?>
+									<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
+								<?php } ?>
+							</div>
+						</div>
+						<div class="ab-block-split-right">
+							<div class="ab-block-theme">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/ab-theme-home.jpg' ) ?>" alt="<?php _e( 'Atomic Blocks Theme', 'atomic-blocks' ); ?>" />
+							</div>
+						</div>
+					</div>
+
+					<div class="ab-block-feature-wrap">
+						<i class="fas fa-plug"></i>
+						<h2><?php _e( 'Available Atomic Blocks', 'atomic-blocks' ); ?></h2>
+						<p><?php _e( 'The following blocks are available in Atomic Blocks. More blocks are on the way so stay tuned!', 'atomic-blocks' ); ?></p>
+
+						<div class="ab-block-features">
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc41.svg' ) ?>" alt="<?php _e( 'Call To Action Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Call-To-Action Block', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add an eye-catching, full-width section with a big title, paragraph text, and a customizable button.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc4.svg' ) ?>" alt="<?php _e( 'Testimonials Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Testimonial Block', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add a customer or client testimonial to your site with an avatar, text, citation and more.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc184.svg' ) ?>" alt="<?php _e( 'Inline Notices Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Inline Notice Block', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add a colorful notice or message to your site with text, a title and a dismiss icon.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc50.svg' ) ?>" alt="<?php _e( 'Sharing Icons Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Sharing Icons Block', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add social sharing icons to your page with size, shape, color and style options.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc94-f.svg' ) ?>" alt="<?php _e( 'Author Profile Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Author Profile Block', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add a user profile box to your site with a title, bio info, an avatar and social media links.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc115.svg' ) ?>" alt="<?php _e( 'Accordion Toggle', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Accordion Block', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add an accordion text toggle with a title and descriptive text. Includes font size and toggle options.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc45.svg' ) ?>" alt="<?php _e( 'Customizable Button Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Customizable Button', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add a fancy stylized button to your post or page with size, shape, target, and color options.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc38.svg' ) ?>" alt="<?php _e( 'Drop Cap Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Drop Cap Block', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add a stylized drop cap to the beginning of your paragraph. Choose from three different styles.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+
+							<div class="ab-block-feature">
+								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc402.svg' ) ?>" alt="<?php _e( 'Spacer and Divider Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="ab-block-feature-text">
+									<h3><?php _e( 'Spacer & Divider', 'atomic-blocks' ); ?></h3>
+									<p><?php _e( 'Add an adjustable spacer between your blocks with an optional divider with styling options.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+						</div><!-- .ab-block-features -->
+					</div><!-- .ab-block-feature-wrap -->
+				</div><!-- .panel-left -->
+
 				<!-- Theme help file panel -->
-				<div id="theme-help" class="panel-left visible">
+				<div id="theme-help" class="panel-left">
 					<p>The Atomic Blocks theme and plugin is developed and maintained by <a href="https://arraythemes.com/">Array Themes</a>, creators of finely-crafted WordPress themes. We built Atomic Blocks to learn the new block editor and share what we’ve learned along the way. This help file will help you become acquainted with the new editor and our new plugin, Atomic Blocks.</p>
 					<ul id="top" class="toc">
 						<li><a href="#gutenberg">What is Gutenberg?</a></li>
@@ -221,335 +350,250 @@ function atomic_blocks_theme_getting_started_page() {
 					</ul>
 				</div>
 
-				<!-- Atomic Blocks panel -->
-				<div id="atomic-blocks-panel" class="panel-left">
+				<!-- More themes -->
+				<div id="themes" class="panel-left">
 					<div class="ab-block-split clearfix">
 						<div class="ab-block-split-left">
 							<div class="ab-titles">
-								<h2><?php _e( 'Download the free Atomic Blocks plugin and start building websites with Gutenberg today!', 'atomic-blocks' ); ?></h2>
-								<p><?php _e( 'Atomic Blocks is a free collection of beautiful page-building blocks for the new WordPress Gutenberg editor. Add sharing icons, buttons, accordions, call-to-actions, and more to your site!', 'atomic-blocks' ); ?></p>
-								
-								<?php if( ! array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) ) { ?>
-									<a class="button-primary" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks now', 'atomic-blocks' ); ?> &rarr;</a>
-								<?php } else if ( array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) && ! is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) { ?>
-									<?php //activate_plugin( 'atomic-blocks/atomicblocks.php' ); ?>
-									<a class="button-primary" href="#"><?php _e( 'Activate Atomic Blocks', 'atomic-blocks' ); ?></a>
-								<?php } else { ?>
-									<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
-								<?php } ?>
+								<h2><?php _e( 'We also create pixel-perfect WordPress themes for creative professionals.', 'atomic-blocks' ); ?></h2>
+								<p><?php _e( 'Launch your website in minutes with one of our pixel-perfect themes. No bloat, no headaches, just really good websites and speedy support when you need it.', 'atomic-blocks' ); ?></p>
+								<a class="button-primary" href="https://arraythemes.com/wordpress-themes"><?php _e( 'View Theme Collection &rarr;', 'atomic-blocks' ); ?></a>
 							</div>
 						</div>
 						<div class="ab-block-split-right">
 							<div class="ab-block-theme">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/ab-theme-home.jpg' ) ?>" alt="<?php _e( 'Atomic Blocks Theme', 'atomic-blocks' ); ?>" />
+								<a href="https://arraythemes.com/wordpress-themes"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/latest-featured-image.jpg' ) ?>" alt="<?php _e( 'Array Themes', 'atomic-blocks' ); ?>" /></a>	
 							</div>
 						</div>
 					</div>
 
 					<div class="ab-block-feature-wrap">
-						<i class="far fa-edit"></i>
-						<h2><?php _e( 'Available Atomic Blocks', 'atomic-blocks' ); ?></h2>
-						<p><?php _e( 'The following blocks are available in Atomic Blocks. More blocks are on the way so stay tuned!', 'atomic-blocks' ); ?></p>
+						<i class="fas fa-desktop"></i>
+						<h2><?php _e( 'More WordPress themes by Array', 'atomic-blocks' ); ?></h2>
+						<p><?php _e( 'Instantly download the best-designed WordPress theme collection on the web for one low price!', 'atomic-blocks' ); ?></p>
 
 						<div class="ab-block-features">
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc41.svg' ) ?>" alt="<?php _e( 'Call To Action Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/atomic-blocks-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/array-ab-theme.jpg' ) ?>" alt="<?php _e( 'Atomic Blocks WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Call-To-Action Block', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add an eye-catching, full-width section with a big title, paragraph text, and a customizable button.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/atomic-blocks-wordpress-theme/"><?php _e( 'Atomic Blocks WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A free Gutenberg theme that works seamlessly with the new WordPress editor and the Atomic Blocks plugin by Array Themes.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+								
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/latest-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/latest-featured-image.jpg' ) ?>" alt="<?php _e( 'Latest WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/latest-wordpress-theme/"><?php _e( 'Latest WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Launch a beautiful eCommerce shop, an impressive magazine, or a food or travel blog with Latest.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+								
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/meteor-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/meteor-desktop.jpg' ) ?>" alt="<?php _e( 'Meteor WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/meteor-wordpress-theme/"><?php _e( 'Meteor WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Launch a stunning portfolio and resume site to showcase your photos, designs, videos, services and more.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+								
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/atomic-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/atomic-home.jpg' ) ?>" alt="<?php _e( 'Atomic WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/atomic-wordpress-theme/"><?php _e( 'Atomic WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Build a bold business or portfolio site with beautiful templates for teams, services, testimonials, portfolio, blog posts and more.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
 
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc4.svg' ) ?>" alt="<?php _e( 'Testimonials Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/lenscap-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/lenscap-full-home.jpg' ) ?>" alt="<?php _e( 'Lenscap WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Testimonial Block', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add a customer or client testimonial to your site with an avatar, text, citation and more.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/lenscap-wordpress-theme/"><?php _e( 'Lenscap WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A bold, magazine-style WordPress theme for creating engaging, media-rich content that integrates with the number one eCommerce plugin on the planet, WooCommerce.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
-
+							
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc184.svg' ) ?>" alt="<?php _e( 'Inline Notices Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/baseline-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/baseline-home-1.jpg' ) ?>" alt="<?php _e( 'Baseline WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Inline Notice Block', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add a colorful notice or message to your site with text, a title and a dismiss icon.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/baseline-wordpress-theme/"><?php _e( 'Baseline WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A beautiful, magazine-style theme with multiple layouts, featured content areas and simple customization options.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
-
+							
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc50.svg' ) ?>" alt="<?php _e( 'Sharing Icons Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/paperback-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/paperback-full-home.jpg' ) ?>" alt="<?php _e( 'Paperback WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Sharing Icons Block', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add social sharing icons to your page with size, shape, color and style options.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/paperback-wordpress-theme/"><?php _e( 'Paperback WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A magazine theme that empowers you to quickly and easily create beautiful, immersive content.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
-
+							
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc94-f.svg' ) ?>" alt="<?php _e( 'Author Profile Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/candid-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/candid-home.jpg' ) ?>" alt="<?php _e( 'Candid WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Author Profile Block', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add a user profile box to your site with a title, bio info, an avatar and social media links.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/candid-wordpress-theme/"><?php _e( 'Candid WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Quickly and easily create beautiful content-focused website with images, galleries, video, audio and more.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
-
+							
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc115.svg' ) ?>" alt="<?php _e( 'Accordion Toggle', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/checkout-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/checkout-screenshot.jpg' ) ?>" alt="<?php _e( 'Checkout WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Accordion Block', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add an accordion text toggle with a title and descriptive text. Includes font size and toggle options.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/checkout-wordpress-theme/"><?php _e( 'Checkout WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'With Checkout and Easy Digital Downloads, you can turn your site into a handsome digital store or marketplace.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
-
+							
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc45.svg' ) ?>" alt="<?php _e( 'Customizable Button Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/camera-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/camera.jpg' ) ?>" alt="<?php _e( 'Camera WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Customizable Button', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add a fancy stylized button to your post or page with size, shape, target, and color options.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/camera-wordpress-theme/"><?php _e( 'Camera WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Create a beautifully minimal and distraction-free photography series or photo blog with Camera.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
-
+						
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc38.svg' ) ?>" alt="<?php _e( 'Drop Cap Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/designer-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/designer.jpg' ) ?>" alt="<?php _e( 'Designer WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Drop Cap Block', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add a stylized drop cap to the beginning of your paragraph. Choose from three different styles.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/designer-wordpress-theme/"><?php _e( 'Designer WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Designer enables you to quickly and easily showcase your latest design work, sketches, audio, photography and more.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
-
+							
 							<div class="ab-block-feature">
-								<div class="ab-block-feature-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/images/cc402.svg' ) ?>" alt="<?php _e( 'Spacer and Divider Block', 'atomic-blocks' ); ?>" /></div>
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/pocket-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/pocket.jpg' ) ?>" alt="<?php _e( 'Pocket WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
 								<div class="ab-block-feature-text">
-									<h3><?php _e( 'Spacer & Divider', 'atomic-blocks' ); ?></h3>
-									<p><?php _e( 'Add an adjustable spacer between your blocks with an optional divider with styling options.', 'atomic-blocks' ); ?></p>
+									<h3><a href="https://arraythemes.com/themes/pocket-wordpress-theme/"><?php _e( 'Pocket WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Minimalist photoblogging at its finest. Highlight your writing with beautiful, expressive featured images.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/editor-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/editor.jpg' ) ?>" alt="<?php _e( 'Editor WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/editor-wordpress-theme/"><?php _e( 'Editor WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Editor is a typography-driven theme that puts bold and beautiful publishing right at your fingertips.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/north-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/north.jpg' ) ?>" alt="<?php _e( 'North WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/north-wordpress-theme/"><?php _e( 'North WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A contemporary, clean and bold canvas for showing off your latest projects, photographs or video reels.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+								
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/publisher-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/publisher.jpg' ) ?>" alt="<?php _e( 'Publisher WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/publisher-wordpress-theme/"><?php _e( 'Publisher WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Featuring a responsive, masonry-style layout, Publisher is an eclectic scrapbook of photos, videos, audio and more.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/ampersand-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ampersand1.jpg' ) ?>" alt="<?php _e( 'Ampersand WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/ampersand-wordpress-theme/"><?php _e( 'Ampersand WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A portfolio and business theme with an emphasis on beautiful, legible typography and a graceful mobile experience.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/verb-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/verb.jpg' ) ?>" alt="<?php _e( 'Verb WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/verb-wordpress-theme/"><?php _e( 'Verb WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Quickly and easily showcase your latest design work, sketches, audio, photography and more.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/typable-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/typable.jpg' ) ?>" alt="<?php _e( 'Typable WordPress Theme', 'atomic-blocks' ); ?>">
+								</a></div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/typable-wordpress-theme/"><?php _e( 'Typable WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A lean, mean blogging machine with snappy AJAX post loading, a dynamic header and abundant white space.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/medium-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/medium-660x7031.jpg' ) ?>" alt="<?php _e( 'Medium WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/medium-wordpress-theme/"><?php _e( 'Medium WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Use Medium as a personal blog or a minimal portfolio to share your latest articles, photo galleries and videos.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/author-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/author.jpg' ) ?>" alt="<?php _e( 'Author WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/author-wordpress-theme/"><?php _e( 'Author WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A blank canvas for your thoughts. Author features clean, readable type and abundant white space.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/fixed-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/fixed.jpg' ) ?>" alt="<?php _e( 'Fixed WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/fixed-wordpress-theme/"><?php _e( 'Fixed WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'Use Fixed as a personal blog or a minimal portfolio to share your latest articles, photo galleries and videos.', 'atomic-blocks' ); ?></p>
+								</div>
+							</div>
+							
+							<div class="ab-block-feature">
+								<div class="theme-image">
+									<a class="theme-link" href="https://arraythemes.com/themes/transmit-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/transmit.jpg' ) ?>" alt="<?php _e( 'Transmit WordPress Theme', 'atomic-blocks' ); ?>"></a>
+								</div>
+								<div class="ab-block-feature-text">
+									<h3><a href="https://arraythemes.com/themes/transmit-wordpress-theme/"><?php _e( 'Transmit WordPress Theme', 'atomic-blocks' ); ?></a></h3>
+									<p><?php _e( 'A fully-featured landing page theme with MailChimp and Campaign Monitor subscription support.', 'atomic-blocks' ); ?></p>
 								</div>
 							</div>
 						</div><!-- .ab-block-features -->
 					</div><!-- .ab-block-feature-wrap -->
-					
-					<h2 class="visit-title"><?php _e( 'Free Blocks and Resources', 'atomic-blocks' ); ?></h2>
-
-					<div class="ab-block-footer">
-						<div class="ab-block-footer-column">
-							<i class="far fa-envelope"></i>
-							<h3><?php _e( 'Blocks in your Inbox', 'atomic-blocks' ); ?></h3>
-							<p><?php _e( 'Join the newsletter to receive emails when we add new blocks, release plugin and theme updates, send out free resources, and more!', 'atomic-blocks' ); ?></p>
-							<a class="button-primary" href="https://atomicblocks.com/subscribe?utm_source=AB%20Theme%20GS%20Page%20Footer%20Subscribe"><?php _e( 'Subscribe Today', 'atomic-blocks' ); ?></a>
-						</div>
-
-						<div class="ab-block-footer-column">
-							<i class="far fa-edit"></i>
-							<h3><?php _e( 'Articles & Tutorials', 'atomic-blocks' ); ?></h3>
-							<p><?php _e( 'Check out the Atomic Blocks site to find block editor tutorials, free blocks and updates about the Atomic Blocks plugin and theme!', 'atomic-blocks' ); ?></p>
-							<a class="button-primary" href="https://atomicblocks.com/blog?utm_source=AB%20Theme%20GS%20Page%20Footer%20Blog"><?php _e( 'Visit the Blog', 'atomic-blocks' ); ?></a>
-						</div>
-
-						<div class="ab-block-footer-column">
-							<i class="far fa-newspaper"></i>
-							<h3><?php _e( 'Gutenberg News', 'atomic-blocks' ); ?></h3>
-							<p><?php _e( 'Stay up to date with the new WordPress editor. Gutenberg News curates Gutenberg articles, tutorials, videos and more free resources.', 'atomic-blocks' ); ?></p>
-							<a class="button-primary" href="http://gutenberg.news/?utm_source=AB%20Theme%20GS%20Page%20Footer%20Gnews"><?php _e( 'Visit Gutenberg News', 'atomic-blocks' ); ?></a>
-						</div>
-					</div>
-
-					<div class="ab-footer">
-						<p><?php echo sprintf( esc_html__( 'Made by the fine folks at %1$s and %2$s.', 'atomic-blocks' ), '<a href="https://arraythemes.com/">Array Themes</a>', '<a href="https://gutenberg.news/">Gutenberg News</a>' ); ?></p>	
-						<div class="ab-footer-links">
-							<a href="https:/atomicblocks.com/"><?php _e( 'AtomicBlocks.com', 'atomic-blocks' ); ?></a>
-							<a href="https://atomicblocks.com/blog/"><?php _e( 'Blog', 'atomic-blocks' ); ?></a>
-							<a href="https://atomicblocks.com/atomic-blocks-docs/"><?php _e( 'Docs', 'atomic-blocks' ); ?></a>
-							<a href="https:/twitter.com/atomicblocks"><?php _e( 'Twitter', 'atomic-blocks' ); ?></a>
-						</div>
-					</div>
-				</div><!-- .panel-left -->
-
-				<!-- More themes -->
-				<div id="themes" class="panel-left">
-					<div class="theme-intro clear">
-						<div class="theme-intro-left">
-							<p><?php _e( 'Array Themes has over 20 WordPress themes that will integrate seamlessly with the new block editor. <strong>Use the discount code BLOCKHEAD to get 15% off anything in the Array Themes store!</strong>', 'atomic-blocks' ); ?></p>
-						</div>
-						<div class="theme-intro-right">
-							<a class="button-primary club-button" href="https://atomicblocks.com/?utm_source=AB%20Theme%20Logo%20Link&utm_campaign=ab_theme_logo_link"><?php esc_html_e( 'Browse the theme collection', 'atomic-blocks' ); ?> &rarr;</a>
-						</div>
-					</div>
-
-					<div class="theme-list">
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/atomic-blocks-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/array-ab-theme.jpg' ) ?>" alt="<?php _e( 'Atomic Blocks WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/atomic-blocks-wordpress-theme/"><?php _e( 'Atomic Blocks WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A free Gutenberg theme that works seamlessly with the new WordPress editor and the Atomic Blocks plugin by Array Themes.', 'atomic-blocks' ); ?></p>
-						</div>
-							
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/latest-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/latest-featured-image.jpg' ) ?>" alt="<?php _e( 'Latest WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/latest-wordpress-theme/"><?php _e( 'Latest WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Launch a beautiful eCommerce shop, an impressive magazine, or a food or travel blog with Latest.', 'atomic-blocks' ); ?></p>
-						</div>
-							
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/meteor-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/meteor-desktop.jpg' ) ?>" alt="<?php _e( 'Meteor WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/meteor-wordpress-theme/"><?php _e( 'Meteor WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Launch a stunning portfolio and resume site to showcase your photos, designs, videos, services and more.', 'atomic-blocks' ); ?></p>
-						</div>
-							
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/atomic-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/atomic-home.jpg' ) ?>" alt="<?php _e( 'Atomic WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/atomic-wordpress-theme/"><?php _e( 'Atomic WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Build a bold business or portfolio site with beautiful templates for teams, services, testimonials, portfolio, blog posts and more.', 'atomic-blocks' ); ?></p>
-						</div>
-
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/lenscap-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/lenscap-full-home.jpg' ) ?>" alt="<?php _e( 'Lenscap WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/lenscap-wordpress-theme/"><?php _e( 'Lenscap WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A bold, magazine-style WordPress theme for creating engaging, media-rich content that integrates with the number one eCommerce plugin on the planet, WooCommerce.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/baseline-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/baseline-home-1.jpg' ) ?>" alt="<?php _e( 'Baseline WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/baseline-wordpress-theme/"><?php _e( 'Baseline WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A beautiful, magazine-style theme with multiple layouts, featured content areas and simple customization options.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/paperback-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/paperback-full-home.jpg' ) ?>" alt="<?php _e( 'Paperback WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/paperback-wordpress-theme/"><?php _e( 'Paperback WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A magazine theme that empowers you to quickly and easily create beautiful, immersive content.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/candid-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/candid-home.jpg' ) ?>" alt="<?php _e( 'Candid WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/candid-wordpress-theme/"><?php _e( 'Candid WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Quickly and easily create beautiful content-focused website with images, galleries, video, audio and more.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/checkout-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/checkout-screenshot.jpg' ) ?>" alt="<?php _e( 'Checkout WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/checkout-wordpress-theme/"><?php _e( 'Checkout WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'With Checkout and Easy Digital Downloads, you can turn your site into a handsome digital store or marketplace.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/camera-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/camera.jpg' ) ?>" alt="<?php _e( 'Camera WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/camera-wordpress-theme/"><?php _e( 'Camera WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Create a beautifully minimal and distraction-free photography series or photo blog with Camera.', 'atomic-blocks' ); ?></p>
-						</div>
-					
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/designer-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/designer.jpg' ) ?>" alt="<?php _e( 'Designer WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/designer-wordpress-theme/"><?php _e( 'Designer WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Designer enables you to quickly and easily showcase your latest design work, sketches, audio, photography and more.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/pocket-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/pocket.jpg' ) ?>" alt="<?php _e( 'Pocket WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/pocket-wordpress-theme/"><?php _e( 'Pocket WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Minimalist photoblogging at its finest. Highlight your writing with beautiful, expressive featured images.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/editor-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/editor.jpg' ) ?>" alt="<?php _e( 'Editor WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/editor-wordpress-theme/"><?php _e( 'Editor WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Editor is a typography-driven theme that puts bold and beautiful publishing right at your fingertips.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/north-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/north.jpg' ) ?>" alt="<?php _e( 'North WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/north-wordpress-theme/"><?php _e( 'North WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A contemporary, clean and bold canvas for showing off your latest projects, photographs or video reels.', 'atomic-blocks' ); ?></p>
-						</div>
-							
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/publisher-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/publisher.jpg' ) ?>" alt="<?php _e( 'Publisher WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/publisher-wordpress-theme/"><?php _e( 'Publisher WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Featuring a responsive, masonry-style layout, Publisher is an eclectic scrapbook of photos, videos, audio and more.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/ampersand-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ampersand1.jpg' ) ?>" alt="<?php _e( 'Ampersand WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/ampersand-wordpress-theme/"><?php _e( 'Ampersand WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A portfolio and business theme with an emphasis on beautiful, legible typography and a graceful mobile experience.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/verb-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/verb.jpg' ) ?>" alt="<?php _e( 'Verb WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/verb-wordpress-theme/"><?php _e( 'Verb WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Quickly and easily showcase your latest design work, sketches, audio, photography and more.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/typable-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/typable.jpg' ) ?>" alt="<?php _e( 'Typable WordPress Theme', 'atomic-blocks' ); ?>">
-							</a></div><h3><a href="https://arraythemes.com/themes/typable-wordpress-theme/"><?php _e( 'Typable WordPress Theme', 'atomic-blocks' ); ?></a>
-							</h3>
-							<p><?php _e( 'A lean, mean blogging machine with snappy AJAX post loading, a dynamic header and abundant white space.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/medium-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/medium-660x7031.jpg' ) ?>" alt="<?php _e( 'Medium WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/medium-wordpress-theme/"><?php _e( 'Medium WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Use Medium as a personal blog or a minimal portfolio to share your latest articles, photo galleries and videos.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/author-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/author.jpg' ) ?>" alt="<?php _e( 'Author WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/author-wordpress-theme/"><?php _e( 'Author WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A blank canvas for your thoughts. Author features clean, readable type and abundant white space.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/fixed-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/fixed.jpg' ) ?>" alt="<?php _e( 'Fixed WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/fixed-wordpress-theme/"><?php _e( 'Fixed WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'Use Fixed as a personal blog or a minimal portfolio to share your latest articles, photo galleries and videos.', 'atomic-blocks' ); ?></p>
-						</div>
-						
-						<div class="array-theme">
-							<div class="theme-image">
-								<a class="theme-link" href="https://arraythemes.com/themes/transmit-wordpress-theme/"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/transmit.jpg' ) ?>" alt="<?php _e( 'Transmit WordPress Theme', 'atomic-blocks' ); ?>"></a>
-							</div>
-							<h3><a href="https://arraythemes.com/themes/transmit-wordpress-theme/"><?php _e( 'Transmit WordPress Theme', 'atomic-blocks' ); ?></a></h3>
-							<p><?php _e( 'A fully-featured landing page theme with MailChimp and Campaign Monitor subscription support.', 'atomic-blocks' ); ?></p>
-						</div>
-					</div>
 				</div><!-- .panel-left updates -->
 
 				<div class="panel-right">
@@ -569,8 +613,7 @@ function atomic_blocks_theme_getting_started_page() {
 									<?php if( ! array_key_exists( 'gutenberg/gutenberg.php', get_plugins() ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $gberg_install_url ); ?>"><?php esc_html_e( 'Install Gutenberg now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else if ( array_key_exists( 'gutenberg/gutenberg.php', get_plugins() ) && ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) { ?>
-										<?php activate_plugin( 'gutenberg/gutenberg.php' ); ?>
-										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
+										<a class="button-primary" href="<?php echo esc_url( admin_url( "plugins.php" ) ); ?>"><?php _e( 'Activate Gutenberg', 'atomic-blocks' ); ?></a>
 									<?php } else { ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
 									<?php } ?>
@@ -583,8 +626,7 @@ function atomic_blocks_theme_getting_started_page() {
 									<?php if( ! array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else if ( array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) && ! is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) { ?>
-										<?php //activate_plugin( 'atomic-blocks/atomicblocks.php' ); ?>
-										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
+										<a class="button-primary" href="<?php echo esc_url( admin_url( "plugins.php" ) ); ?>"><?php _e( 'Activate Atomic Blocks', 'atomic-blocks' ); ?></a>
 									<?php } else { ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
 									<?php } ?>
@@ -624,6 +666,41 @@ function atomic_blocks_theme_getting_started_page() {
 						</div>
 					</div>
 				</div><!-- .panel-right -->
+
+				<h2 class="visit-title"><?php _e( 'Free Blocks and Resources', 'atomic-blocks' ); ?></h2>
+
+				<div class="ab-block-footer">
+					<div class="ab-block-footer-column">
+						<i class="far fa-envelope"></i>
+						<h3><?php _e( 'Blocks in your Inbox', 'atomic-blocks' ); ?></h3>
+						<p><?php _e( 'Join the newsletter to receive emails when we add new blocks, release plugin and theme updates, send out free resources, and more!', 'atomic-blocks' ); ?></p>
+						<a class="button-primary" href="https://atomicblocks.com/subscribe?utm_source=AB%20Theme%20GS%20Page%20Footer%20Subscribe"><?php _e( 'Subscribe Today', 'atomic-blocks' ); ?></a>
+					</div>
+
+					<div class="ab-block-footer-column">
+						<i class="far fa-edit"></i>
+						<h3><?php _e( 'Articles & Tutorials', 'atomic-blocks' ); ?></h3>
+						<p><?php _e( 'Check out the Atomic Blocks site to find block editor tutorials, free blocks and updates about the Atomic Blocks plugin and theme!', 'atomic-blocks' ); ?></p>
+						<a class="button-primary" href="https://atomicblocks.com/blog?utm_source=AB%20Theme%20GS%20Page%20Footer%20Blog"><?php _e( 'Visit the Blog', 'atomic-blocks' ); ?></a>
+					</div>
+
+					<div class="ab-block-footer-column">
+						<i class="far fa-newspaper"></i>
+						<h3><?php _e( 'Gutenberg News', 'atomic-blocks' ); ?></h3>
+						<p><?php _e( 'Stay up to date with the new WordPress editor. Gutenberg News curates Gutenberg articles, tutorials, videos and more free resources.', 'atomic-blocks' ); ?></p>
+						<a class="button-primary" href="http://gutenberg.news/?utm_source=AB%20Theme%20GS%20Page%20Footer%20Gnews"><?php _e( 'Visit Gutenberg News', 'atomic-blocks' ); ?></a>
+					</div>
+				</div>
+
+				<div class="ab-footer">
+					<p><?php echo sprintf( esc_html__( 'Made by the fine folks at %1$s and %2$s.', 'atomic-blocks' ), '<a href="https://arraythemes.com/">Array Themes</a>', '<a href="https://gutenberg.news/">Gutenberg News</a>' ); ?></p>	
+					<div class="ab-footer-links">
+						<a href="https:/atomicblocks.com/"><?php _e( 'AtomicBlocks.com', 'atomic-blocks' ); ?></a>
+						<a href="https://atomicblocks.com/blog/"><?php _e( 'Blog', 'atomic-blocks' ); ?></a>
+						<a href="https://atomicblocks.com/atomic-blocks-docs/"><?php _e( 'Docs', 'atomic-blocks' ); ?></a>
+						<a href="https:/twitter.com/atomicblocks"><?php _e( 'Twitter', 'atomic-blocks' ); ?></a>
+					</div>
+				</div>
 			</div><!-- .panel -->
 		</div><!-- .panels -->
 	</div><!-- .getting-started -->

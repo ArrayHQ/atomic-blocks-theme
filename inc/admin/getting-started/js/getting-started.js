@@ -7,10 +7,8 @@ jQuery(document).ready(function ($) {
 				$( this ).addClass( "current" ).siblings().removeClass( "current" )
 				.parents( "#wpbody" ).find( "div.panel-left" ).removeClass( "visible" ).end().find( 'div.panel-left:eq('+i+')' ).addClass( "visible" );
 
-				boxHeight();
-
-
-
+				equalHeight();
+				
 				return false;
 			} );
 		} );
@@ -32,23 +30,19 @@ jQuery(document).ready(function ($) {
 	$( "#help-panel h3" ).append( $( "<a class='back-to-top' href='#panel'><i class='fa fa-angle-up'></i> Back to top</a>" ) );
 
 
-	function boxHeight(){
-		$( ".ab-block-features" ).each(function() {  
-			
-			var highestBox = 0;
-			
-			$( ".ab-block-feature", this ).each( function() {
-				if( $( this ).height() > highestBox ) {
-					highestBox = $( this ).height(); 
-				}
-			});  
-				  
-			$( ".ab-block-feature", this ).height( highestBox );		  
-		});
+	// Equalize column heights
+	function equalHeight() {
+		$('.ab-block-features .ab-block-feature').matchHeight();
 	} 
+	equalHeight();
 
-	$( window ).resize( function() {
-		boxHeight();
-	});
+	$(window).on('load', function() {
+		var current_width = $(window).width();
+
+		// Only run on desktop
+		if ( current_width > 768 ) {
+			equalHeight();
+		}
+	});	
 	
 });
