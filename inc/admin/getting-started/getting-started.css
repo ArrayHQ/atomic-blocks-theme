@@ -759,6 +759,11 @@
     border-radius: 100px;
 }
 
+.ab-titles .button-primary:active {
+	vertical-align: initial !important;
+	border-top-width: 1px !important;
+}
+
 .ab-block-feature-wrap {
 	background: #f5f4f6;
 	padding: 8% 5% 2% 5%;
@@ -919,10 +924,6 @@
 .ab-block-feature .ab-block-feature-icon img {
 	max-height: 110px;
 	border: none;
-}
-
-#themes .ab-block-feature .theme-image img {
-	border: solid 25px #d5d5d8;
 }
 
 .ab-block-footer {

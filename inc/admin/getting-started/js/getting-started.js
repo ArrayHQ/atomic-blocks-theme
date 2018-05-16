@@ -29,7 +29,6 @@ jQuery(document).ready(function ($) {
 	// Back to top links
 	$( "#help-panel h3" ).append( $( "<a class='back-to-top' href='#panel'><i class='fa fa-angle-up'></i> Back to top</a>" ) );
 
-
 	// Equalize column heights
 	function equalHeight() {
 		$('.ab-block-features .ab-block-feature').matchHeight();
@@ -40,7 +39,7 @@ jQuery(document).ready(function ($) {
 		var current_width = $(window).width();
 
 		// Only run on desktop
-		if ( current_width > 768 ) {
+		if ( current_width > 600 ) {
 			equalHeight();
 		}
 	});	

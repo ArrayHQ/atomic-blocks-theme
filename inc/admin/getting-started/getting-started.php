@@ -139,7 +139,7 @@ function atomic_blocks_theme_getting_started_page() {
 						<div class="ab-block-split-left">
 							<div class="ab-titles">
 								<h2><?php _e( 'Download the free Atomic Blocks plugin and start building websites with Gutenberg today!', 'atomic-blocks' ); ?></h2>
-								<p><?php _e( 'Atomic Blocks is a free collection of beautiful page-building blocks for the new WordPress Gutenberg editor. Add sharing icons, buttons, accordions, call-to-actions, and more to your site!', 'atomic-blocks' ); ?></p>
+								<p><?php _e( 'Atomic Blocks is a free collection of beautiful page-building blocks for the new WordPress editor. Add sharing icons, buttons, accordions, call-to-actions, and more to your site! Integrates seamlessly with the Atomic Blocks theme!', 'atomic-blocks' ); ?></p>
 								
 								<?php if( ! array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) ) { ?>
 									<a class="button-primary" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks', 'atomic-blocks' ); ?> &rarr;</a>
