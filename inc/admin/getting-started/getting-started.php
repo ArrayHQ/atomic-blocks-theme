@@ -703,7 +703,7 @@ function atomic_blocks_theme_getting_started_page() {
 				<div class="ab-block-footer">
 					<div class="ab-block-footer-column">
 						<i class="far fa-envelope"></i>
-						<h3><?php _e( 'Blocks in your Inbox', 'atomic-blocks' ); ?></h3>
+						<h3><?php _e( 'Blocks In Your Inbox', 'atomic-blocks' ); ?></h3>
 						<p><?php _e( 'Join the newsletter to receive emails when we add new blocks, release plugin and theme updates, send out free resources, and more!', 'atomic-blocks' ); ?></p>
 						<a class="button-primary" href="https://atomicblocks.com/subscribe?utm_source=AB%20Theme%20GS%20Page%20Footer%20Subscribe"><?php _e( 'Subscribe Today', 'atomic-blocks' ); ?></a>
 					</div>
