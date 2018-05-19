@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Atomic Blocks 1.0\n"
+"Project-Id-Version: Atomic Blocks for Gutenberg 1.0.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-03-05 21:21:06+00:00\n"
+"POT-Creation-Date: 2018-05-19 19:50:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,7 +16,7 @@ msgstr ""
 #: 404.php:14
 msgid ""
 "It looks like nothing was found at this location. Please use the search box "
-"or the sitemap to locate the content you were looking for."
+"to locate the content you were looking for."
 msgstr ""
 
 #: comments.php:74
@@ -43,373 +43,758 @@ msgstr ""
 msgid "View All"
 msgstr ""
 
-#: functions.php:79
+#: functions.php:81
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:80
+#: functions.php:82
 msgid "Social Icon Menu"
 msgstr ""
 
-#: functions.php:113
+#: functions.php:115
 msgid "Carousel"
 msgstr ""
 
-#: functions.php:207 template-parts/content-page.php:32
-#: template-parts/content.php:37
+#: functions.php:209 template-parts/content-page.php:32
+#: template-parts/content.php:40
 msgid "Read More"
 msgstr ""
 
-#: functions.php:242
+#: functions.php:245
 msgid "Footer - Column 1"
 msgstr ""
 
-#: functions.php:244
+#: functions.php:247
 msgid "Widgets added here will appear in the left column of the footer."
 msgstr ""
 
-#: functions.php:252
+#: functions.php:255
 msgid "Footer - Column 2"
 msgstr ""
 
-#: functions.php:254
+#: functions.php:257
 msgid "Widgets added here will appear in the center column of the footer."
 msgstr ""
 
-#: functions.php:262
+#: functions.php:265
 msgid "Footer - Column 3"
 msgstr ""
 
-#: functions.php:264
+#: functions.php:267
 msgid "Widgets added here will appear in the right column of the footer."
+msgstr ""
+
+#: functions.php:543
+msgid " Theme by %1$s."
 msgstr ""
 
 #. Author of the plugin/theme
 msgid "Atomic Blocks"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:87
-msgid ""
-"There seems to be a temporary problem retrieving the latest updates. You "
-"can always see the latest changes by visiting the Atomic Blocks website."
+#: inc/admin/getting-started/getting-started.php:77
+#: inc/admin/getting-started/getting-started.php:109
+msgid "Atomic Blocks Activated! Get started by visiting the help file."
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:123
+#: inc/admin/getting-started/getting-started.php:78
+#: inc/admin/getting-started/getting-started.php:110
+msgid "View Help File &rarr;"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:95
+#: inc/admin/getting-started/getting-started.php:646
+msgid "Install Gutenberg now"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:97
+#: inc/admin/getting-started/getting-started.php:648
+msgid "Activate Gutenberg"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:155
+msgid "Visit Atomic Blocks"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:156
 msgid "Getting started with"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:130
-msgid "Theme Info"
+#: inc/admin/getting-started/getting-started.php:162
+msgid "Atomic Blocks Plugin"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:131
-msgid "FAQ"
+#: inc/admin/getting-started/getting-started.php:163
+msgid "Theme Help File"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:132
-msgid "Latest Updates"
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:133
+#: inc/admin/getting-started/getting-started.php:164
 msgid "Get More Themes"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:155
+#: inc/admin/getting-started/getting-started.php:173
 msgid ""
-"This help file feed seems to be temporarily down. You can always view the "
-"help file on the Atomic Blocks site in the meantime."
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:155
-msgid "Atomic Blocks Help File &rarr;"
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:166
-#: inc/admin/getting-started/getting-started.php:170
-msgid "Where do I get support for Atomic Blocks?"
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:167
-#: inc/admin/getting-started/getting-started.php:184
-msgid "How do I update my theme?"
+"Download the free Atomic Blocks plugin and start building websites with "
+"Gutenberg today!"
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:174
 msgid ""
-"If you&apos;ve read through the Help File in the first tab and still have "
-"questions or are experiencing issues, we&apos;re happy to help! Simply <a "
-"href=\"%s\">visit your dashboard</a> on Array to open a support ticket."
+"Atomic Blocks is a free collection of beautiful page-building blocks for "
+"the new WordPress editor. Add sharing icons, buttons, accordions, "
+"call-to-actions, and more to your site! Integrates seamlessly with the "
+"Atomic Blocks theme!"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:177
+msgid "Install Atomic Blocks"
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:179
+#: inc/admin/getting-started/getting-started.php:661
+msgid "Activate Atomic Blocks"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:181
+#: inc/admin/getting-started/getting-started.php:650
+#: inc/admin/getting-started/getting-started.php:663
+msgid "Plugin activated!"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:187
+msgid "Atomic Blocks Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:194
+msgid "Available Atomic Blocks"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:195
 msgid ""
-"If you&apos;ve purchased your theme via ThemeForest, you will first have to "
-"create an account at Array to get a license key and access support. Visit "
-"the <a href=\"%s\" title=\"Create an account\">ThemeForest</a> page to "
-"validate your purchase code and create an account."
+"The following blocks are available in Atomic Blocks. More blocks are on the "
+"way so stay tuned!"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:186
-msgid ""
-"Activating your theme license will enable in-dash theme updates, so you can "
-"get the latest version of your theme in a few clicks. This helps us keep "
-"your site happy and healthy."
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:188
-msgid "Follow these quick steps to retreive and activate your theme license."
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:193
-msgid ""
-"First we need the license. Visit the <a href=\"%s\">Licenses</a> page on "
-"your Array Dashboard. Copy the license associated with your theme."
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:196
-msgid ""
-"Paste the license in the license activation box on the right side of this "
-"page."
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:197
-msgid ""
-"Click the Save License button. The license will be saved and the page will "
-"be refreshed."
-msgstr ""
-
-#: inc/admin/getting-started/getting-started.php:198
-msgid "Click the Activate License button to complete the activation."
+#: inc/admin/getting-started/getting-started.php:199
+msgid "Call To Action Block"
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:201
-msgid ""
-"Now that your license is activated, you will see a notice to update your "
-"theme on the Themes page whenever an update is available. Click the Update "
-"Now link on your theme to update the theme to the latest version."
+msgid "Call-To-Action Block"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:214
+#: inc/admin/getting-started/getting-started.php:202
 msgid ""
-"Array Themes has over 20 WordPress themes that will integrate seamlessly "
-"with the new block editor. Check them out below!"
+"Add an eye-catching, full-width section with a big title, paragraph text, "
+"and a customizable button."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:207
+msgid "Testimonials Block"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:209
+msgid "Testimonial Block"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:210
+msgid ""
+"Add a customer or client testimonial to your site with an avatar, text, "
+"citation and more."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:215
+msgid "Inline Notices Block"
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:217
-msgid "Learn about the Theme Club"
+msgid "Inline Notice Block"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:229
+#: inc/admin/getting-started/getting-started.php:218
 msgid ""
-"This theme feed seems to be temporarily down. Please check back later, or "
-"visit our <a href=\"%s\">Themes page on Array</a>."
+"Add a colorful notice or message to your site with text, a title and a "
+"dismiss icon."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:223
+#: inc/admin/getting-started/getting-started.php:225
+msgid "Sharing Icons Block"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:226
+msgid ""
+"Add social sharing icons to your page with size, shape, color and style "
+"options."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:231
+#: inc/admin/getting-started/getting-started.php:233
+msgid "Author Profile Block"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:234
+msgid ""
+"Add a user profile box to your site with a title, bio info, an avatar and "
+"social media links."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:239
+msgid "Accordion Toggle"
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:241
-msgid "Quick Start Checklist"
+msgid "Accordion Block"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:246
-msgid "1. Install the Gutenberg plugin."
+#: inc/admin/getting-started/getting-started.php:242
+msgid ""
+"Add an accordion text toggle with a title and descriptive text. Includes "
+"font size and toggle options."
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:247
-msgid "Gutenberg adds the new block-based editor to WordPress."
+msgid "Customizable Button Block"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:249
+msgid "Customizable Button"
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:250
-msgid "Install Gutenberg now"
+msgid ""
+"Add a fancy stylized button to your post or page with size, shape, target, "
+"and color options."
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:252
-#: inc/admin/getting-started/getting-started.php:263
-msgid "Plugin already installed!"
-msgstr ""
-
+#: inc/admin/getting-started/getting-started.php:255
 #: inc/admin/getting-started/getting-started.php:257
-msgid "2. Install the Atomic Blocks plugin."
+msgid "Drop Cap Block"
 msgstr ""
 
 #: inc/admin/getting-started/getting-started.php:258
-msgid "Atomic Blocks adds several handy blocks to the block editor."
+msgid ""
+"Add a stylized drop cap to the beginning of your paragraph. Choose from "
+"three different styles."
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:261
+#: inc/admin/getting-started/getting-started.php:263
+msgid "Spacer and Divider Block"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:265
+msgid "Spacer & Divider"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:266
+msgid ""
+"Add an adjustable spacer between your blocks with an optional divider with "
+"styling options."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:390
+msgid "We also create pixel-perfect WordPress themes for creative professionals."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:391
+msgid ""
+"Launch your website in minutes with one of our beautiful, responsive "
+"themes. No bloat, no headaches, just really good websites and speedy "
+"support when you need it."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:392
+msgid "View Theme Collection &rarr;"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:397
+msgid "Array Themes"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:404
+msgid "More WordPress themes by Array"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:405
+msgid ""
+"Instantly download the best-designed WordPress theme collection on the web "
+"for one low price!"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:410
+#: inc/admin/getting-started/getting-started.php:413
+msgid "Atomic Blocks WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:414
+msgid ""
+"A free Gutenberg theme that works seamlessly with the new WordPress editor "
+"and the Atomic Blocks plugin by Array Themes."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:420
+#: inc/admin/getting-started/getting-started.php:423
+msgid "Latest WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:424
+msgid ""
+"Launch a beautiful eCommerce shop, an impressive magazine, or a food or "
+"travel blog with Latest."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:430
+#: inc/admin/getting-started/getting-started.php:433
+msgid "Meteor WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:434
+msgid ""
+"Launch a stunning portfolio and resume site to showcase your photos, "
+"designs, videos, services and more."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:440
+#: inc/admin/getting-started/getting-started.php:443
+msgid "Atomic WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:444
+msgid ""
+"Build a bold business or portfolio site with beautiful templates for teams, "
+"services, testimonials, portfolio, blog posts and more."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:450
+#: inc/admin/getting-started/getting-started.php:453
+msgid "Lenscap WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:454
+msgid ""
+"A bold, magazine-style WordPress theme for creating engaging, media-rich "
+"content that integrates with the number one eCommerce plugin on the planet, "
+"WooCommerce."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:460
+#: inc/admin/getting-started/getting-started.php:463
+msgid "Baseline WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:464
+msgid ""
+"A beautiful, magazine-style theme with multiple layouts, featured content "
+"areas and simple customization options."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:470
+#: inc/admin/getting-started/getting-started.php:473
+msgid "Paperback WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:474
+msgid ""
+"A magazine theme that empowers you to quickly and easily create beautiful, "
+"immersive content."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:480
+#: inc/admin/getting-started/getting-started.php:483
+msgid "Candid WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:484
+msgid ""
+"Quickly and easily create beautiful content-focused website with images, "
+"galleries, video, audio and more."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:490
+#: inc/admin/getting-started/getting-started.php:493
+msgid "Checkout WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:494
+msgid ""
+"With Checkout and Easy Digital Downloads, you can turn your site into a "
+"handsome digital store or marketplace."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:500
+#: inc/admin/getting-started/getting-started.php:503
+msgid "Camera WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:504
+msgid ""
+"Create a beautifully minimal and distraction-free photography series or "
+"photo blog with Camera."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:510
+#: inc/admin/getting-started/getting-started.php:513
+msgid "Designer WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:514
+msgid ""
+"Designer enables you to quickly and easily showcase your latest design "
+"work, sketches, audio, photography and more."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:520
+#: inc/admin/getting-started/getting-started.php:523
+msgid "Pocket WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:524
+msgid ""
+"Minimalist photoblogging at its finest. Highlight your writing with "
+"beautiful, expressive featured images."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:530
+#: inc/admin/getting-started/getting-started.php:533
+msgid "Editor WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:534
+msgid ""
+"Editor is a typography-driven theme that puts bold and beautiful publishing "
+"right at your fingertips."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:540
+#: inc/admin/getting-started/getting-started.php:543
+msgid "North WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:544
+msgid ""
+"A contemporary, clean and bold canvas for showing off your latest projects, "
+"photographs or video reels."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:550
+#: inc/admin/getting-started/getting-started.php:553
+msgid "Publisher WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:554
+msgid ""
+"Featuring a responsive, masonry-style layout, Publisher is an eclectic "
+"scrapbook of photos, videos, audio and more."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:560
+#: inc/admin/getting-started/getting-started.php:563
+msgid "Ampersand WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:564
+msgid ""
+"A portfolio and business theme with an emphasis on beautiful, legible "
+"typography and a graceful mobile experience."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:570
+#: inc/admin/getting-started/getting-started.php:573
+msgid "Verb WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:574
+msgid ""
+"Quickly and easily showcase your latest design work, sketches, audio, "
+"photography and more."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:580
+#: inc/admin/getting-started/getting-started.php:583
+msgid "Typable WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:584
+msgid ""
+"A lean, mean blogging machine with snappy AJAX post loading, a dynamic "
+"header and abundant white space."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:590
+#: inc/admin/getting-started/getting-started.php:593
+msgid "Medium WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:594
+msgid ""
+"Use Medium as a personal blog or a minimal portfolio to share your latest "
+"articles, photo galleries and videos."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:600
+#: inc/admin/getting-started/getting-started.php:603
+msgid "Author WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:604
+msgid ""
+"A blank canvas for your thoughts. Author features clean, readable type and "
+"abundant white space."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:610
+#: inc/admin/getting-started/getting-started.php:613
+msgid "Fixed WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:614
+msgid ""
+"Use Fixed as a personal blog or a minimal portfolio to share your latest "
+"articles, photo galleries and videos."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:620
+#: inc/admin/getting-started/getting-started.php:623
+msgid "Transmit WordPress Theme"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:624
+msgid ""
+"A fully-featured landing page theme with MailChimp and Campaign Monitor "
+"subscription support."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:637
+msgid "Quick Start Checklist"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:642
+msgid "1. Install the Gutenberg plugin."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:643
+msgid ""
+"Gutenberg adds the new block-based editor to WordPress. You will need this "
+"to work with the Atomic Blocks plugin."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:655
+msgid "2. Install the Atomic Blocks plugin."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:656
+msgid ""
+"Atomic Blocks adds several handy content blocks to the Gutenberg block "
+"editor."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:659
 msgid "Install Atomic Blocks now"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:274
+#: inc/admin/getting-started/getting-started.php:674
 msgid "Stay Updated"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:279
+#: inc/admin/getting-started/getting-started.php:679
+#: inc/admin/getting-started/getting-started.php:708
 msgid ""
-"The Atomic Blocks theme and plugin are both in early development. Join the "
-"newsletter and we will send you an email when we update the theme and "
-"plugin!"
+"Join the newsletter to receive emails when we add new blocks, release "
+"plugin and theme updates, send out free resources, and more!"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:281
+#: inc/admin/getting-started/getting-started.php:680
 msgid "Subscribe Now"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:290
+#: inc/admin/getting-started/getting-started.php:689
 msgid "Free Blocks & Tutorials"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:295
+#: inc/admin/getting-started/getting-started.php:694
+#: inc/admin/getting-started/getting-started.php:715
 msgid ""
 "Check out the Atomic Blocks site to find block editor tutorials, free "
 "blocks and updates about the Atomic Blocks plugin and theme!"
 msgstr ""
 
-#: inc/admin/getting-started/getting-started.php:296
+#: inc/admin/getting-started/getting-started.php:695
 msgid "Visit AtomicBlocks.com"
 msgstr ""
 
-#: inc/customizer.php:42
+#: inc/admin/getting-started/getting-started.php:702
+msgid "Free Blocks and Resources"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:707
+msgid "Blocks in your Inbox"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:709
+msgid "Subscribe Today"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:714
+msgid "Articles & Tutorials"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:716
+msgid "Visit the Blog"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:721
+msgid "Gutenberg News"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:722
+msgid ""
+"Stay up to date with the new WordPress editor. Gutenberg News curates "
+"Gutenberg articles, tutorials, videos and more free resources."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:723
+msgid "Visit Gutenberg News"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:728
+msgid "Made by the fine folks at %1$s and %2$s."
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:730
+msgid "AtomicBlocks.com"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:731
+msgid "Blog"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:732
+msgid "Docs"
+msgstr ""
+
+#: inc/admin/getting-started/getting-started.php:733
+msgid "Twitter"
+msgstr ""
+
+#: inc/customizer.php:51
 msgid "Theme Options"
 msgstr ""
 
-#: inc/customizer.php:55
+#: inc/customizer.php:64
 msgid "Accent Color"
 msgstr ""
 
-#: inc/customizer.php:58
+#: inc/customizer.php:67
 msgid "Change the accent color of buttons and various typographical elements."
 msgstr ""
 
-#: inc/customizer.php:78
+#: inc/customizer.php:87
 msgid "Content Width"
 msgstr ""
 
-#: inc/customizer.php:79
+#: inc/customizer.php:88
 msgid "Adjust the width of the content area."
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:110
 msgid "Font Style"
 msgstr ""
 
-#: inc/customizer.php:102
+#: inc/customizer.php:111
 msgid "Choose the font style used across your site."
 msgstr ""
 
-#: inc/customizer.php:128
+#: inc/customizer.php:116
+msgid "Sans Serif"
+msgstr ""
+
+#: inc/customizer.php:117
+msgid "Serif"
+msgstr ""
+
+#: inc/customizer.php:137
 msgid "Body Font Size"
 msgstr ""
 
-#: inc/customizer.php:129
+#: inc/customizer.php:138
 msgid "Adjust the size of the main body font."
 msgstr ""
 
-#: inc/customizer.php:154
+#: inc/customizer.php:163
 msgid "Title Font Size"
 msgstr ""
 
-#: inc/customizer.php:155
+#: inc/customizer.php:164
 msgid "Adjust the size of the post and page titles."
 msgstr ""
 
-#: inc/customizer.php:174
+#: inc/customizer.php:183
 msgid "Footer Tagline"
 msgstr ""
 
-#: inc/customizer.php:177
+#: inc/customizer.php:186
 msgid ""
 "Change the text that appears in the footer tagline at the bottom of your "
 "site."
-msgstr ""
-
-#: inc/customizer.php:299
-msgid " Theme by %1$s."
 msgstr ""
 
 #: inc/jetpack.php:76
 msgid "Load more"
 msgstr ""
 
-#: inc/template-tags.php:58
-msgid "Browsing: "
-msgstr ""
-
-#: inc/template-tags.php:69
-msgid "Author: %s"
-msgstr ""
-
-#: inc/template-tags.php:73
-msgid "Day: %s"
-msgstr ""
-
-#: inc/template-tags.php:76
-msgid "Month: %s"
-msgstr ""
-
-#: inc/template-tags.php:79
-msgid "Year: %s"
-msgstr ""
-
-#: inc/template-tags.php:82
-msgid "Page Not Found"
-msgstr ""
-
-#: inc/template-tags.php:85
+#: inc/template-tags.php:93
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:132
+#: inc/template-tags.php:95
+msgid "Page Not Found"
+msgstr ""
+
+#: inc/template-tags.php:120
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:132
+#: inc/template-tags.php:120
 msgid "(Edit)"
 msgstr ""
 
-#: inc/template-tags.php:143
+#: inc/template-tags.php:131
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:178
-msgid "&rarr;"
-msgstr ""
-
-#: inc/template-tags.php:179
-msgid "&larr;"
-msgstr ""
-
-#: inc/template-tags.php:202
+#: inc/template-tags.php:151
 msgid "Next:"
 msgstr ""
 
-#: inc/template-tags.php:203
+#: inc/template-tags.php:152
 msgid "Next post:"
 msgstr ""
 
-#: inc/template-tags.php:205
+#: inc/template-tags.php:154
 msgid "Previous:"
 msgstr ""
 
-#: inc/template-tags.php:206
+#: inc/template-tags.php:155
 msgid "Previous post:"
 msgstr ""
 
-#: inc/template-tags.php:225 inc/template-tags.php:264
+#: inc/template-tags.php:174 inc/template-tags.php:213
 msgid "Posts by %s"
 msgstr ""
 
-#: inc/template-tags.php:230
+#: inc/template-tags.php:179
 msgid "All posts by %s"
 msgstr ""
 
-#: inc/template-tags.php:232
+#: inc/template-tags.php:181
 msgid "Posted by %s"
 msgstr ""
 
-#: inc/template-tags.php:241
+#: inc/template-tags.php:190
 msgid "All Posts"
 msgstr ""
 
-#: inc/template-tags.php:272
+#: inc/template-tags.php:221
 msgid "on"
 msgstr ""
 
@@ -461,18 +846,26 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:37 template-parts/content.php:42
+#: template-parts/content-page.php:37 template-parts/content.php:45
 msgid "Pages:"
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://atomicblocks.com/"
+#. Theme Name of the plugin/theme
+msgid "Atomic Blocks for Gutenberg"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://arraythemes.com/themes/atomic-blocks-wordpress-theme/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"A beautifully simple yet powerful WordPress theme that integreates "
+"A beautifully-simple yet powerful WordPress theme that integreates "
 "perfectly with Gutenberg and the Atomic Blocks plugin."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://arraythemes.com/"
 msgstr ""
 
 #. Template Name of the plugin/theme
@@ -501,7 +894,7 @@ msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions.php:290
+#: functions.php:293
 #. Translators: If there are characters in your language that are not supported
 #. by these fonts, translate this to 'off'. Do not translate into your own
 #. language.
@@ -509,12 +902,12 @@ msgctxt "Frank Ruhl Libre font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:304
+#: functions.php:302
 msgctxt "Muli font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:305
+#: functions.php:303
 msgctxt "Nunito Sans font: on or off"
 msgid "on"
 msgstr ""

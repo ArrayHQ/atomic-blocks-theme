@@ -65,7 +65,7 @@ add_action( 'admin_menu', 'atomic_blocks_theme_getting_started_menu' );
  *
  * since 1.0.6
  */
-function atomic_blocks_author_admin_notice() {
+function atomic_blocks_admin_help_file_notice() {
     
     if( ! isset( $_GET['activated'] ) ) {
         return;
@@ -80,7 +80,39 @@ function atomic_blocks_author_admin_notice() {
 
     echo '<div class="notice notice-info is-dismissible">' . $atomic_blocks_message . '</div>';
 }
-add_action( 'load-themes.php', 'atomic_blocks_author_admin_notice' );
+add_action( 'load-themes.php', 'atomic_blocks_admin_help_file_notice' );
+
+
+/**
+ * Add a notice for Gutenberg
+ *
+ * since 1.0.6
+ */
+function atomic_blocks_admin_gutenberg_notice() {
+	
+	if ( is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) {
+		if( ! array_key_exists( 'gutenberg/gutenberg.php', get_plugins() ) ) { ?>
+			<a class="button-primary club-button" href="<?php echo esc_url( $gberg_install_url ); ?>"><?php esc_html_e( 'Install Gutenberg now', 'atomic-blocks' ); ?> &rarr;</a>
+		<?php } else if ( array_key_exists( 'gutenberg/gutenberg.php', get_plugins() ) && ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) { ?>
+			<a class="button-primary" href="<?php echo esc_url( admin_url( "plugins.php" ) ); ?>"><?php _e( 'Activate Gutenberg', 'atomic-blocks' ); ?></a>
+		<?php }
+	}
+
+
+    if( ! isset( $_GET['activated'] ) ) {
+        return;
+    }
+
+    $atomic_blocks_message = sprintf(
+        '<p>%2$s <strong><a href="%1$s">%3$s</a></strong></p>',
+        esc_url( admin_url( "themes.php?page=atomic-blocks" ) ),
+        esc_html__( 'Atomic Blocks Activated! Get started by visiting the help file.', 'atomic-blocks' ),
+        esc_html__( 'View Help File &rarr;', 'atomic-blocks' )
+    );
+
+    echo '<div class="notice notice-info is-dismissible">' . $atomic_blocks_message . '</div>';
+}
+add_action( 'load-themes.php', 'atomic_blocks_admin_gutenberg_notice' );
 
 
 /**
@@ -356,7 +388,7 @@ function atomic_blocks_theme_getting_started_page() {
 						<div class="ab-block-split-left">
 							<div class="ab-titles">
 								<h2><?php _e( 'We also create pixel-perfect WordPress themes for creative professionals.', 'atomic-blocks' ); ?></h2>
-								<p><?php _e( 'Launch your website in minutes with one of our pixel-perfect themes. No bloat, no headaches, just really good websites and speedy support when you need it.', 'atomic-blocks' ); ?></p>
+								<p><?php _e( 'Launch your website in minutes with one of our beautiful, responsive themes. No bloat, no headaches, just really good websites and speedy support when you need it.', 'atomic-blocks' ); ?></p>
 								<a class="button-primary" href="https://arraythemes.com/wordpress-themes"><?php _e( 'View Theme Collection &rarr;', 'atomic-blocks' ); ?></a>
 							</div>
 						</div>
@@ -626,7 +658,7 @@ function atomic_blocks_theme_getting_started_page() {
 									<?php if( ! array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) ) { ?>
 										<a class="button-primary club-button" href="<?php echo esc_url( $ab_install_url ); ?>"><?php esc_html_e( 'Install Atomic Blocks now', 'atomic-blocks' ); ?> &rarr;</a>
 									<?php } else if ( array_key_exists( 'atomic-blocks/atomicblocks.php', get_plugins() ) && ! is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) { ?>
-										<a class="button-primary" href="<?php echo esc_url( admin_url( "plugins.php" ) ); ?>"><?php _e( 'Activate Atomic Blocks', 'atomic-blocks' ); ?></a>
+										<a class="button-primary club-button" href="<?php echo esc_url( admin_url( "plugins.php" ) ); ?>"><?php _e( 'Activate Atomic Blocks', 'atomic-blocks' ); ?></a>
 									<?php } else { ?>
 										<strong><i class="fa fa-check"></i> <?php esc_html_e( 'Plugin activated!', 'atomic-blocks' ); ?></strong>
 									<?php } ?>

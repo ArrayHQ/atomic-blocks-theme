@@ -23,6 +23,10 @@
 	margin: 0;
 }
 
+.update-nag + .ab-getting-started {
+	margin-top: 25px;
+}
+
 .ab-getting-started .panel-right .theme-image {
 	background: #64717E;
 	padding: 2% 2% 0 2%;
@@ -932,7 +936,7 @@
 }
 
 .ab-block-footer-column {
-	width: 33%;
+	width: 32.8%;
     display: inline-block;
     text-align: center;
 	border-right: solid 3px #eceaee;
