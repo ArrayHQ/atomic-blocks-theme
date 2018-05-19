@@ -98,7 +98,6 @@ function atomic_blocks_admin_gutenberg_notice() {
 		<?php }
 	}
 
-
     if( ! isset( $_GET['activated'] ) ) {
         return;
     }
@@ -152,7 +151,7 @@ function atomic_blocks_theme_getting_started_page() {
 	<div class="wrap ab-getting-started">
 		<div class="intro-wrap">
 			<div class="intro">
-				<a href="https://atomicblocks.com/?utm_source=AB%20Theme%20Logo%20Link&utm_campaign=ab_theme_logo_link"><img class="atomic-logo" src="<?php echo get_template_directory_uri(); ?>/inc/admin/getting-started/logo.png" alt="<?php esc_html_e( 'Visit Atomic Blocks', 'atomic-blocks' ); ?>" /></a>	
+				<a href="https://atomicblocks.com/?utm_source=AB%20Theme%20Logo%20Link&utm_campaign=ab_theme_logo_link"><img class="atomic-logo" src="<?php echo get_template_directory_uri(); ?>/inc/admin/getting-started/images/logo.png" alt="<?php esc_html_e( 'Visit Atomic Blocks', 'atomic-blocks' ); ?>" /></a>	
 				<h3><?php printf( esc_html__( 'Getting started with', 'atomic-blocks' ) ); ?> <strong><?php printf( esc_html__( 'Atomic Blocks', 'atomic-blocks' ) ); ?></strong></h3>
 			</div>
 		</div>
@@ -389,12 +388,12 @@ function atomic_blocks_theme_getting_started_page() {
 							<div class="ab-titles">
 								<h2><?php _e( 'We also create pixel-perfect WordPress themes for creative professionals.', 'atomic-blocks' ); ?></h2>
 								<p><?php _e( 'Launch your website in minutes with one of our beautiful, responsive themes. No bloat, no headaches, just really good websites and speedy support when you need it.', 'atomic-blocks' ); ?></p>
-								<a class="button-primary" href="https://arraythemes.com/wordpress-themes"><?php _e( 'View Theme Collection &rarr;', 'atomic-blocks' ); ?></a>
+								<a class="button-primary" href="https://arraythemes.com/wordpress-themes?utm_source=AB%20Theme%20GS%20View%20Theme%20Collection"><?php _e( 'View Theme Collection &rarr;', 'atomic-blocks' ); ?></a>
 							</div>
 						</div>
 						<div class="ab-block-split-right">
 							<div class="ab-block-theme">
-								<a href="https://arraythemes.com/wordpress-themes"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/latest-featured-image.jpg' ) ?>" alt="<?php _e( 'Array Themes', 'atomic-blocks' ); ?>" /></a>	
+								<a href="https://arraythemes.com/wordpress-themes?utm_source=AB%20Theme%20GS%20Theme%20Image%20Link"><img src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/latest-featured-image.jpg' ) ?>" alt="<?php _e( 'Array Themes', 'atomic-blocks' ); ?>" /></a>	
 							</div>
 						</div>
 					</div>
