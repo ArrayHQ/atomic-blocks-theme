@@ -271,7 +271,7 @@ function atomic_blocks_theme_getting_started_page() {
 
 				<!-- Theme help file panel -->
 				<div id="theme-help" class="panel-left">
-					<p>The Atomic Blocks theme and plugin is developed and maintained by <a href="https://arraythemes.com/">Array Themes</a>, creators of finely-crafted WordPress themes. We built Atomic Blocks to learn the new block editor and share what we’ve learned along the way. This help file will help you become acquainted with the new editor and our new plugin, Atomic Blocks.</p>
+					<p>The Atomic Blocks theme and plugin is developed and maintained by <a href="https://arraythemes.com/">Array Themes</a>, creators of finely-crafted WordPress themes. We built Atomic Blocks to learn the new block editor and share what we've learned along the way. This help file will help you become acquainted with the new editor and our new plugin, Atomic Blocks.</p>
 					<ul id="top" class="toc">
 						<li><a href="#gutenberg">What is Gutenberg?</a></li>
 						<li><a href="#what-are-blocks">What are blocks?</a></li>
@@ -291,7 +291,7 @@ function atomic_blocks_theme_getting_started_page() {
 					<p>Please check out our <a href="https://atomicblocks.com/a-beginners-guide-to-gutenberg/">Beginners Guide to Gutenberg</a> article to become more familiar with the new Gutenberg block editor.</p>
 					<hr>
 					<h2 id="what-are-blocks">What are blocks?</h2>
-					<p>When we refer to “blocks” or “Gutenberg blocks” we are talking anything that can be inserted into the new editor to create content. Basically, anything you insert into the new editor will be in the form of a block. The new editor comes with a handful of default blocks such as paragraph, image, gallery, and more, to help you create standard posts and pages. Developers will also be able to provide more advanced blocks to help you create even more dynamic posts and pages.</p>
+					<p>When we refer to "blocks" or "Gutenberg blocks" we are talking anything that can be inserted into the new editor to create content. Basically, anything you insert into the new editor will be in the form of a block. The new editor comes with a handful of default blocks such as paragraph, image, gallery, and more, to help you create standard posts and pages. Developers will also be able to provide more advanced blocks to help you create even more dynamic posts and pages.</p>
 					<div id="attachment_84" style="width: 1410px" class="wp-caption alignnone"><img class="size-full wp-image-84" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-block-editor.jpg' ) ?>" alt="gutenberg block editor" width="1400" height="728"><p class="wp-caption-text">A look at the new block-based editor.</p></div>
 					<p>The Atomic Blocks plugin provides you with a bunch of awesome content blocks that you can use to start building your site. Once the plugin is activated, the blocks will be activated and ready to use on your posts and pages. Atomic Blocks currently includes the following blocks:</p>
 					<ul>
@@ -309,16 +309,16 @@ function atomic_blocks_theme_getting_started_page() {
 					<p>The Atomic Blocks WordPress theme can be used without installing Gutenberg or the Atomic Blocks plugin, but we encourage you to install both of the plugins to get the most out of the theme. The theme was built with the new editor in mind and is most powerful with both Gutenberg and Atomic Blocks installed.</p>
 					<p><strong>Install the Gutenberg plugin</strong></p>
 					<p><img class="alignnone size-full wp-image-149" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/gberg-banner-1544x500.jpg' ) ?>" alt="install gutenberg" width="1544" height="500"></p>
-					<p>Before you can use the Atomic Blocks plugin, you’ll need to install the Gutenberg plugin. The plugin is available via the WordPress.org repository, so you can install it in your WordPress admin by going to <em>Plugins → Add New</em> and searching for “Gutenberg”. You can also <a href="https://wordpress.org/plugins/gutenberg/">download it directly</a> from the repository and install it manually. Eventually, the Gutenberg plugin will not be required once the new editor is merged into WordPress core.</p>
-					<p>Once Gutenberg is installed and activated, you’ll notice that you have a new Gutenberg admin menu item, which takes you to a nice little Gutenberg demo. You’ll also notice that your edit post and edit page views have a new appearance. There are lots of articles about the new editor and how to work with it. Check out the <a href="https://atomicblocks.com/blog">Atomic Blocks blog</a> and <a href="http://gutenberg.news">Gutenberg News</a> to find the best articles about the new block editor.</p>
+					<p>Before you can use the Atomic Blocks plugin, you'll need to install the Gutenberg plugin. The plugin is available via the WordPress.org repository, so you can install it in your WordPress admin by going to <em>Plugins &rarr; Add New</em> and searching for "Gutenberg". You can also <a href="https://wordpress.org/plugins/gutenberg/">download it directly</a> from the repository and install it manually. Eventually, the Gutenberg plugin will not be required once the new editor is merged into WordPress core.</p>
+					<p>Once Gutenberg is installed and activated, you'll notice that you have a new Gutenberg admin menu item, which takes you to a nice little Gutenberg demo. You'll also notice that your edit post and edit page views have a new appearance. There are lots of articles about the new editor and how to work with it. Check out the <a href="https://atomicblocks.com/blog">Atomic Blocks blog</a> and <a href="http://gutenberg.news">Gutenberg News</a> to find the best articles about the new block editor.</p>
 					<p><strong>Install the Atomic Blocks plugin</strong></p>
 					<p><img class="alignnone size-full wp-image-150" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/banner-1544x500.jpg' ) ?>" alt="install atomic blocks" width="1544" height="500"></p>
-					<p>Once you’ve installed Gutenberg, you can install Atomic Blocks in the same way. You can either go to <em>Plugins → Add New</em> and search for “Atomic Blocks” or download it directly from our <a href="https://atomicblocks.com/">website</a> to install it manually.</p>
-					<p>Once you’ve installed and activated Atomic Blocks, you’ll be redirected to the Atomic Blocks Getting Started page which provides you with all kinds of info about the plugin, block usage, and more. You can also read the Atomic Blocks <a href="https://atomicblocks.com/plugin-help-file">help file here</a>.</p>
+					<p>Once you've installed Gutenberg, you can install Atomic Blocks in the same way. You can either go to <em>Plugins &rarr; Add New</em> and search for "Atomic Blocks" or download it directly from our <a href="https://atomicblocks.com/">website</a> to install it manually.</p>
+					<p>Once you've installed and activated Atomic Blocks, you'll be redirected to the Atomic Blocks Getting Started page which provides you with all kinds of info about the plugin, block usage, and more. You can also read the Atomic Blocks <a href="https://atomicblocks.com/plugin-help-file">help file here</a>.</p>
 					<hr>
 					<h2 id="theme-options">Theme Options</h2>
 					<p><img class="alignnone size-full wp-image-155" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-options.jpg' ) ?>" alt="atomic blocks theme options" width="1400" height="758"></p>
-					<p>The Atomic Blocks theme comes with several Customizer settings that you can use to customize your site to your style. To access the theme options, click <em>Appearance → Customize → Theme Options</em> in your WordPress admin.</p>
+					<p>The Atomic Blocks theme comes with several Customizer settings that you can use to customize your site to your style. To access the theme options, click <em>Appearance &rarr; Customize &rarr; Theme Options</em> in your WordPress admin.</p>
 					<p><strong>Theme Options</strong></p>
 					<ul>
 						<li><strong>Content Width</strong>: This setting will let you change the width of the content area in your posts and pages. Images and text will be constrained to this width unless you are using wide image styles.</li>
@@ -340,12 +340,12 @@ function atomic_blocks_theme_getting_started_page() {
 					<h2 id="menus">Menus</h2>
 					<p>This theme has two different menus that can be used throughout the theme.</p>
 					<ul>
-						<li><strong>Primary Menu</strong> – This is the main menu found in the header of your site.</li>
+						<li><strong>Primary Menu</strong> - This is the main menu found in the header of your site.</li>
 						<li><strong>Social Icon Menu</strong> This is the social media icon menu found in the footer of your site. See the instructions below to set up the Social Icon Menu.
 						<ul>
-							<li>To add a social icon menu, go to <em>Appearance → Menus</em>.</li>
+							<li>To add a social icon menu, go to <em>Appearance &rarr; Menus</em>.</li>
 							<li>On the left side of the Menu page, click the <strong>Links</strong> menu item to add to your social links.</li>
-							<li><a href="http://cl.ly/image/1m2j0c0O1S1u">Add the URL</a> for each of your social profiles and a label for the link. The theme will detect which site you are linking to and display a matching graphic. Icons are supported for the following sites: Twitter, Facebook, Google, Instagram, YouTube, Vimeo, Dribbble, Github, Flickr, Codepen, Behance, Dropbox, Pinterest, Reddit, Soundcloud, Spotify, WordPress, LinkedIn, Stack Overflow, Slideshare, Medium, Apple, 500px, RSS and Email. If there is a popular service that isn’t supported and has an icon on <a href="http://fontawesome.io/icons/#brand">FontAwesome</a>, let us know and we’ll add it to the theme!</li>
+							<li><a href="http://cl.ly/image/1m2j0c0O1S1u">Add the URL</a> for each of your social profiles and a label for the link. The theme will detect which site you are linking to and display a matching graphic. Icons are supported for the following sites: Twitter, Facebook, Google, Instagram, YouTube, Vimeo, Dribbble, Github, Flickr, Codepen, Behance, Dropbox, Pinterest, Reddit, Soundcloud, Spotify, WordPress, LinkedIn, Stack Overflow, Slideshare, Medium, Apple, 500px, RSS and Email. If there is a popular service that isn't supported and has an icon on <a href="http://fontawesome.io/icons/#brand">FontAwesome</a>, let us know and we'll add it to the theme!</li>
 							<li>Now that you have the menu created, you need to assign it to the Social Icon Menu in the <a href="http://cl.ly/fclS">Theme Locations section</a></li>
 							<li>Save the menu when finished.</li>
 						</ul>
@@ -366,7 +366,7 @@ function atomic_blocks_theme_getting_started_page() {
 					<h2 id="media-alignment">Media Alignment Options</h2>
 					<p>One of the aims of the new block editor is to let you build outside of the box, so to speak. One way to do that is by adding wide image styles to your media such as images, galleries and videos. The Atomic Blocks theme provides wide and full-width media styles for you to use. Please note that you will need to have the Gutenberg plugin installed to take advantage of these new styles.</p>
 					<div id="attachment_134" style="width: 1410px" class="wp-caption alignnone"><img class="wp-image-134 size-full" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-toolbar.jpg' ) ?>" alt="atomic blocks alignment" width="1400" height="819"><p class="wp-caption-text">Alignment settings.</p></div>
-					<p>After you’ve added a photo, gallery or video to your post in the new block editor, you’ll get a toolbar above the content, as seen in the screenshot above. The toolbar have several alignment options including left, center, right, wide, and full width. Using these, you can determine the width and alignment of your media.</p>
+					<p>After you've added a photo, gallery or video to your post in the new block editor, you'll get a toolbar above the content, as seen in the screenshot above. The toolbar have several alignment options including left, center, right, wide, and full width. Using these, you can determine the width and alignment of your media.</p>
 					<div id="attachment_136" style="width: 1410px" class="wp-caption alignnone"><img class="wp-image-136 size-full" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-wide-style.jpg' ) ?>" alt="atomic blocks wide styles" width="1400" height="728"><p class="wp-caption-text">Wide image alignment.</p></div>
 					<p>Clicking wide alignment will make the content go almost the full width of the page, but it will not hit the edge of the page. Instead, the media will have a padding on the left and right side of the page.</p>
 					<div id="attachment_137" style="width: 1410px" class="wp-caption alignnone"><img class="wp-image-137 size-full" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-full-screen.jpg' ) ?>" alt="atomic blocks full screen style" width="1400" height="728"><p class="wp-caption-text">Full width image alignment.</p></div>
@@ -374,10 +374,10 @@ function atomic_blocks_theme_getting_started_page() {
 					<p>Eventually, wide and full width alignment will be available for more than media, letting you create sections that expand to the full width of the page to accomodate more dynamic layouts.</p>
 					<hr>
 					<h2 id="more-about-gutenberg">Learn more about Gutenberg</h2>
-					<p>If you’d like to learn more about Gutenberg, please visit our <a href="https://atomicblocks.com/a-beginners-guide-to-gutenberg/">Beginner’s Guide to Gutenberg</a> and <a href="https://atomicblocks.com/blog/">visit our blog</a> which will have regular tutorials and resources. We also publish a blog called <a href="https://gutenberg.news">Gutenberg News</a>, which is a curated collection of Gutenberg tutorials &amp; resources!</p>
+					<p>If you'd like to learn more about Gutenberg, please visit our <a href="https://atomicblocks.com/a-beginners-guide-to-gutenberg/">Beginner's Guide to Gutenberg</a> and <a href="https://atomicblocks.com/blog/">visit our blog</a> which will have regular tutorials and resources. We also publish a blog called <a href="https://gutenberg.news">Gutenberg News</a>, which is a curated collection of Gutenberg tutorials &amp; resources!</p>
 					<hr>
 					<h2 id="photos">Finding good photos</h2>
-					<p>Finding good photos for your site can be tough and expensive, but we’ve got a few sites that offer really nice photography for free. Feel free to browse these sites and find some photos that highlight your content.</p>
+					<p>Finding good photos for your site can be tough and expensive, but we've got a few sites that offer really nice photography for free. Feel free to browse these sites and find some photos that highlight your content.</p>
 					<ul>
 						<li><a href="http://unsplash.com">Unsplash</a></li>
 						<li><a href="https://pixabay.com/">Pixabay</a></li>
