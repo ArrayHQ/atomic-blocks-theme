@@ -4,7 +4,7 @@ Theme URI: https://arraythemes.com/themes/atomic-blocks-wordpress-theme/
 Author: Atomic Blocks
 Author URI: https://arraythemes.com/
 Description: A beautifully-simple yet powerful WordPress theme that integreates perfectly with Gutenberg and the Atomic Blocks plugin.
-Version: 1.0.6
+Version: 1.0.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: atomic-blocks
@@ -4521,6 +4521,10 @@ body.admin-bar .is-sticky .site-header {
 	.widget_text a {
 		border-bottom: dotted 1px rgba(255, 255, 255, 0.3);
 	}
+
+	aside + aside {
+		margin-top: 40px;
+	}
 }
 
 .footer-bottom {
@@ -5183,6 +5187,15 @@ div[id^='contact-form'] {
 	background: #fff;
 	padding: 4%;
 	border-bottom: none;
+}
+
+.page-template-template-builder {
+	#page,
+	#primary {
+		padding: 0;
+		max-width: 100%;
+		width: 100%;
+	}
 }
 
 /*--------------------------------------------------------------

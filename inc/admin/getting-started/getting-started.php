@@ -352,6 +352,13 @@ function atomic_blocks_theme_getting_started_page() {
 						</li>
 					</ul>
 					<hr>
+					<h2 id="templates">Page Templates</h2>
+					<p>This theme comes with a few different page templates to help you help integrate with Gutenberg and other page builders. To apply a template to a page, use the Template drop down menu in the Page Attributes box.</p>
+					<ul>
+						<li><strong>Full Width</strong>: This template will stretch the content area to the full width of the content container. Your content will remain centered and have padding on the left and right side. You can also achieve this full width effect for all pages by going to <em>Appearance &rarr; Customize &rarr; Content Width</em>.</li>
+						<li><strong>Page Builder</strong>: This template will stretch your content from one edge of the screen to the other and remove any margins or paddings for the entire content area. Essentially it gives you a blank canvas for your page, with the header and footer still available. This will allow you to use Gutenberg blocks or other page builders to add sections with their own content or padding.</li>
+					</ul>
+					<hr />
 					<h2 id="widgets">Footer Widget Area</h2>
 					<p><img class="alignnone size-full wp-image-153" src="<?php echo esc_url( get_template_directory_uri() . '/inc/admin/getting-started/docs/images/ab-footer.jpg' ) ?>" alt="atomic blocks footer widgets" width="1400" height="466" srcset="https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer.jpg 1400w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-300x100.jpg 300w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-768x256.jpg 768w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-1024x341.jpg 1024w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-800x266.jpg 800w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-1200x399.jpg 1200w, https://atomicblocks.com/wp-content/uploads/2018/03/ab-footer-600x200.jpg 600w" sizes="(max-width: 1400px) 100vw, 1400px"></p>
 					<p>The Atomic Blocks theme comes with a footer widget area that you can use to customize your footer. There are three widget columns that you can use to add widgets. The footer widget columns have a dynamic width, meaning if you only choose to use two columns, the column width will adjust to display the columns evenly in the footer.</p>

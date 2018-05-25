@@ -49,6 +49,10 @@ Source: https://pixabay.com/en/girl-person-walking-footbridge-918706/
 
 == Change Log ==
 
+= 1.0.7 - 5/24/18 =
+* Improved Getting Started dashboard.
+* Improved styles for footer and page templates.
+
 = 1.0.6 - 5/8/18 =
 * Update FontAwesome to newest version.
 * Minor style tweaks.
