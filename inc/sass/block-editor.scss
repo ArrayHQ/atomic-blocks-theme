@@ -15,19 +15,20 @@ Styles for the block editor
 	}
 }
 
-.edit-post-visual-editor .blocks-rich-text p,
-.blocks-list {
+.edit-post-visual-editor .editor-rich-text p,
+.edit-post-visual-editor, 
+.edit-post-visual-editor p {
 	font-size: 20px;
 	line-height: 1.6;
 }
 
-.edit-post-visual-editor {
-	.editor-block-list__block,
-	.editor-post-title,
-	.editor-default-block-appender {
-		max-width: 775px
-	}
+body.gutenberg-editor-page .editor-post-title,
+body.gutenberg-editor-page .editor-default-block-appender,
+body.gutenberg-editor-page .editor-block-list__block {
+    max-width: 775px
+}
 
+.edit-post-visual-editor {
 	textarea.editor-post-title__input {
 		font-size: 50px;
 		font-weight: 700;
@@ -35,8 +36,11 @@ Styles for the block editor
 	}
 }
 
-.edit-post-visual-editor .editor-post-title {
-	max-width: 852px;  
+@media (max-width: 1230px) {
+	.edit-post-visual-editor .editor-post-title>div {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
 .edit-post-visual-editor .wp-block-quote {

@@ -97,28 +97,9 @@ function atomic_blocks_setup() {
 		'comment-form',
 		'gallery',
 	) );
-
-	/**
-	 * Enable post formats
-	 */
-	add_theme_support( 'post-formats', array( 'video', 'gallery' ) );
 }
 endif; // atomic_blocks_setup
 add_action( 'after_setup_theme', 'atomic_blocks_setup' );
-
-
-/**
- * Add Carousel image size to gallery select
- */
-function atomic_blocks_carousel_image_sizes( $sizes ) {
-	$addsizes = array(
-		"atomic-blocks-portfolio-carousel" => esc_html__( 'Carousel', 'atomic-blocks' ),
-	);
-	$newsizes = array_merge( $sizes, $addsizes );
-	return $newsizes;
-}
-add_filter( 'image_size_names_choose', 'atomic_blocks_carousel_image_sizes' );
-
 
 
 /**
@@ -132,108 +113,6 @@ function atomic_blocks_content_width() {
 	}
 }
 add_action( 'after_setup_theme', 'atomic_blocks_content_width', 0 );
-
-
-/**
- * Gets the gallery shortcode data from post content.
- */
-function atomic_blocks_gallery_data() {
-	global $post;
-	$pattern = get_shortcode_regex();
-	if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
-		&& array_key_exists( 2, $matches )
-		&& in_array( 'gallery', $matches[2] ) )
-	{
-
-		return $matches;
-	}
-}
-
-
-/**
- * Disply the featured image, gallery or video associated with the post
- *
- * @since Atomic Blocks 1.0
- */
-function atomic_blocks_post_media() {
-	global $post, $wp_embed;
-
-	// Get the post content
-	$content = apply_filters( 'the_content', $post->post_content );
-
-	// Check for video post format content
-	$media = get_media_embedded_in_content( $content );
-
-	// If it's a video format, get the first video embed from the post to replace the featured image
-	if ( has_post_format( 'video' ) && ! empty( $media ) ) {
-
-		echo '<div class="featured-video">';
-			echo $media[0];
-		echo '</div>';
-
-	}
-	
-	else if ( has_post_thumbnail() ) {
-		
-		$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
-
-		if ( $page_template == 'templates/template-wide-image.php' ) {
-			$featured_image = get_the_post_thumbnail_url( $post, 'atomic-blocks-featured-image-wide' );
-		} else {
-			$featured_image = get_the_post_thumbnail_url( $post, 'atomic-blocks-featured-image' );
-		}
-
-		// Otherwise get the featured image
-		echo '<div class="featured-image">';
-			if ( is_single() ) { ?>
-				<img src="<?php echo esc_url( $featured_image ); ?>" alt="<?php the_title_attribute(); ?>" />
-				<?php } else { ?>
-				<a href="<?php the_permalink(); ?>" rel="bookmark"><img src="<?php echo $featured_image; ?>" alt="<?php the_title_attribute(); ?>" /></a>
-			<?php }
-		echo '</div>';
-
-	} wp_reset_postdata(); ?>
-
-<?php }
-
-
-/**
- * If the post has a carousel gallery, remove the first gallery from the post
- *
- * @since Atomic Blocks 1.0
- */
-function atomic_blocks_filtered_content() {
-
-	global $post, $wp_embed;
-
-	$content = get_the_content( esc_html__( 'Read More', 'atomic-blocks' ) );
-
-	if ( has_post_format( 'gallery' ) ) {
-
-		$gallery_data = atomic_blocks_gallery_data();
-
-		// Remove the first gallery from the post since we're using it in place of the featured image
-		if ( $gallery_data && is_array( $gallery_data ) ) {
-			$content = str_replace( $gallery_data[0][0], '', $content );
-		}
-	}
-
-	if ( has_post_format( 'video' ) ) {
-
-		// Remove the first video embed from the post since we're using it in place of the featured image
-		if ( ! empty( $wp_embed->last_url ) ) {
-
-			$content = str_replace( $wp_embed->last_url, '', $content );
-
-		} else {
-
-			$video = get_media_embedded_in_content( $content );
-			$content = str_replace( $video, '', $content );
-		}
-	}
-
-	echo apply_filters( 'the_content', $content );
-}
 
 
 /**
@@ -547,3 +426,31 @@ function atomic_blocks_filter_footer_text() {
 
 }
 add_filter( 'atomic_blocks_footer_text', 'atomic_blocks_filter_footer_text' );
+
+
+/**
+ * Replaces the footer tagline text
+ */
+function atomic_blocks_add_search_icon( $items, $args ) {
+	$search_icon = get_theme_mod( 'atomic_blocks_search_icon', 'enabled' );
+
+	if ( $args->theme_location == 'primary' && $search_icon == 'enabled' ) {
+        $items .= '<li class="menu-item menu-item-search search-toggle"><i class="fa fa-search"></i><i class="fas fa-times"></i></li>';
+    }
+    return $items;
+}
+add_filter( 'wp_nav_menu_items', 'atomic_blocks_add_search_icon', 10, 2 );
+
+
+/**
+ * Add fallback menu with search icon
+ */
+function atomic_blocks_fallback_menu() {
+	$search_icon = get_theme_mod( 'atomic_blocks_search_icon', 'enabled' );
+
+	if( $search_icon == 'enabled' ) {
+		wp_page_menu( array( 'after' => '<li class="menu-item menu-item-search search-toggle"><i class="fa fa-search"></i><i class="fas fa-times"></i></li></ul>' ) );
+	} else {
+		wp_page_menu();
+	}
+}

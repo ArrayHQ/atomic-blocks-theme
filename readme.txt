@@ -1,4 +1,4 @@
-=== Atomic Blocks - Gutenberg Theme ===
+=== Atomic Blocks ===
 Contributors: arrayhq
 Donate link: https://atomicblocks.com/
 Tags: one-column, featured-images, theme-options, custom-background, custom-colors, custom-menu, editor-style, translation-ready, footer-widgets, full-width-template, blog
@@ -12,7 +12,7 @@ A beautifully-simple yet powerful WordPress theme that integreates perfectly wit
 
 == Description ==
 
-A beautifully-simple yet powerful WordPress theme that integreates perfectly with the new Gutenberg editor and the Atomic Blocks plugin. Start building amazing websites with the new WordPress editor today! Install the Atomic Blocks plugin to add even more page-building blocks such as testimonials, sharing icons, notices, call to actions, buttons and more. Hand-crafted by the folks at Array Themes (arraythemes.com), who have been creating beautiful WordPress themes for over ten years. Theme Demo: https://preview.arraythemes.com/atomicblocks
+A beautifully-simple yet powerful WordPress theme that integreates perfectly with the new Gutenberg editor and the Atomic Blocks plugin. Start building amazing websites with the new WordPress editor today! Atomic Blocks comes with theme options to customize your font style, body and title font sizes, content width and more! Install the Atomic Blocks plugin to add even more page-building blocks such as testimonials, sharing icons, notices, call to actions, buttons and more. Hand-crafted by the folks at Array Themes (arraythemes.com), who have been creating beautiful WordPress themes for over ten years. Theme Demo: https://preview.arraythemes.com/atomicblocks
 
 == Copyright ==
 

@@ -27,6 +27,7 @@ function atomic_blocks_sanitize_range( $input ) {
 	return ( $input );
 }
 
+
 /**
  * Sanitize select
  */
@@ -34,6 +35,30 @@ function atomic_blocks_sanitize_select( $input, $setting ) {
 	$input = sanitize_key( $input );
 	$choices = $setting->manager->get_control( $setting->id )->choices;
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+}
+
+
+/**
+ * Get the footer tagline text
+ */
+function atomic_blocks_footer_tagline() {
+	return wp_kses_post( get_theme_mod( 'atomic_blocks_footer_text' ) );
+}
+
+
+/**
+ * Get the blog name
+ */
+function atomic_blocks_blog_name() {
+	return get_bloginfo( 'name', 'display' );
+}
+
+
+/**
+ * Get the blog description
+ */
+function atomic_blocks_blog_description() {
+	return get_bloginfo( 'description', 'display' );
 }
 
 
@@ -94,7 +119,31 @@ function atomic_blocks_register( $wp_customize ) {
 		),
 	) );
 
+	
+	/**
+	 * Search Icon
+	 */
+	$wp_customize->add_setting( 'atomic_blocks_search_icon', array(
+		'default'           => 'enabled',
+		'capability'        => 'edit_theme_options',
+		'type'              => 'theme_mod',
+		'sanitize_callback' => 'atomic_blocks_sanitize_select',
+	));
 
+	$wp_customize->add_control( 'atomic_blocks_search_icon', array(
+		'settings'        => 'atomic_blocks_search_icon',
+		'label'           => esc_html__( 'Search Icon', 'atomic-blocks' ),
+		'description'     => esc_html__( 'Add a search icon to your header menu area.', 'atomic-blocks' ),
+		'section'         => 'atomic_blocks_theme_options',
+		'type'            => 'select',
+		'priority'        => 13,
+		'choices'         => array(
+			'enabled'  => esc_html__( 'Enabled', 'atomic-blocks' ),
+			'disabled'  => esc_html__( 'Disabled', 'atomic-blocks' ),
+		),
+	));
+
+	
 	/**
 	 * Font Style
 	 */
@@ -105,7 +154,7 @@ function atomic_blocks_register( $wp_customize ) {
 		'sanitize_callback' => 'atomic_blocks_sanitize_select',
 	));
 
-	$wp_customize->add_control( 'atomic_blocks_font_style_select', array(
+	$wp_customize->add_control( 'atomic_blocks_font_style', array(
 		'settings'        => 'atomic_blocks_font_style',
 		'label'           => esc_html__( 'Font Style', 'atomic-blocks' ),
 		'description'     => esc_html__( 'Choose the font style used across your site.', 'atomic-blocks' ),
@@ -192,9 +241,7 @@ function atomic_blocks_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial( 'atomic_blocks_footer_text', array(
         'selector'            => '.site-info',
         'container_inclusive' => false,
-        'render_callback'     => function() {
-			return wp_kses_post( get_theme_mod( 'atomic_blocks_footer_text' ) );
-        },
+        'render_callback'     => atomic_blocks_footer_tagline(),
     ) );
 }
 
@@ -238,6 +285,9 @@ function atomic_blocks_css_output() {
 
 	.entry-content p a,
 	.entry-content p a:hover,
+	.header-text a,
+	.header-text a:hover,
+	.entry-content .meta-list a,
 	.post-navigation a:hover .post-title,
 	.entry-header .entry-title a:hover,
 	#page .more-link:hover,
@@ -252,11 +302,13 @@ function atomic_blocks_css_output() {
 		box-shadow: inset 0 -4px 0 $accent_color;
 	}
 
-	.entry-content p a {
+	.entry-content p a,
+	.header-text a {
 		box-shadow: inset 0 -1px 0 $accent_color;
 	}
 
-	.entry-content p a:hover {
+	.entry-content p a:hover,
+	.header-text a:hover {
 		box-shadow: inset 0 -2px 0 $accent_color;
 	}
 
@@ -324,17 +376,13 @@ function atomic_blocks_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial( 'header_site_title', array(
         'selector' => '.site-title a',
         'settings' => array( 'blogname' ),
-        'render_callback' => function() {
-            return get_bloginfo( 'name', 'display' );
-        },
+        'render_callback' => atomic_blocks_blog_name(),
     ) );
 
 	$wp_customize->selective_refresh->add_partial( 'header_site_description', array(
         'selector' => '.site-description',
         'settings' => array( 'blogdescription' ),
-        'render_callback' => function() {
-            return get_bloginfo( 'description', 'display' );
-        },
+        'render_callback' => atomic_blocks_blog_description(),
     ) );
 }
 add_action( 'customize_register', 'atomic_blocks_customize_register' );

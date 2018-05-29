@@ -21,6 +21,16 @@
 <body <?php body_class(); ?>>
 
 <header id="masthead" class="site-header">
+	<div class="search-drawer" aria-expanded="false" role="region">
+		<div class="container">
+			<div class="drawer-search">
+				<div class="big-search">
+					<?php get_search_form(); ?>
+				</div>
+			</div>
+		</div><!-- .container -->
+	</div><!-- .drawer -->
+
 	<div class="top-navigation">
 		<?php
 			// Get the mobile menu
@@ -36,7 +46,8 @@
 					<!-- Main navigation -->
 					<nav id="site-navigation" class="main-navigation">
 						<?php wp_nav_menu( array(
-							'theme_location' => 'primary'
+							'theme_location' => 'primary',
+							'fallback_cb'    => 'atomic_blocks_fallback_menu',
 						) );?>
 					</nav><!-- .main-navigation -->
 				</div><!-- .top-navigation-right -->
@@ -53,21 +64,6 @@
 		</div><!-- .text-container -->
 	<?php } ?>
 </header><!-- .site-header -->
-
-<?php
-// Sticky bar for single pages
-if( is_single() ) { ?>
-	<nav class="home-nav single-nav">
-		<h2 class="sticky-title"><?php the_title(); ?></h2>
-
-		<?php
-			// Sharing Buttons
-			if ( function_exists( 'sharing_display' ) ) {
-				echo sharing_display();
-			}
-		?>
-	</nav>
-<?php } ?>
 
 <div id="page" class="hfeed site container">
 	<div id="content" class="site-content">

@@ -110,6 +110,48 @@
 			});
 		}
 
+
+		// Search togle
+		$('.search-toggle').click(function(e) {
+			
+			// Add a class to the header
+			$('.site-header').addClass('search-drawer-open');
+
+			// Toggle the expanded tag
+			$('.search-drawer').attr('aria-expanded', ($('.search-drawer').attr('aria-expanded')=='false') ? 'true':'false').slideToggle(200);
+
+			// Set the focus when the search is opened
+			$('.big-search .search-input').focus();
+
+			// Change the toggle icon
+			$('.search-toggle i').toggle();
+
+			return false;
+		});
+
+
+		// Close the search drawer
+		function closeDrawer() {
+			$('.search-drawer').attr('aria-expanded','false').slideUp(200);
+			$('.search-toggle span').hide();
+			$('.search-drawer-open .search-toggle i').toggle();
+        }
+
+
+		// Escape key closes drawer
+		$(document).keyup(function(e) {
+		    if (e.keyCode == 27) {
+				// Hide any drawers that are open
+				closeDrawer();
+		    }
+		});
+
+
+		// Allow clicking in the drawer when it's open
+		$('.search-drawer').click(function(event){
+		    event.stopPropagation();
+		});
+
 	});
 
 })(jQuery);

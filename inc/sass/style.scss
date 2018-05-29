@@ -1,5 +1,5 @@
 /*
-Theme Name: Atomic Blocks for Gutenberg
+Theme Name: Atomic Blocks
 Theme URI: https://arraythemes.com/themes/atomic-blocks-wordpress-theme/
 Author: Atomic Blocks
 Author URI: https://atomicblocks.com/
@@ -947,23 +947,49 @@ a:hover, a:focus, a:active {
 
 .search-drawer {
 	display: none;
-	background: #f2f2f2;
+	background: #fff;
+
+	.search-input {
+		border: none;
+		text-align: center;
+    	font-size: 30px;
+	}
+
+	.search-input:focus,
+	.search-input:active {
+		box-shadow: none;
+		background: transparent;
+	}
+
+	.searchsubmit {
+		margin-right: -15px;
+
+		&:focus,
+		&:active {
+			box-shadow: none;
+		}
+
+		i {
+			font-size: 18px;
+		}
+	}
+
+	.searchsubmit span {
+		display: none;
+	}
 }
 
 .search-toggle {
-	display: inline-block;
-	padding: 0;
-	margin-left: 10px;
-	padding-left: 10px;
-	font-size: 16px;
-	font-weight: 600;
-	line-height: 1.4;
 	text-align: center;
-	width: 95px;
-	height: 100%;
-	-webkit-user-select: none;
-	color: $black;
-	transition: .2s ease-in-out;
+	width: 20px;
+
+	@media only screen and (min-width:1000px) {
+		display: none;
+	}
+
+	.fa-times {
+		display: none;
+	}
 
 	&:hover {
 		color: $gray;
@@ -1119,6 +1145,17 @@ a:hover, a:focus, a:active {
 		@include viewport(mobile) {
 			font-size: 16px;
 			margin-top: 3%;
+		}
+	}
+
+	a {
+		color: $accent;
+		box-shadow: inset 0 -1px 0 $accent;
+		transition: .3s ease;
+
+		&:hover {
+			box-shadow: inset 0 -2px 0 $accent;
+			color: $accent;
 		}
 	}
 
@@ -1599,6 +1636,14 @@ a:hover, a:focus, a:active {
 	padding: 2% 0 0 0;
 
 	@include viewport(mobile) {
+	}
+}
+
+.drawer-wrap .searchform {
+	margin-top: 25px; 
+	
+	.search-input {
+		border: none;
 	}
 }
 
@@ -3059,6 +3104,7 @@ img + .comment-info {
 	background: #f2f2f2;
 	padding: 30px;
 	position: relative;
+	border-radius: 5px;
 
 	&:after {
 		position: absolute;
@@ -3095,9 +3141,10 @@ img + .comment-info {
 	}
 }
 
-.comment-list,
-.comment-list li {
-	margin: 0;
+.entry-content .comment-list,
+.entry-content .comment-list li {
+	margin-left: 0;
+	padding-left: 0;
 	counter-reset: li;
 }
 

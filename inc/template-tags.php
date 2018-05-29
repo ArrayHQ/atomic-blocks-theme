@@ -17,7 +17,7 @@ function the_author_archive_description( $before = '', $after = '' ) {
 		/**
 		 * Get the author bio
 		 */
-		echo $author_description;
+		echo wpautop( $author_description );
 	}
 }
 
@@ -55,11 +55,7 @@ function atomic_blocks_title_logo() { ?>
 if ( ! function_exists( 'atomic_blocks_page_titles' ) ) :
 function atomic_blocks_page_titles() { ?>
 	<div class="page-titles">
-		<h1>
-			<?php 
-				the_archive_title();
-			?>
-		</h1>
+		<h1><?php the_archive_title(); ?></h1>
 
 		<?php
 		// Get the page excerpt or archive description for a subtitle
@@ -72,10 +68,7 @@ function atomic_blocks_page_titles() { ?>
 		// Show the subtitle
 		if ( ! empty( $subtitle ) && ! is_singular( 'post' ) ) { ?>
 			<div class="entry-subtitle">
-				<?php
-					atomic_blocks_remove_sharing();
-					echo $subtitle;
-				?>
+				<?php echo $subtitle; ?>
 			</div>
 		<?php } ?>
 
@@ -103,21 +96,20 @@ add_filter( 'get_the_archive_title', 'atomic_blocks_change_archive_title' );
 /**
  * Custom comment output
  */
-function atomic_blocks_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment; ?>
-<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID() ?>">
+function atomic_blocks_comment( $comment, $args, $depth ) { ?>
+<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
 
 	<div class="comment-block" id="comment-<?php comment_ID(); ?>">
 
 		<div class="comment-wrap">
-			<?php echo get_avatar( $comment->comment_author_email, 75 ); ?>
+			<?php echo get_avatar( $comment, 75 ); ?>
 
 			<div class="comment-info">
 				<cite class="comment-cite">
 				    <?php comment_author_link() ?>
 				</cite>
 
-				<a class="comment-time" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf( esc_html__( '%1$s at %2$s', 'atomic-blocks' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( esc_html__( '(Edit)', 'atomic-blocks' ), '&nbsp;', '' ); ?>
+				<a class="comment-time" href="<?php echo esc_url( get_comment_link( comment_ID() ) ) ?>"><?php printf( esc_html__( '%1$s at %2$s', 'atomic-blocks' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( esc_html__( '(Edit)', 'atomic-blocks' ), '&nbsp;', '' ); ?>
 			</div>
 
 			<div class="comment-content">

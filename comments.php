@@ -29,7 +29,7 @@
 	}
 ?>
 
-<div id="comments" class="comments-area <?php echo $comment_class; ?>">
+<div id="comments" class="comments-area <?php echo esc_attr( $comment_class ); ?>">
 	<div class="comments-wrap">
 
 		<?php if ( have_comments() ) : ?>

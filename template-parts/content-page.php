@@ -15,22 +15,17 @@
 			</h2>
 		</header>
 
-		<?php atomic_blocks_post_media(); ?>
+		<?php if ( has_post_thumbnail() ) { ?>
+			<div class="featured-image">
+				<?php the_post_thumbnail( 'atomic-blocks-featured-image' ); ?>
+			</div>
+		<?php } ?>
 
 		<div class="entry-content">
 
 			<?php
-			// Remove Jetpack Sharing output
-			if( ! is_single() ) {
-				atomic_blocks_remove_sharing();
-			}
-
-			// If it's a video format, filter out the first embed and return the rest of the content
-			if ( has_post_format( 'video' ) || has_post_format( 'gallery' ) ) {
-				atomic_blocks_filtered_content();
-			} else {
-				the_content( esc_html__( 'Read More', 'atomic-blocks' ) );
-			}
+			// Get the content
+			the_content( esc_html__( 'Read More', 'atomic-blocks' ) );
 
 			// Post pagination links
 			wp_link_pages( array(

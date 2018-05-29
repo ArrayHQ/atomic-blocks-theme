@@ -27,5 +27,7 @@
 				'theme_location' => 'primary'
 			) );?>
 		</nav><!-- #site-navigation -->
+
+		<?php get_search_form(); ?>
 	</div><!-- .drawer -->
 </div>
