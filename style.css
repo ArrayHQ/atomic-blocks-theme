@@ -3,8 +3,8 @@ Theme Name: Atomic Blocks
 Theme URI: https://arraythemes.com/themes/atomic-blocks-wordpress-theme/
 Author: Atomic Blocks
 Author URI: https://atomicblocks.com/
-Description: A beautifully-simple yet powerful WordPress theme that integreates perfectly with Gutenberg and the Atomic Blocks plugin.
-Version: 1.0.9
+Description: A beautifully-simple yet powerful WordPress theme that integrates perfectly with Gutenberg and the Atomic Blocks plugin.
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: atomic-blocks
@@ -980,6 +980,7 @@ a:hover, a:focus, a:active {
 }
 .search-toggle:hover {
   color: #62707c;
+  cursor: pointer;
 }
 @media (max-width: 1000px) {
   .search-toggle {
