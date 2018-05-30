@@ -84,37 +84,6 @@ add_action( 'load-themes.php', 'atomic_blocks_admin_help_file_notice' );
 
 
 /**
- * Add a notice for Gutenberg
- *
- * since 1.0.6
- */
-function atomic_blocks_admin_gutenberg_notice() {
-	
-	if ( is_plugin_active( 'atomic-blocks/atomicblocks.php' ) ) {
-		if( ! array_key_exists( 'gutenberg/gutenberg.php', get_plugins() ) ) { ?>
-			<a class="button-primary club-button" href="<?php echo esc_url( $gberg_install_url ); ?>"><?php esc_html_e( 'Install Gutenberg now', 'atomic-blocks' ); ?> &rarr;</a>
-		<?php } else if ( array_key_exists( 'gutenberg/gutenberg.php', get_plugins() ) && ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) { ?>
-			<a class="button-primary" href="<?php echo esc_url( admin_url( "plugins.php" ) ); ?>"><?php esc_html_e( 'Activate Gutenberg', 'atomic-blocks' ); ?></a>
-		<?php }
-	}
-
-    if( ! isset( $_GET['activated'] ) ) {
-        return;
-    }
-
-    $atomic_blocks_message = sprintf(
-        '<p>%2$s <strong><a href="%1$s">%3$s</a></strong></p>',
-        esc_url( admin_url( "themes.php?page=atomic-blocks" ) ),
-        esc_html__( 'Atomic Blocks Activated! Get started by visiting the help file.', 'atomic-blocks' ),
-        esc_html__( 'View Help File &rarr;', 'atomic-blocks' )
-    );
-
-    echo '<div class="notice notice-info is-dismissible">' . $atomic_blocks_message . '</div>';
-}
-add_action( 'load-themes.php', 'atomic_blocks_admin_gutenberg_notice' );
-
-
-/**
  * Outputs the markup used on the theme license page.
  *
  * since 1.0.0
@@ -322,6 +291,7 @@ function atomic_blocks_theme_getting_started_page() {
 					<p><strong>Theme Options</strong></p>
 					<ul>
 						<li><strong>Content Width</strong>: This setting will let you change the width of the content area in your posts and pages. Images and text will be constrained to this width unless you are using wide image styles.</li>
+						<li><strong>Search Icon</strong>: Enable the Search Icon to add a search toggle to your menu in the header. The search toggle will drop down a search box that users can use to search your site.</li>
 						<li><strong>Font Style</strong>: Choose between a sans-serif font style (Muli and Nunito Sans) or a serif font style (Frank Ruhl Libre). This will change the font displayed on the front end as well as in your post editor.</li>
 						<li><strong>Body Font Size</strong>: Choose the font size you would like displayed in the main content area of your posts and pages.</li>
 						<li><strong>Title Font Size</strong>: Choose the font size you would like displayed in the titles of your posts and pages.</li>

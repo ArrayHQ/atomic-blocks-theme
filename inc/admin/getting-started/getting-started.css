@@ -276,7 +276,7 @@
 
 .ab-getting-started .intro-wrap {
 	padding:  4% 0 0 0;
-	background: #5a3fd6 url("images/geo.png");
+	background: #5a3fd6;
   	background-size: 1400px;
 }
 
@@ -823,7 +823,7 @@
 }
 
 .ab-block-split-right {
-	background: #188ed5 url("images/geo.png");
+	background: #188ed5;
 	background-size: 1400px;
 	padding: 5% 5% 0 5%;
 	float: right;
