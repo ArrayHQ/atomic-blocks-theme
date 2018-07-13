@@ -26,10 +26,10 @@ Styles for the block editor
   line-height: 1.6;
 }
 
-body.gutenberg-editor-page .editor-post-title,
+body.gutenberg-editor-page .edit-post-visual-editor .editor-post-title__block,
 body.gutenberg-editor-page .editor-default-block-appender,
 body.gutenberg-editor-page .editor-block-list__block {
-  max-width: 775px;
+  max-width: 830px;
 }
 
 .edit-post-visual-editor textarea.editor-post-title__input {
