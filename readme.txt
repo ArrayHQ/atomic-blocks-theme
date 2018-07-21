@@ -49,6 +49,10 @@ Source: https://pixabay.com/en/girl-person-walking-footbridge-918706/
 
 == Change Log ==
 
+= 1.1.3 - 7/20/18 =
+* Improve full width styles for Gutenberg.
+* Remove CSS that was hiding update notice on Getting Started page.
+
 = 1.1.0 - 5/30/18 =
 * Fix typo in readme.txt.
 * Add cursor style to search toggle.
