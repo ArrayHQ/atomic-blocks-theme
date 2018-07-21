@@ -59,21 +59,6 @@ p + .alignwide {
 
     .edit-post-visual-editor & {
         margin-bottom: 0;
-
-        @media only screen and (max-width: 1000px) {
-            width: 100%;
-        }
-
-        @media only screen and (min-width: 1001px) {
-            width: 66vw;
-        }
-
-        @media only screen and (min-width: 1200px) {
-            width: 72vw;
-        }
-
-        @media only screen and (min-width: 1500px) {
-            width: 78vw;
-        }
+        width: 100%;
     }
 }

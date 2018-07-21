@@ -60,26 +60,7 @@ p + .alignwide {
 }
 .edit-post-visual-editor .alignfull {
   margin-bottom: 0;
-}
-@media only screen and (max-width: 1000px) {
-  .edit-post-visual-editor .alignfull {
-    width: 100%;
-  }
-}
-@media only screen and (min-width: 1001px) {
-  .edit-post-visual-editor .alignfull {
-    width: 66vw;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .edit-post-visual-editor .alignfull {
-    width: 72vw;
-  }
-}
-@media only screen and (min-width: 1500px) {
-  .edit-post-visual-editor .alignfull {
-    width: 78vw;
-  }
+  width: 100%;
 }
 
 /*# sourceMappingURL=common.css.map */
