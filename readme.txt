@@ -4,7 +4,7 @@ Donate link: https://atomicblocks.com/
 Tags: one-column, featured-images, theme-options, custom-background, custom-colors, custom-menu, editor-style, translation-ready, footer-widgets, full-width-template, blog
 Requires at least: 4.0
 Tested up to: 4.9.4
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
