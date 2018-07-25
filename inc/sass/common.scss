@@ -62,3 +62,12 @@ p + .alignwide {
         width: 100%;
     }
 }
+
+.wp-block-columns {
+    justify-content: space-between;
+}
+
+.wp-block-column {
+	width: 48%;
+	flex: 0 1 auto;
+}

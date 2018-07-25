@@ -4,7 +4,7 @@ Theme URI: https://arraythemes.com/themes/atomic-blocks-wordpress-theme/
 Author: Atomic Blocks
 Author URI: https://atomicblocks.com/
 Description: A beautifully-simple yet powerful WordPress theme that integrates perfectly with the new Gutenberg editor and the Atomic Blocks plugin. Start building amazing websites with the new WordPress editor today! Atomic Blocks comes with theme options to customize your font style, body and title font sizes, content width and more! Install the Atomic Blocks plugin (atomicblocks.com) to add even more page-building blocks such as testimonials, sharing icons, notices, call to actions, buttons and more. Theme Demo: https://preview.arraythemes.com/atomicblocks
-Version: 1.1.3
+Version: 1.1.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: atomic-blocks
@@ -4732,8 +4732,6 @@ body.admin-bar .is-sticky .site-header {
 
 #main div.sharedaddy,
 div.jetpack-likes-widget-wrapper {
-  display: inline-block;
-  width: auto;
   vertical-align: top;
 }
 @media (max-width: 1000px) {
@@ -4771,52 +4769,6 @@ div.jetpack-likes-widget-wrapper {
   top: auto;
 }
 
-.single .related-post-wrap {
-  display: block;
-  width: 100%;
-  background: #272c30;
-  padding: 4% 0;
-}
-@media (max-width: 600px) {
-  .single .related-post-wrap {
-    padding: 8% 0;
-  }
-}
-.single .related-post-wrap .jp-relatedposts-items {
-  width: 100%;
-  height: auto;
-}
-@media (max-width: 600px) {
-  .single .related-post-wrap #jp-relatedposts .jp-relatedposts-post {
-    vertical-align: top;
-    width: 100%;
-    padding-right: 0;
-  }
-}
-.single .related-post-wrap img {
-  margin-bottom: 2%;
-}
-.single .related-post-wrap .jp-relatedposts-post-date {
-  font-size: 13px;
-  color: #ccc;
-  margin-bottom: 0;
-  display: inline-block;
-}
-.single .related-post-wrap .jp-relatedposts-post-excerpt {
-  font-size: 15px;
-  margin-top: 10px 0;
-  display: none;
-}
-.single .related-post-wrap .jp-relatedposts-post-title {
-  font-size: 18px;
-  line-height: 1.4;
-  margin-bottom: 0;
-}
-.single .related-post-wrap .jp-relatedposts-post-context {
-  display: inline-block;
-  margin-left: 5px;
-}
-
 #jp-relatedposts .jp-relatedposts-post {
   width: 30.6%;
   float: left;
@@ -4841,29 +4793,42 @@ div.jetpack-likes-widget-wrapper {
   }
 }
 
-#jp-relatedposts img {
+#jp-relatedposts {
+  margin-top: 3%;
+  padding-top: 5%;
+  border-top: solid 3px #eee;
+  display: inline-block;
   width: 100%;
 }
-#jp-relatedposts .jp-relatedposts-headline {
-  font-size: 26px;
-  color: #fff;
-}
-@media (max-width: 600px) {
-  #jp-relatedposts .jp-relatedposts-headline {
-    margin-bottom: 6%;
-    font-size: 22px;
-  }
+#jp-relatedposts img {
+  width: 100%;
 }
 #jp-relatedposts .jp-relatedposts-headline em {
   font-style: normal;
 }
+#jp-relatedposts .jp-relatedposts-post-title {
+  font-size: 18px;
+}
+#jp-relatedposts .jp-relatedposts-post-excerpt {
+  display: none;
+}
+#jp-relatedposts .jp-relatedposts-post-date,
 #jp-relatedposts .jp-relatedposts-post-context {
-  font-size: 13px;
-  color: #ccc;
+  font-size: 14px;
+  color: #62707c;
   margin-bottom: 0;
 }
 #jp-relatedposts a {
-  color: #fff;
+  color: #272c30;
+}
+#jp-relatedposts a:hover {
+  color: #62707c;
+}
+
+.jp-relatedposts + .meta-list {
+  margin-top: 30px;
+  display: inline-block;
+  width: 100%;
 }
 
 #wpstats {
