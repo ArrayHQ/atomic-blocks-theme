@@ -351,7 +351,6 @@ function atomic_blocks_theme_getting_started_page() {
 					<ul>
 						<li><a href="http://unsplash.com">Unsplash</a></li>
 						<li><a href="https://pixabay.com/">Pixabay</a></li>
-						<li><a href="http://bossfight.co/">Boss Fight</a></li>
 						<li><a href="http://jaymantri.com/">Jay Mantri</a></li>
 						<li><a href="http://startupstockphotos.com/">Startup Stock Photos</a></li>
 						<li><a href="https://github.com/neutraltone/awesome-stock-resources">Massive Github repo of free resources</a></li>
