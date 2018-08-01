@@ -1,0 +1,404 @@
+# Copyright (C) 2018 atomicblocks
+# This file is distributed under the GPL2+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Atomic Blocks 1.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/atomicblocks\n"
+"POT-Creation-Date: 2018-07-28 11:32+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-07-28 11:44+0200\n"
+"Language-Team: Cornelie Müller-Gödecke, cmg@webdeerns.de\n"
+"X-Generator: Poedit 2.0.1\n"
+"Last-Translator: Cornelie Müller-Gödecke <cmg@webdeerns.de>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE@formal\n"
+
+#: dist/custom-post-types/pricing-tables.php:55
+#: dist/custom-post-types/pricing-tables.php:57
+#: dist/custom-post-types/pricing-tables.php:67
+msgid "Pricing Tables"
+msgstr "Preistabellen"
+
+#: dist/custom-post-types/pricing-tables.php:56
+msgid "Pricing Table"
+msgstr "Preistabelle"
+
+#: dist/custom-post-types/pricing-tables.php:58
+msgid "Pricing"
+msgstr "Preise"
+
+#: dist/custom-post-types/pricing-tables.php:59
+#: dist/custom-post-types/team-members.php:59
+#: dist/custom-post-types/testimonials.php:59
+msgid "Add New"
+msgstr "Neu hinzufügen"
+
+#: dist/custom-post-types/pricing-tables.php:60
+msgid "Add New Pricing Table"
+msgstr "Neue Preistabelle hinzufügen"
+
+#: dist/custom-post-types/pricing-tables.php:61
+msgid "Edit Pricing Table"
+msgstr "Preistabelle bearbeiten"
+
+#: dist/custom-post-types/pricing-tables.php:62
+msgid "New Pricing Table"
+msgstr "Neue Preistabelle"
+
+#: dist/custom-post-types/pricing-tables.php:63
+msgid "View Pricing Table"
+msgstr "Preistabelle ansehen"
+
+#: dist/custom-post-types/pricing-tables.php:64
+msgid "Search Pricing Tables"
+msgstr "Preistabellen durchsuchen"
+
+#: dist/custom-post-types/pricing-tables.php:65
+msgid "No pricing tables found"
+msgstr "Keine Preistabellen gefunden"
+
+#: dist/custom-post-types/pricing-tables.php:66
+msgid "No pricing tables found in trash"
+msgstr "Keine Preistabelle im Papierkorb gefunden"
+
+#: dist/custom-post-types/pricing-tables.php:99
+msgid "Pricing Tables Categories"
+msgstr "Preistabellen - Kategorien"
+
+#: dist/custom-post-types/pricing-tables.php:100
+msgid "Pricing Table Category"
+msgstr "Preistabelle - Kategorie"
+
+#: dist/custom-post-types/pricing-tables.php:101
+#: dist/custom-post-types/team-members.php:101
+#: dist/custom-post-types/testimonials.php:101
+msgid "Categories"
+msgstr "Kategorien"
+
+#: dist/custom-post-types/pricing-tables.php:102
+#: dist/custom-post-types/team-members.php:102
+#: dist/custom-post-types/testimonials.php:102
+msgid "Category"
+msgstr "Kategorie"
+
+#: dist/custom-post-types/pricing-tables.php:103
+#: dist/custom-post-types/team-members.php:103
+#: dist/custom-post-types/testimonials.php:103
+msgid "Search Categories"
+msgstr "Kategorien durchsuchen"
+
+#: dist/custom-post-types/pricing-tables.php:104
+#: dist/custom-post-types/team-members.php:104
+#: dist/custom-post-types/testimonials.php:104
+msgid "Popular Categories"
+msgstr "Häufig verwendete Kategorien"
+
+#: dist/custom-post-types/pricing-tables.php:105
+#: dist/custom-post-types/team-members.php:105
+#: dist/custom-post-types/testimonials.php:105
+msgid "All Categories"
+msgstr "Alle Kategorien"
+
+#: dist/custom-post-types/pricing-tables.php:106
+#: dist/custom-post-types/team-members.php:106
+#: dist/custom-post-types/testimonials.php:106
+msgid "Edit Category"
+msgstr "Kategorie bearbeiten"
+
+#: dist/custom-post-types/pricing-tables.php:107
+#: dist/custom-post-types/team-members.php:107
+#: dist/custom-post-types/testimonials.php:107
+msgid "View Category"
+msgstr "Kategorie anzeigen"
+
+#: dist/custom-post-types/pricing-tables.php:108
+#: dist/custom-post-types/team-members.php:108
+#: dist/custom-post-types/testimonials.php:108
+msgid "Update Category"
+msgstr "Kategorie aktualisieren"
+
+#: dist/custom-post-types/pricing-tables.php:109
+#: dist/custom-post-types/team-members.php:109
+#: dist/custom-post-types/testimonials.php:109
+msgid "Add New Category"
+msgstr "Neue Kategorie hinzufügen"
+
+#: dist/custom-post-types/pricing-tables.php:110
+#: dist/custom-post-types/team-members.php:110
+#: dist/custom-post-types/testimonials.php:110
+msgid "New Category Name"
+msgstr "Name der neuen Kategorie"
+
+#: dist/custom-post-types/pricing-tables.php:111
+#: dist/custom-post-types/team-members.php:111
+#: dist/custom-post-types/testimonials.php:111
+msgid "Parent Category"
+msgstr "Übergeordnete Kategorie"
+
+#: dist/custom-post-types/pricing-tables.php:112
+#: dist/custom-post-types/team-members.php:112
+#: dist/custom-post-types/testimonials.php:112
+msgid "Parent Category:"
+msgstr "Übergeordnete Kategorie:"
+
+#: dist/custom-post-types/team-members.php:55
+#: dist/custom-post-types/team-members.php:57
+#: dist/custom-post-types/team-members.php:58
+#: dist/custom-post-types/team-members.php:67
+msgid "Team Members"
+msgstr "Teammitglieder"
+
+#: dist/custom-post-types/team-members.php:56
+msgid "Team Member"
+msgstr "Team Mitglied"
+
+#: dist/custom-post-types/team-members.php:60
+msgid "Add New Team Member"
+msgstr "Neues Teammitglied hinzufügen"
+
+#: dist/custom-post-types/team-members.php:61
+msgid "Edit Team Member"
+msgstr "Teammitglied bearbeiten"
+
+#: dist/custom-post-types/team-members.php:62
+msgid "New Team Member"
+msgstr "Neues Teammitglied"
+
+#: dist/custom-post-types/team-members.php:63
+msgid "View Team Member"
+msgstr "Teammitglied anzeigen"
+
+#: dist/custom-post-types/team-members.php:64
+msgid "Search Team Members"
+msgstr "Teammitglieder suchen"
+
+#: dist/custom-post-types/team-members.php:65
+msgid "No team members found"
+msgstr "Keine Team Mitglieder gefunden"
+
+#: dist/custom-post-types/team-members.php:66
+msgid "No team members found in trash"
+msgstr "Keine Team-Mitglieder im Papierkorb gefunden"
+
+#: dist/custom-post-types/team-members.php:99
+msgid "Team Member Categories"
+msgstr "Mitglieder -  Kategorien"
+
+#: dist/custom-post-types/team-members.php:100
+msgid "Team Member Category"
+msgstr "Mitglieder - Kategorie"
+
+#: dist/custom-post-types/testimonials.php:55
+#: dist/custom-post-types/testimonials.php:57
+#: dist/custom-post-types/testimonials.php:67
+msgid "Testimonials"
+msgstr "Erfahrungsberichte"
+
+#: dist/custom-post-types/testimonials.php:56
+#: dist/custom-post-types/testimonials.php:58
+msgid "Testimonial"
+msgstr "Erfahrungsberichte"
+
+#: dist/custom-post-types/testimonials.php:60
+msgid "Add New Testimonial"
+msgstr "Neuen Erfahrungsbericht hinzufügen"
+
+#: dist/custom-post-types/testimonials.php:61
+msgid "Edit Testimonial"
+msgstr "Erfahrungsbericht bearbeiten"
+
+#: dist/custom-post-types/testimonials.php:62
+msgid "New Testimonial"
+msgstr "Neuen Erfahrungsbericht hinzufügen"
+
+#: dist/custom-post-types/testimonials.php:63
+msgid "View Testimonial"
+msgstr "Erfahrungsbericht anzeigen"
+
+#: dist/custom-post-types/testimonials.php:64
+msgid "Search Testimonials"
+msgstr "Erfahrungsberichte durchsuchen"
+
+#: dist/custom-post-types/testimonials.php:65
+msgid "No testimonials found"
+msgstr "Keine Erfahrungsberichte gefunden"
+
+#: dist/custom-post-types/testimonials.php:66
+msgid "No testimonials found in trash"
+msgstr "Keine Erfahrungsberichte im Papierkorb gefunden"
+
+#: dist/custom-post-types/testimonials.php:99
+msgid "Testimonial Categories"
+msgstr "Kategorien für Erfahrungsberichte"
+
+#: dist/custom-post-types/testimonials.php:100
+msgid "Testimonial Category"
+msgstr "Erfahrungsbericht - Kategorie"
+
+#. Plugin Name of the plugin/theme
+msgid "Atomic Blocks"
+msgstr "Atomic Blocks"
+
+#: dist/getting-started/getting-started.php:110
+msgid "Getting started with"
+msgstr "Beginnen mit"
+
+#: dist/getting-started/getting-started.php:114
+msgid "Plugin Help File"
+msgstr "Plugin-Hilfedatei"
+
+#: dist/getting-started/getting-started.php:115
+msgid "Theme Help File"
+msgstr "Hilfedatei für das Theme"
+
+#: dist/getting-started/getting-started.php:116
+msgid "Latest Updates"
+msgstr "Neuste Updates"
+
+#: dist/getting-started/getting-started.php:117
+msgid "Get More Themes"
+msgstr "Holen Sie sich mehrere Themen"
+
+#: dist/getting-started/getting-started.php:135
+#: dist/getting-started/getting-started.php:156
+msgid ""
+"This help file feed seems to be temporarily down. You can always view the "
+"help file on the Atomic Blocks site in the meantime."
+msgstr ""
+"Diesre Hilfe-Datei-Feed scheint vorübergehend nicht verfügbar sein. Sie "
+"können jedoch die Hilfedatei auf der Atomic-Blöcke-Website aufrufen."
+
+#: dist/getting-started/getting-started.php:174
+msgid ""
+"Array Themes has over 20 WordPress themes that will integrate seamlessly "
+"with the new block editor. <strong>Use the discount code ATOMICUSER to get "
+"15% off anything in the store!</strong>"
+msgstr ""
+"Array-Themen bietet  mehr als 20 WordPress-Themes, die nahtlos mit dem neuen "
+"blockEditor zusammenspielen. <strong>Verwenden Sie den Rabatt-Code "
+"ATOMICUSER um 15 % Rabatt auf alles im Shop erwerben!</strong>"
+
+#: dist/getting-started/getting-started.php:177
+msgid "Browse the theme collection"
+msgstr "Themesammlung anzeigen →"
+
+#: dist/getting-started/getting-started.php:193
+msgid ""
+"This theme feed seems to be temporarily down. Please check back later, or "
+"visit our <a href=\"%s\">Themes page on Array</a>."
+msgstr ""
+"Dieser Theme-Feed scheint vorübergehend nicht verfügbar sein. Versuchen Sie "
+"es später noch einmal oder besuchen Sie unsere <a href=\"%s\">Seite Themen "
+"auf Array</a>."
+
+#: dist/getting-started/getting-started.php:209
+msgid "Quick Start Checklist"
+msgstr "Quick-Start-Checkliste"
+
+#: dist/getting-started/getting-started.php:214
+msgid "1. Install the Gutenberg plugin."
+msgstr "1. das Gutenberg-Plugin installieren."
+
+#: dist/getting-started/getting-started.php:215
+msgid "Gutenberg adds the new block-based editor to WordPress."
+msgstr ""
+"Gutenbeeg ist das Plugin für den neuen WordPress Editor. Sie benötigen dies "
+"für das Atomic-Blocks-Plugin."
+
+#: dist/getting-started/getting-started.php:218
+msgid "Install Gutenberg now"
+msgstr "Gutenberg jetzt installieren"
+
+#: dist/getting-started/getting-started.php:220
+#: dist/getting-started/getting-started.php:231
+msgid "Plugin already installed!"
+msgstr "Plugin ist bereits installiert."
+
+#: dist/getting-started/getting-started.php:225
+msgid "2. Install the Atomic Blocks plugin."
+msgstr "2. Installieren Sie das Atomic Blocks-Plugin."
+
+#: dist/getting-started/getting-started.php:226
+msgid "Atomic Blocks adds several handy blocks to the block editor."
+msgstr ""
+"Atomic Blocks fügt dem Gutenberg-Blockeditor mehrere nützliche Inhaltsblöcke "
+"hinzu."
+
+#: dist/getting-started/getting-started.php:229
+msgid "Install Atomic Blocks now"
+msgstr "Installieren Sie jetzt Atomic Blocks"
+
+#: dist/getting-started/getting-started.php:243
+msgid "Download the Theme"
+msgstr "Laden Sie das Theme herunter"
+
+#: dist/getting-started/getting-started.php:248
+msgid ""
+"Download our free Atomic Blocks theme to help you get started with the "
+"Atomic Blocks plugin and the new WordPress block editor."
+msgstr ""
+"Laden Sie das kostenlose Atomic-Blocks-Theme für den Einstieg in die Arbeit "
+"mit dem Atomic-Blocks-Plugin und dem neuen WordPress-Editor."
+
+#: dist/getting-started/getting-started.php:250
+msgid "Download Now"
+msgstr "Jetzt herunterladen"
+
+#: dist/getting-started/getting-started.php:260
+msgid "Stay Updated"
+msgstr "Auf dem Laufenden bleiben"
+
+#: dist/getting-started/getting-started.php:265
+msgid ""
+"The Atomic Blocks theme and plugin are both in early development. Join the "
+"newsletter and we will send you an email when we update the theme and plugin!"
+msgstr ""
+"Das Atomic Blocks Theme und das Plugin sind beide noch in einer frühen "
+"Entwicklungsphase. Melden Sie sich  für den Newsletter an und wir senden "
+"Ihnen eine E-Mail, wenn wir das Thema und das Plugin aktualisieren!"
+
+#: dist/getting-started/getting-started.php:267
+msgid "Subscribe Now"
+msgstr "Jetzt abonnieren"
+
+#: dist/getting-started/getting-started.php:276
+msgid "Free Blocks & Tutorials"
+msgstr "Freie Blöcke & Tutorials"
+
+#: dist/getting-started/getting-started.php:281
+msgid ""
+"Check out the Atomic Blocks site to find block editor tutorials, free blocks "
+"and updates about the Atomic Blocks plugin and theme!"
+msgstr ""
+"Auf der Webseite von Atomic Blocks finden Sie Tutorials, freie Blöcke und "
+"Updates für das Atomic-Blocks-Plugin und das Theme!"
+
+#: dist/getting-started/getting-started.php:282
+msgid "Visit AtomicBlocks.com"
+msgstr "https://atomicblocks.com"
+
+#: dist/init.php:122
+msgid "No posts"
+msgstr "Keine Einträge"
+
+#. Plugin URI of the plugin/theme
+msgid "https://atomicblocks.com"
+msgstr "https://atomicblocks.com"
+
+#. Description of the plugin/theme
+msgid ""
+"A beautiful collection of WordPress editor blocks to help you effortlessly "
+"build the website you've always wanted."
+msgstr ""
+"Eine schöne Sammlung von WordPress Editor Blöcken für das mühelose Arbeiten "
+"mit dem Editor auf Ihrer Webseite."
+
+#. Author of the plugin/theme
+msgid "atomicblocks"
+msgstr "atomicblocks"
+
+#. Author URI of the plugin/theme
+msgid "http://arraythemes.com"
+msgstr "http://arraythemes.com"
