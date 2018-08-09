@@ -69,7 +69,6 @@ body.gutenberg-editor-page .editor-block-list__block {
 
 #editor .editor-rich-text__tinymce a {
   text-decoration: none;
-  transition: .3s ease;
 }
 
 /*# sourceMappingURL=block-editor.css.map */
