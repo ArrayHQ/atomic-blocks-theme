@@ -4,7 +4,7 @@ Donate link: https://atomicblocks.com/
 Tags: one-column, featured-images, theme-options, custom-background, custom-colors, custom-menu, editor-style, translation-ready, footer-widgets, full-width-template, blog
 Requires at least: 4.0
 Tested up to: 4.9.4
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,9 @@ License: CC0 1.0 Universal (CC0 1.0)
 Source: https://pixabay.com/en/girl-person-walking-footbridge-918706/
 
 == Change Log ==
+
+= 1.1.7 - 8/9/18 =
+* Remove transition from links in block editor.
 
 = 1.1.6 - 8/9/18 =
 * Fix alignleft and alignright styling on mobile.
