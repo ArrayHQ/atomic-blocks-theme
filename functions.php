@@ -278,6 +278,11 @@ function atomic_blocks_shared_styles() {
 	 * Shared block styles
 	 */
 	wp_enqueue_style( 'atomic-blocks-shared-styles', get_template_directory_uri() . "/common.css", array(), '1.0', 'screen' );
+	
+	/**
+	 * Styles from the customizer
+	 */
+	wp_add_inline_style( 'atomic-blocks-shared-styles', atomic_blocks_gutenberg_styles() );
 }
 add_action( 'wp_enqueue_scripts', 'atomic_blocks_shared_styles' );
 add_action( 'enqueue_block_editor_assets', 'atomic_blocks_shared_styles' );

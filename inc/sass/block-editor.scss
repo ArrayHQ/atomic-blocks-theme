@@ -66,6 +66,7 @@ body.gutenberg-editor-page .editor-block-list__block {
 	font-weight: 700;
 }
 
-.edit-post-visual-editor .editor-block-list__block[data-align=full] { 
-	
+#editor .editor-rich-text__tinymce a {
+	text-decoration: none;
+	transition: .3s ease;
 }

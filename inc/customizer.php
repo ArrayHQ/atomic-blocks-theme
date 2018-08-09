@@ -395,3 +395,29 @@ function atomic_blocks_customize_preview_js() {
 	wp_enqueue_script( 'atomic_blocks_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20180228', true );
 }
 add_action( 'customize_preview_init', 'atomic_blocks_customize_preview_js' );
+
+
+/**
+ * Send customization styling to block editor
+ */
+function atomic_blocks_gutenberg_styles() {
+	// Theme Options
+	$accent_color    = esc_html( get_theme_mod( 'atomic_blocks_button_color', '#5a3fd6' ) );
+	$font_size       = esc_html( get_theme_mod( 'atomic_blocks_font_size', '20' ).'px' );
+	$title_font_size = esc_html( get_theme_mod( 'atomic_blocks_title_font_size', '50' ).'px' );
+
+	// CSS for block editor
+	$css  = '';
+	$css .= '#editor .edit-post-visual-editor textarea.editor-post-title__input { font-size: ' . esc_attr( $title_font_size ) . '; }';
+	$css .= '#editor .edit-post-visual-editor p { font-size: ' . esc_attr( $font_size ) . '; }';
+	$css .= '
+		#editor .editor-rich-text__tinymce a { 
+			box-shadow: inset 0 -1px 0 ' . esc_attr( $accent_color ) . '; 
+			color: ' . esc_attr( $accent_color ) . '; 
+		}
+		#editor .editor-rich-text__tinymce a:hover { 
+			box-shadow: inset 0 -2px 0 ' . esc_attr( $accent_color ) . '; 
+		}
+	';
+	return wp_strip_all_tags( $css );	
+}
