@@ -33,9 +33,7 @@ p + .alignwide {
     
     @include viewport(desktop) {
         width: 75vw;
-        margin-left: 50%;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
+        margin-left: calc( 50% - 75vw / 2 );
     }
     
     .edit-post-visual-editor & {
@@ -54,8 +52,7 @@ p + .alignwide {
 
 .alignfull {
     width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin-left: calc( 50% - 50vw );
 
     .edit-post-visual-editor & {
         margin-bottom: 0;

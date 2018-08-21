@@ -3651,9 +3651,7 @@ img.emoji {
 .has-wide-image .featured-video {
 	@include viewport(desktop) {
 		width: 90vw;
-		margin-left: 50%;
-		-webkit-transform: translateX(-50%);
-		transform: translateX(-50%);
+		margin-left: calc( 50% - 90vw / 2 );
 	}
 }
 
