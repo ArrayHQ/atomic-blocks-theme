@@ -194,6 +194,7 @@ function atomic_blocks_author_box() {
 /**
  * Post byline
  */
+if ( ! function_exists( 'atomic_blocks_post_byline' ) ) :
 function atomic_blocks_post_byline() { ?>
 	<?php
 		// Get the post author
@@ -213,12 +214,13 @@ function atomic_blocks_post_byline() { ?>
 		<span class="entry-byline-on"><?php esc_html_e( 'on', 'atomic-blocks' ); ?></span>
 		<span class="entry-byline-date"><?php echo get_the_date(); ?></span>
 	</p>
-<?php }
+<?php } endif;
 
 
 /**
  * Modify the archive title prefix
  */
+if ( ! function_exists( 'atomic_blocks_modify_archive_title' ) ) :
  function atomic_blocks_modify_archive_title( $title ) {
 	// Skip if the site isn't LTR, this is visual, not functional.
 	if ( is_rtl() || is_search() || is_404() ) {
@@ -241,5 +243,5 @@ function atomic_blocks_post_byline() { ?>
 		$title = '<span class="screen-reader-text">' . esc_html( $title_parts[0] ) . ': </span>' . $title;
 	}
 	return $title;
-}
+} endif;
 add_filter( 'get_the_archive_title', 'atomic_blocks_modify_archive_title' );

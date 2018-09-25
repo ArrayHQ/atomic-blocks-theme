@@ -44,6 +44,11 @@ function atomic_blocks_setup() {
 	 */
 	add_theme_support( 'title-tag' );
 
+	/*
+	 * Add editor styles
+	 */
+	//add_theme_support( 'editor-styles' );
+
 	/**
 	 * Custom Background support
 	 */

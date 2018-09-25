@@ -30,6 +30,7 @@ p + .alignwide {
 }
 
 .alignwide {
+    max-width: none;
     
     @include viewport(desktop) {
         width: 75vw;
@@ -56,6 +57,7 @@ p + .alignwide {
     width: 100vw;
     margin-left: 50%;
     transform: translateX(-50%);
+    max-width: none;
 
     .edit-post-visual-editor & {
         margin-bottom: 0;

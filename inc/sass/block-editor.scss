@@ -22,9 +22,9 @@ Styles for the block editor
 	line-height: 1.6;
 }
 
-body.gutenberg-editor-page .edit-post-visual-editor .editor-post-title__block,
-body.gutenberg-editor-page .editor-default-block-appender,
-body.gutenberg-editor-page .editor-block-list__block {
+body.gutenberg-editor-page #editor .edit-post-visual-editor .editor-post-title__block,
+body.gutenberg-editor-page #editor .editor-default-block-appender,
+body.gutenberg-editor-page #editor .editor-block-list__block {
     max-width: 830px
 }
 
@@ -68,4 +68,13 @@ body.gutenberg-editor-page .editor-block-list__block {
 
 #editor .editor-rich-text__tinymce a {
 	text-decoration: none;
+}
+
+.editor-block-list__block[data-align=center] {
+	text-align: initial;
+}
+
+.editor-block-list__layout .editor-block-list__block[data-align=full] {
+	margin-left: 0;
+	margin-right: 0;
 }

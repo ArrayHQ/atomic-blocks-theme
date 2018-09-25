@@ -412,11 +412,14 @@ function atomic_blocks_gutenberg_styles() {
 	$css .= '#editor .edit-post-visual-editor p { font-size: ' . esc_attr( $font_size ) . '; }';
 	$css .= '
 		#editor .editor-rich-text__tinymce a { 
-			box-shadow: inset 0 -1px 0 ' . esc_attr( $accent_color ) . '; 
-			color: ' . esc_attr( $accent_color ) . '; 
+			box-shadow: inset 0 -1px 0 ' . esc_attr( $accent_color ) . ';
+			color: ' . esc_attr( $accent_color ) . ';
 		}
-		#editor .editor-rich-text__tinymce a:hover { 
-			box-shadow: inset 0 -2px 0 ' . esc_attr( $accent_color ) . '; 
+		#editor .editor-rich-text__tinymce a:hover,
+		.ab-block-post-grid h2 a:hover,
+		.ab-block-post-grid .ab-block-post-grid-link:hover {
+			color: ' . esc_attr( $accent_color ) . ';
+			box-shadow: inset 0 -2px 0 ' . esc_attr( $accent_color ) . ';
 		}
 	';
 	return wp_strip_all_tags( $css );	
