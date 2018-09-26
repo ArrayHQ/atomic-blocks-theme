@@ -32,6 +32,10 @@ body.gutenberg-editor-page #editor .editor-block-list__block {
   max-width: 830px;
 }
 
+body.gutenberg-editor-page #editor .editor-block-list__block[data-align=full] {
+  max-width: none;
+}
+
 .edit-post-visual-editor textarea.editor-post-title__input {
   font-size: 50px;
   font-weight: 700;
@@ -73,11 +77,6 @@ body.gutenberg-editor-page #editor .editor-block-list__block {
 
 .editor-block-list__block[data-align=center] {
   text-align: initial;
-}
-
-.editor-block-list__layout .editor-block-list__block[data-align=full] {
-  margin-left: 0;
-  margin-right: 0;
 }
 
 /*# sourceMappingURL=block-editor.css.map */

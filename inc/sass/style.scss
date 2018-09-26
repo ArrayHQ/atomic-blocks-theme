@@ -3650,9 +3650,7 @@ img.emoji {
 .has-wide-image .featured-video {
 	@include viewport(desktop) {
 		width: 90vw;
-		margin-left: 50%;
-		-webkit-transform: translateX(-50%);
-		transform: translateX(-50%);
+		margin-left: calc( 50% - 90vw / 2 );
 	}
 }
 
@@ -5234,4 +5232,48 @@ div[id^='contact-form'] {
 
 .entry-content .wp-block-gallery {
 	padding-left: 0;
+}
+
+.alignfull,
+.alignwide {
+    margin-bottom: 2em;
+	width: 100%;
+
+	&.wp-block-gallery {
+		@include viewport(mobile) {
+			margin-left: -8px;
+			margin-right: -8px;
+			width: inherit;
+		}	
+	}
+	
+	img {
+		width: 100%;
+		display: block;
+	}
+}
+
+.alignwide {
+    max-width: none;
+    
+    @include viewport(desktop) {
+        width: 75vw;
+        margin-left: calc( 50% - 75vw / 2 );
+    }
+
+    
+}
+
+.alignfull {
+    width: 100vw;
+    margin-left: calc( 50% - 50vw );
+    max-width: none;
+}
+
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper:before {
+	padding-top: 0;
+}
+
+.wp-block-columns {
+	margin-bottom: 1.2em;
 }

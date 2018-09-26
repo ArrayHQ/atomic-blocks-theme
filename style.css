@@ -4,7 +4,7 @@ Theme URI: https://arraythemes.com/themes/atomic-blocks-wordpress-theme/
 Author: Atomic Blocks
 Author URI: https://atomicblocks.com/
 Description: A beautifully-simple yet powerful WordPress theme that integrates perfectly with the new Gutenberg editor and the Atomic Blocks plugin. Start building amazing websites with the new WordPress editor today! Atomic Blocks comes with theme options to customize your font style, body and title font sizes, content width and more! Install the Atomic Blocks plugin (atomicblocks.com) to add even more page-building blocks such as testimonials, sharing icons, notices, call to actions, buttons and more. Theme Demo: https://preview.arraythemes.com/atomicblocks
-Version: 1.2.1
+Version: 1.2.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: atomic-blocks
@@ -261,7 +261,7 @@ ul, ol {
 }
 
 ul {
-  list-style: round;
+  list-style: disc;
 }
 
 ol {
@@ -3481,10 +3481,7 @@ img.emoji {
   .has-wide-image .featured-image,
   .has-wide-image .featured-video {
     width: 90vw;
-    margin-left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
+    margin-left: calc( 50% - 90vw / 2 );
   }
 }
 
@@ -4997,4 +4994,47 @@ div[id^='contact-form'] h3:before {
 
 .entry-content .wp-block-gallery {
   padding-left: 0;
+}
+
+.alignfull,
+.alignwide {
+  margin-bottom: 2em;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .alignfull.wp-block-gallery,
+  .alignwide.wp-block-gallery {
+    margin-left: -8px;
+    margin-right: -8px;
+    width: inherit;
+  }
+}
+.alignfull img,
+.alignwide img {
+  width: 100%;
+  display: block;
+}
+
+.alignwide {
+  max-width: none;
+}
+@media (min-width: 1000px) {
+  .alignwide {
+    width: 75vw;
+    margin-left: calc( 50% - 75vw / 2 );
+  }
+}
+
+.alignfull {
+  width: 100vw;
+  margin-left: calc( 50% - 50vw );
+  max-width: none;
+}
+
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper:before {
+  padding-top: 0;
+}
+
+.wp-block-columns {
+  margin-bottom: 1.2em;
 }

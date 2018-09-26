@@ -8,67 +8,18 @@ Styles for the block editor and front end
 /* Color variables */
 /* Responsive media query mixins */
 /* Styles for small text with uppercase font style. Used on dates and post meta */
-.alignfull,
-.alignwide {
-  margin-bottom: 2em;
-  width: 100%;
-}
-@media (max-width: 600px) {
-  .alignfull.wp-block-gallery,
-  .alignwide.wp-block-gallery {
-    margin-left: -8px;
-    margin-right: -8px;
-    width: inherit;
-  }
-}
-.alignfull img,
-.alignwide img {
-  width: 100%;
-  display: block;
-}
-
 p + .alignfull,
 p + .alignwide {
   margin-top: 2em;
 }
 
-.alignwide {
-  max-width: none;
-}
-@media (min-width: 1000px) {
-  .alignwide {
-    width: 75vw;
-    margin-left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-  }
-}
-.edit-post-visual-editor .alignwide {
-  margin-bottom: 0;
-  width: 58vw;
-}
-@media only screen and (max-width: 1300px) {
-  .edit-post-visual-editor .alignwide {
-    width: 100%;
-  }
-}
-.alignwide.wp-block-gallery {
-  width: 91vw;
-}
-
-.alignfull {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  max-width: none;
-}
-.edit-post-visual-editor .alignfull {
-  margin-bottom: 0;
-  width: 100%;
-}
-
 .wp-block-columns {
   justify-content: space-between;
+}
+@media only screen and (max-width: 600px) {
+  .wp-block-columns {
+    display: block;
+  }
 }
 
 .wp-block-column {

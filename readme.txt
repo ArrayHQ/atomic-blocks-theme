@@ -50,7 +50,9 @@ Source: https://pixabay.com/en/girl-person-walking-footbridge-918706/
 == Change Log ==
 
 = 1.2.2 - 9/25/18 =
+* Fix wide and full width alignment styles.
 * Fix list style in Firefox.
+* Fix padding on video embeds.
 
 = 1.2.1 - 9/18/18 =
 * Fix editor width.

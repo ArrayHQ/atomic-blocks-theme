@@ -5,71 +5,20 @@ Styles for the block editor and front end
 /* Import Atomic Blocks Sass Variables (inc/sass/variables.scss) */
 @import 'variables';
 
-.alignfull,
-.alignwide {
-    margin-bottom: 2em;
-	width: 100%;
-
-	&.wp-block-gallery {
-		@include viewport(mobile) {
-			margin-left: -8px;
-			margin-right: -8px;
-			width: inherit;
-		}	
-	}
-	
-	img {
-		width: 100%;
-		display: block;
-	}
-}
-
 p + .alignfull,
 p + .alignwide {
 	margin-top: 2em;
 }
 
-.alignwide {
-    max-width: none;
-    
-    @include viewport(desktop) {
-        width: 75vw;
-        margin-left: 50%;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-    
-    .edit-post-visual-editor & {
-        margin-bottom: 0;
-        width: 58vw;
-
-        @media only screen and (max-width: 1300px) {
-            width: 100%;
-        }
-    }
-
-    &.wp-block-gallery {
-        width: 91vw;
-    }
-}
-
-.alignfull {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    max-width: none;
-
-    .edit-post-visual-editor & {
-        margin-bottom: 0;
-        width: 100%;
-    }
-}
-
 .wp-block-columns {
     justify-content: space-between;
+
+    @media only screen and (max-width: 600px) {
+        display: block;
+    }
 }
 
 .wp-block-column {
 	width: 48%;
-	flex: 0 1 auto;
+    flex: 0 1 auto;
 }
