@@ -21,4 +21,8 @@ p + .alignwide {
 .wp-block-column {
 	width: 48%;
     flex: 0 1 auto;
+
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+    }
 }
