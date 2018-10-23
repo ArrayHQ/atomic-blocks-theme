@@ -13,7 +13,7 @@
 		<input type="text" value="<?php echo get_search_query(); ?>" name="s" class="search-input" placeholder="<?php esc_attr_e( 'Search here...', 'atomic-blocks' ); ?>" />
 
 		<button class="searchsubmit" type="submit">
-			<i class="fa fa-search"></i> <span><?php echo esc_html_e( 'Search', 'atomic-blocks' ); ?></span>
+			<i class="fa fa-search"></i> <span><?php esc_html_e( 'Search', 'atomic-blocks' ); ?></span>
 		</button>
 	</div>
 </form>
