@@ -47,7 +47,12 @@ function atomic_blocks_setup() {
 	/*
 	 * Add editor styles
 	 */
-	//add_theme_support( 'editor-styles' );
+	add_theme_support( 'editor-styles' );
+
+	/*
+	 * Enqueue editor styles
+	 */
+	add_editor_style( 'style-editor.css' );
 
 	/**
 	 * Custom Background support
@@ -296,7 +301,7 @@ add_action( 'enqueue_block_editor_assets', 'atomic_blocks_shared_styles' );
  * Load block editor styles
  */
 function atomic_blocks_block_editor_styles() {
-	wp_enqueue_style( 'atomic-blocks-block-editor-styles', get_template_directory_uri() . '/block-editor.css');
+	wp_enqueue_style( 'atomic-blocks-block-editor-styles', get_template_directory_uri() . '/style-editor-extra.css');
 }
 add_action( 'enqueue_block_editor_assets', 'atomic_blocks_block_editor_styles' );
 

@@ -35,17 +35,10 @@
 		} );
 	} );
 
-	// Content width 
+	// Content width
 	wp.customize('atomic_blocks_content_width',function(value) {
 		value.bind( function( to ) {
 			$('#primary').css('width',to+'%');
-		} );
-	} );
-
-	// Font size
-	wp.customize('atomic_blocks_font_size',function(value) {
-		value.bind( function( to ) {
-			$('body').css('font-size',to+'px');
 		} );
 	} );
 

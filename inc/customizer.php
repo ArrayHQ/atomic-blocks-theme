@@ -119,7 +119,7 @@ function atomic_blocks_register( $wp_customize ) {
 		),
 	) );
 
-	
+
 	/**
 	 * Search Icon
 	 */
@@ -143,7 +143,7 @@ function atomic_blocks_register( $wp_customize ) {
 		),
 	));
 
-	
+
 	/**
 	 * Font Style
 	 */
@@ -166,32 +166,6 @@ function atomic_blocks_register( $wp_customize ) {
 			'serif'  => esc_html__( 'Serif', 'atomic-blocks' ),
 		),
 	));
-
-
-	/**
-	 * Body Font Size
-	 */
-	$wp_customize->add_setting( 'atomic_blocks_font_size', array(
-		'default'           => '20',
-		'type'              => 'theme_mod',
-		'capability'        => 'edit_theme_options',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'atomic_blocks_sanitize_range',
-	) );
-
-	$wp_customize->add_control( 'atomic_blocks_font_size', array(
-		'type'            => 'range',
-		'priority'        => 20,
-		'section'         => 'atomic_blocks_theme_options',
-		'label'           => esc_html__( 'Body Font Size', 'atomic-blocks' ),
-		'description'     => esc_html__( 'Adjust the size of the main body font.', 'atomic-blocks' ),
-		'input_attrs' => array(
-			'min'   => 16,
-			'max'   => 24,
-			'step'  => 1,
-			'style' => 'width: 100%',
-		),
-	) );
 
 
 	/**
@@ -253,14 +227,13 @@ function atomic_blocks_css_output() {
 	// Theme Options
 	$accent_color    = esc_html( get_theme_mod( 'atomic_blocks_button_color', '#5a3fd6' ) );
 	$content_width   = esc_html( get_theme_mod( 'atomic_blocks_content_width', '70' ).'%' );
-	$font_size       = esc_html( get_theme_mod( 'atomic_blocks_font_size', '20' ).'px' );
 	$title_font_size = esc_html( get_theme_mod( 'atomic_blocks_title_font_size', '50' ).'px' );
 	$font_style 	 = esc_html( get_theme_mod( 'atomic_blocks_font_style', 'sans' ) );
 
 	if( $font_style == 'serif' ) {
-		$title_font_face = "'Frank Ruhl Libre', serif";	
+		$title_font_face = "'Frank Ruhl Libre', serif";
 	} else {
-		$title_font_face = "'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;";	
+		$title_font_face = "'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;";
 	}
 
 	// Check for styles before outputting
@@ -292,8 +265,8 @@ function atomic_blocks_css_output() {
 	.entry-header .entry-title a:hover,
 	#page .more-link:hover,
 	.site-footer a,
-	.main-navigation a:hover, 
-	.main-navigation ul li.current-menu-item a, 
+	.main-navigation a:hover,
+	.main-navigation ul li.current-menu-item a,
 	.main-navigation ul li.current-page-item a {
 		color: $accent_color;
 	}
@@ -319,18 +292,12 @@ function atomic_blocks_css_output() {
 	}
 
 	@media (min-width: 1000px) {
-		body {
-			font-size: $font_size;
-		}
-	}
-
-	@media (min-width: 1000px) {
 		.entry-header .entry-title {
 			font-size: $title_font_size;
 		}
 	}
- 
-	h1, h2, h3, h4, h5, h6, body, button, 
+
+	h1, h2, h3, h4, h5, h6, body, button,
 	input[type='button'],
 	input[type='reset'],
 	input[type='submit'],
@@ -403,15 +370,13 @@ add_action( 'customize_preview_init', 'atomic_blocks_customize_preview_js' );
 function atomic_blocks_gutenberg_styles() {
 	// Theme Options
 	$accent_color    = esc_html( get_theme_mod( 'atomic_blocks_button_color', '#5a3fd6' ) );
-	$font_size       = esc_html( get_theme_mod( 'atomic_blocks_font_size', '20' ).'px' );
 	$title_font_size = esc_html( get_theme_mod( 'atomic_blocks_title_font_size', '50' ).'px' );
 
 	// CSS for block editor
 	$css  = '';
 	$css .= '#editor .edit-post-visual-editor textarea.editor-post-title__input { font-size: ' . esc_attr( $title_font_size ) . '; }';
-	$css .= '#editor .edit-post-visual-editor p { font-size: ' . esc_attr( $font_size ) . '; }';
 	$css .= '
-		#editor .editor-rich-text__tinymce a { 
+		#editor .editor-rich-text__tinymce a {
 			box-shadow: inset 0 -1px 0 ' . esc_attr( $accent_color ) . ';
 			color: ' . esc_attr( $accent_color ) . ';
 		}
@@ -422,5 +387,5 @@ function atomic_blocks_gutenberg_styles() {
 			box-shadow: inset 0 -2px 0 ' . esc_attr( $accent_color ) . ';
 		}
 	';
-	return wp_strip_all_tags( $css );	
+	return wp_strip_all_tags( $css );
 }

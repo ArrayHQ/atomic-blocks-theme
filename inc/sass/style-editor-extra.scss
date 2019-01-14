@@ -1,0 +1,20 @@
+/*
+Additional styles for the editor
+This file is required for non-prefixed editor styles
+*/
+
+body.serif-font-option .editor-styles-wrapper {
+	.editor-post-title__input,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	dl {
+		font-family: 'Frank Ruhl Libre', 'Georgia', serif;
+	}
+}
