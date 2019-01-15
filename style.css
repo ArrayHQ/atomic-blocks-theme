@@ -4395,6 +4395,7 @@ body.admin-bar .is-sticky .site-header {
 
 .footer-tagline {
   display: inline-block;
+  width: 40%;
 }
 @media (max-width: 1000px) {
   .footer-tagline {

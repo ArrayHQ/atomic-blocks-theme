@@ -15,7 +15,7 @@ Tags: one-column, featured-images, theme-options, custom-background, custom-colo
 */
 
 /* Import Atomic Blocks Sass Variables (inc/sass/variables.scss) */
-@import 'variables'; 
+@import 'variables';
 
 /* --------------------------------------------------------------
 1.0 - Reset
@@ -1641,8 +1641,8 @@ a:hover, a:focus, a:active {
 }
 
 .drawer-wrap .searchform {
-	margin-top: 25px; 
-	
+	margin-top: 25px;
+
 	.search-input {
 		border: none;
 	}
@@ -4598,6 +4598,7 @@ body.admin-bar .is-sticky .site-header {
 
 .footer-tagline {
 	display: inline-block;
+	width: 40%;
 
 	@include viewport(tablet) {
 		float: none;
@@ -5244,9 +5245,9 @@ div[id^='contact-form'] {
 			margin-left: -8px;
 			margin-right: -8px;
 			width: inherit;
-		}	
+		}
 	}
-	
+
 	img {
 		width: 100%;
 		display: block;
@@ -5255,13 +5256,13 @@ div[id^='contact-form'] {
 
 .alignwide {
     max-width: none;
-    
+
     @include viewport(desktop) {
         width: 75vw;
         margin-left: calc( 50% - 75vw / 2 );
     }
 
-    
+
 }
 
 .alignfull {
