@@ -19,7 +19,7 @@ function atomic_blocks_setup() {
 		require_once( get_template_directory() . '/inc/admin/getting-started/getting-started.php' );
 	}
 
-	/** 
+	/**
 	 * Add styles to post editor
 	 */
 	add_editor_style( array( 'editor-style.css', atomic_blocks_fonts_url() ) );
@@ -124,7 +124,7 @@ add_action( 'after_setup_theme', 'atomic_blocks_content_width', 0 );
  * Register widget area
  */
 function atomic_blocks_widgets_init() {
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - Column 1', 'atomic-blocks' ),
 		'id'            => 'footer-1',
@@ -197,12 +197,16 @@ function atomic_blocks_fonts_url() {
 		}
 	}
 
-	$query_args = array(
-		'family' => urlencode( implode( '|', $font_families ) ),
-		'subset' => urlencode( 'latin,latin-ext' ),
-	);
+	if ( !empty ( $font_families ) ) {
 
-	$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+
+	}
 
 	return $fonts_url;
 }
@@ -237,11 +241,6 @@ function atomic_blocks_scripts() {
 	wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array(), '1.1', true );
 
 	/**
-	 * Masonry
-	 */
-	wp_enqueue_script( 'masonry' );
-
-	/**
 	 * Localizes the atomic-blocks-js file
 	 */
 	wp_localize_script( 'atomic-blocks-js', 'atomic_blocks_js_vars', array(
@@ -265,12 +264,12 @@ function atomic_blocks_admin_scripts( $hook ) {
 	if ( 'post.php' != $hook ) {
         return;
 	}
-	
+
 	/**
 	* Load editor fonts from Google
 	*/
 	wp_enqueue_style( 'atomic-blocks-admin-fonts', atomic_blocks_fonts_url(), array(), null );
-	
+
 }
 add_action( 'admin_enqueue_scripts', 'atomic_blocks_admin_scripts', 5 );
 
@@ -283,7 +282,7 @@ function atomic_blocks_shared_styles() {
 	 * Shared block styles
 	 */
 	wp_enqueue_style( 'atomic-blocks-shared-styles', get_template_directory_uri() . "/common.css", array(), '1.0', 'screen' );
-	
+
 	/**
 	 * Styles from the customizer
 	 */
@@ -296,8 +295,8 @@ add_action( 'enqueue_block_editor_assets', 'atomic_blocks_shared_styles' );
 /**
  * Load block editor styles
  */
-function atomic_blocks_block_editor_styles() { 
-	wp_enqueue_style( 'atomic-blocks-block-editor-styles', get_template_directory_uri() . '/block-editor.css'); 
+function atomic_blocks_block_editor_styles() {
+	wp_enqueue_style( 'atomic-blocks-block-editor-styles', get_template_directory_uri() . '/block-editor.css');
 }
 add_action( 'enqueue_block_editor_assets', 'atomic_blocks_block_editor_styles' );
 
@@ -390,7 +389,7 @@ function atomic_blocks_search_excerpt_length() {
  */
 function atomic_blocks_excerpt_more( $more ) {
 	if( is_admin() ) return $more;
-	
+
 	return ' &hellip;';
 }
 add_filter( 'excerpt_more', 'atomic_blocks_excerpt_more' );
