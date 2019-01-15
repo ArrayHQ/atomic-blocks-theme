@@ -206,9 +206,9 @@ function atomic_blocks_fonts_url() {
 
 		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
 
-		return $fonts_url;
-
 	}
+
+	return $fonts_url;
 }
 endif;
 
