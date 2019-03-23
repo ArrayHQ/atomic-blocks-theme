@@ -135,7 +135,7 @@
 			$('.search-drawer').attr('aria-expanded','false').slideUp(200);
 			$('.search-toggle span').hide();
 			$('.search-drawer-open .search-toggle i').toggle();
-			$('.site-header').toggleClass('search-drawer-open');
+			$('.site-header').removeClass('search-drawer-open');
 		}
 
 
