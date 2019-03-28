@@ -115,7 +115,7 @@
 		$('.search-toggle').click(function(e) {
 			
 			// Add a class to the header
-			$('.site-header').addClass('search-drawer-open');
+			$('.site-header').toggleClass('search-drawer-open');
 
 			// Toggle the expanded tag
 			$('.search-drawer').attr('aria-expanded', ($('.search-drawer').attr('aria-expanded')=='false') ? 'true':'false').slideToggle(200);
@@ -135,7 +135,8 @@
 			$('.search-drawer').attr('aria-expanded','false').slideUp(200);
 			$('.search-toggle span').hide();
 			$('.search-drawer-open .search-toggle i').toggle();
-        }
+			$('.site-header').removeClass('search-drawer-open');
+		}
 
 
 		// Escape key closes drawer
