@@ -15,6 +15,7 @@
     "grunt-wp-i18n": "^1.0.3"
   },
   "dependencies": {
+    "diff": "^3.5.0",
     "js-yaml": "^3.13.1"
   }
 }
