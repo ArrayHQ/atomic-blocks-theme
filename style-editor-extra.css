@@ -3,7 +3,7 @@ Additional styles for the editor
 This file is required for non-prefixed editor styles
 */
 body.serif-font-option .editor-styles-wrapper {
-  font-family: "Frank Ruhl Libre", "Georgia", serif;
+  font-family: 'Frank Ruhl Libre', 'Georgia', serif;
 }
 body.serif-font-option .editor-styles-wrapper .editor-post-title__input,
 body.serif-font-option .editor-styles-wrapper h1,
@@ -16,7 +16,7 @@ body.serif-font-option .editor-styles-wrapper p,
 body.serif-font-option .editor-styles-wrapper ul,
 body.serif-font-option .editor-styles-wrapper ol,
 body.serif-font-option .editor-styles-wrapper dl {
-  font-family: "Frank Ruhl Libre", "Georgia", serif;
+  font-family: 'Frank Ruhl Libre', 'Georgia', serif;
 }
 
 /*# sourceMappingURL=style-editor-extra.css.map */

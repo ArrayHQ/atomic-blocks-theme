@@ -10,9 +10,11 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-csscomb": "^4.0.0",
     "grunt-cssjanus": "^0.2.4",
+    "grunt-sass": "^3.0.2",
     "grunt-shell": "^1.1.1",
     "grunt-string-replace": "^1.0.0",
-    "grunt-wp-i18n": "^1.0.3"
+    "grunt-wp-i18n": "^1.0.3",
+    "node-sass": "^4.12.0"
   },
   "dependencies": {
     "diff": "^3.5.0",
