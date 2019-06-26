@@ -3,8 +3,8 @@ Contributors: arrayhq
 Donate link: https://atomicblocks.com/
 Tags: one-column, featured-images, theme-options, custom-background, custom-colors, custom-menu, editor-style, translation-ready, footer-widgets, full-width-template, blog
 Requires at least: 4.0
-Tested up to: 4.9.4
-Stable tag: 1.2.4
+Tested up to: 5.2.2
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,9 @@ License: CC0 1.0 Universal (CC0 1.0)
 Source: https://pixabay.com/en/girl-person-walking-footbridge-918706/
 
 == Change Log ==
+
+= 1.2.5 - 6/26/19 =
+* Minor style improvements for AB plugin section and layouts.
 
 = 1.2.4 - 1/14/19 =
 * Rework editor styles to match core.
