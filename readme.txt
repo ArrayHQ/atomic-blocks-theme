@@ -1,7 +1,7 @@
 === Atomic Blocks ===
 Contributors: arrayhq
 Donate link: https://atomicblocks.com/
-Tags: one-column, featured-images, theme-options, custom-background, custom-colors, custom-menu, editor-style, translation-ready, footer-widgets, full-width-template, blog
+Tags: one-column, featured-images, theme-options, custom-background, custom-colors, custom-menu, editor-style, translation-ready, footer-widgets, full-width-template, blog, gutenberg
 Requires at least: 4.0
 Tested up to: 5.2.2
 Stable tag: 1.2.5
