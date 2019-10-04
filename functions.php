@@ -209,7 +209,7 @@ function atomic_blocks_fonts_url() {
 			'subset' => urlencode( 'latin,latin-ext' ),
 		);
 
-		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css?&display=swap" );
 
 	}
 
