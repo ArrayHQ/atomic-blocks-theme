@@ -5015,7 +5015,6 @@ div[id^='contact-form'] h3:before {
 }
 .alignfull img,
 .alignwide img {
-  width: 100%;
   display: block;
 }
 
