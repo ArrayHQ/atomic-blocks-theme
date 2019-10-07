@@ -387,7 +387,7 @@ function atomic_blocks_gutenberg_styles() {
 			color: ' . esc_attr( $accent_color ) . ';
 			box-shadow: inset 0 -2px 0 ' . esc_attr( $accent_color ) . ';
 		}
-		#editor :not(div.wp-block) .wp-block:not([data-align="full"]):not([data-align="wide"]) { max-width: ' . esc_attr( $content_width ) . '; }
+		.wp-block:not([data-align="full"]):not([data-align="wide"]) { max-width: ' . esc_attr( $content_width ) . '; }
 	';
 	return wp_strip_all_tags( $css );
 }
