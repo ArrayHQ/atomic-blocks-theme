@@ -370,7 +370,8 @@ add_action( 'customize_preview_init', 'atomic_blocks_customize_preview_js' );
 function atomic_blocks_gutenberg_styles() {
 	// Theme Options
 	$accent_color    = esc_html( get_theme_mod( 'atomic_blocks_button_color', '#5a3fd6' ) );
-	$title_font_size = esc_html( get_theme_mod( 'atomic_blocks_title_font_size', '50' ).'px' );
+	$title_font_size = esc_html( get_theme_mod( 'atomic_blocks_title_font_size', '50' ) . 'px' );
+	$content_width = esc_html( get_theme_mod( 'atomic_blocks_content_width', '70' ) . '%' );
 
 	// CSS for block editor
 	$css  = '';
@@ -386,6 +387,7 @@ function atomic_blocks_gutenberg_styles() {
 			color: ' . esc_attr( $accent_color ) . ';
 			box-shadow: inset 0 -2px 0 ' . esc_attr( $accent_color ) . ';
 		}
+		.wp-block:not([data-align="full"]):not([data-align="wide"]) { max-width: ' . esc_attr( $content_width ) . '; }
 	';
 	return wp_strip_all_tags( $css );
 }

@@ -51,6 +51,13 @@ a {
   max-width: none;
 }
 
+.wp-block[data-align="full"] .wp-block,
+.wp-block[data-align="wide"] .wp-block,
+.wp-block[data-type="atomic-blocks/ab-columns"] .wp-block,
+.ab-block-container .wp-block {
+  max-width: 100%;
+}
+
 .wp-block-quote {
   font-weight: bold;
   padding-left: 30px;
