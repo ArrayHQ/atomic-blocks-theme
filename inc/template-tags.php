@@ -109,7 +109,7 @@ function atomic_blocks_comment( $comment, $args, $depth ) { ?>
 				    <?php comment_author_link() ?>
 				</cite>
 
-				<a class="comment-time" href="<?php echo esc_url( get_comment_link( comment_ID() ) ) ?>"><?php printf( esc_html__( '%1$s at %2$s', 'atomic-blocks' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( esc_html__( '(Edit)', 'atomic-blocks' ), '&nbsp;', '' ); ?>
+				<a class="comment-time" href="<?php echo esc_url( get_comment_link( get_comment_ID() ) ) ?>"><?php printf( esc_html__( '%1$s at %2$s', 'atomic-blocks' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( esc_html__( '(Edit)', 'atomic-blocks' ), '&nbsp;', '' ); ?>
 			</div>
 
 			<div class="comment-content">
