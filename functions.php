@@ -243,7 +243,7 @@ function atomic_blocks_scripts() {
 	/**
 	 * Load fitvids javascript
 	 */
-	wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array(), '1.1', true );
+	wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), '1.1', true );
 
 	/**
 	 * Localizes the atomic-blocks-js file
