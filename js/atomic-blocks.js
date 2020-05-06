@@ -62,7 +62,9 @@
 
 		// Fitvids
 		function fitVids() {
-			$('.post,.featured-image').fitVids();
+            if ($.isFunction($.fn.fitVids)) {
+			    $('.post,.featured-image').fitVids();
+            }
 		}
 		fitVids();
 
