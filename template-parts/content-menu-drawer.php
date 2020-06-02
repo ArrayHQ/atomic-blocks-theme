@@ -8,7 +8,7 @@
 ?>
 
 <div class="mobile-navigation">
-	<button class="menu-toggle button-toggle">
+	<button class="menu-toggle button-toggle" aria-label="Menu">
 		<span>
 			<i class="fa fa-bars"></i>
 			<?php esc_html_e( 'Menu', 'atomic-blocks' ); ?>
