@@ -14,7 +14,7 @@
     "grunt-shell": "^1.1.1",
     "grunt-string-replace": "^1.0.0",
     "grunt-wp-i18n": "^1.0.3",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.13.1"
   },
   "dependencies": {
     "diff": "^3.5.0",
